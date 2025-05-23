@@ -44,7 +44,6 @@ body {
     border-radius: 10%;
     backdrop-filter: blur(5px);
     background: rgba(0, 0, 0, 0.315);
-
     border: 2px solid rgba(255, 255, 255, 0.15);
     animation: smoothBounce 2.5s infinite;
 }
@@ -997,10 +996,9 @@ main {
 
 /* فوتر */
 .glass-footer {
-    background: var(--glass-bg);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-top: var(--glass-border);
+    backdrop-filter: blur(5px);
+    background: rgba(0, 0, 0, 0.753);
+    border-top: 2px solid rgba(255, 255, 255, 0.15);
     padding: 3rem 0 1.5rem;
     margin-top: 180px;
     height: 60vh;
@@ -1053,7 +1051,7 @@ main {
     justify-content: center;
     width: 40px;
     height: 40px;
-    border-radius: 50%;
+    border-radius: 10%;
     background: rgba(108, 99, 255, 0.1);
     color: var(--primary-color);
     transition: var(--transition);
