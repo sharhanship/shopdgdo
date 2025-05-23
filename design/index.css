@@ -16,9 +16,6 @@
     --text-color: #ffffff;
     --text-light: #ffffff;
     --bg-color: #ff0000;
-    --glass-bg: rgba(0, 0, 0, 0.781);
-    --glass-border: 2px solid rgba(255, 255, 255, 0.3);
-    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.911);
     --transition: all 0.5s ease;
     --blur-intensity: 12px;
     --transition-speed: 0.3s;
@@ -83,13 +80,13 @@ body {
 
 /* استایل Glassmorphism */
 .glass-card {
-    background: var(--glass-bg);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.805);
+    background-color: #0000009f;
     backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgb(255, 255, 255);
     border-radius: 10px;
-    box-shadow: var(--glass-shadow);
-    transition: var(--transition);
     margin-top: 50px;
+    transition: 0.5s;
 }
 
 .glass-card:hover {
@@ -161,7 +158,6 @@ section#home {
     background-color: #0000005b;
     backdrop-filter: blur(10px);
     border: 2px solid rgba(255, 255, 255, 0.3);
-    box-shadow: -8px 0 32px 0 rgba(31, 38, 135, 0.2);
     z-index: 1050;
     transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     display: flex;
