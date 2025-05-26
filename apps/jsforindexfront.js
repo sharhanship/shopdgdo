@@ -133,12 +133,12 @@ document.addEventListener('DOMContentLoaded', function () {
         })
     })
 
-    
+
     // تنظیم ارتفاع هدر
     const headerHeight = document.querySelector('.header-container').offsetHeight;
     document.documentElement.style.setProperty('--header-height', `${headerHeight}px`);
     document.body.style.paddingTop = `${headerHeight}px`;
-    
+
     // تنظیم scroll-margin برای سکشن‌ها
     document.querySelectorAll('section').forEach(section => {
         section.style.scrollMarginTop = `${headerHeight}px`;
@@ -149,89 +149,89 @@ document.addEventListener('DOMContentLoaded', function () {
     const capsuleHeader = document.querySelector('.capsule-header');
     const menuItems = document.querySelectorAll('.menu-item');
     const sections = document.querySelectorAll('section');
-    
+
     // ایجاد منوی موبایل
     const mobileMenu = document.createElement('div');
     mobileMenu.className = 'mobile-menu';
-    
+
     // کپی آیتم‌های منو به منوی موبایل
     menuItems.forEach(item => {
         const clone = item.cloneNode(true);
         mobileMenu.appendChild(clone);
     });
-    
+
     document.body.appendChild(mobileMenu);
     const mobileMenuItems = mobileMenu.querySelectorAll('.menu-item');
-    
+
     // فعال کردن بخش صفحه اصلی به صورت پیش‌فرض
     document.querySelector('section#home').classList.add('active');
-    
+
     // مدیریت کلیک روی دکمه منو در موبایل
-    menuToggle.addEventListener('click', function() {
+    menuToggle.addEventListener('click', function () {
         this.classList.toggle('active');
         mobileMenu.classList.toggle('active');
-        
+
         if (mobileMenu.classList.contains('active')) {
             document.body.style.overflow = 'hidden';
         } else {
             document.body.style.overflow = '';
         }
     });
-    
+
     // تابع تغییر بخش‌ها
     function changeSection(sectionId) {
         // مخفی کردن همه بخش‌ها
         sections.forEach(section => {
             section.classList.remove('active');
         });
-        
+
         // نمایش بخش انتخاب شده
         document.getElementById(sectionId).classList.add('active');
-        
+
         // بستن منوی موبایل در حالت موبایل
         if (window.innerWidth <= 768) {
             menuToggle.classList.remove('active');
             mobileMenu.classList.remove('active');
             document.body.style.overflow = '';
         }
-        
+
         // اسکرول به بخش مورد نظر
         document.getElementById(sectionId).scrollIntoView({
             behavior: 'smooth',
             block: 'start'
         });
     }
-    
+
     // اضافه کردن رویداد کلیک برای آیتم‌های منو
     function setupMenuItems(items) {
         items.forEach(item => {
-            item.addEventListener('click', function() {
+            item.addEventListener('click', function () {
                 const section = this.getAttribute('data-section');
                 changeSection(section);
-                
+
                 // افزودن افکت فعال به آیتم انتخاب شده
                 items.forEach(i => i.classList.remove('active-item'));
                 this.classList.add('active-item');
             });
         });
     }
-    
+
     setupMenuItems(menuItems);
     setupMenuItems(mobileMenuItems);
-    
+
     // تشخیص بخش فعال بر اساس اسکرول
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', function () {
         let currentSection = '';
-        
+
         sections.forEach(section => {
             const sectionTop = section.offsetTop - headerHeight;
             const sectionHeight = section.clientHeight;
-            
+
             if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
                 currentSection = section.id;
             }
         });
-        
+
         // بروزرسانی آیتم منوی فعال
         if (currentSection) {
             menuItems.forEach(item => {
@@ -240,7 +240,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     item.classList.add('active-item');
                 }
             });
-            
+
             mobileMenuItems.forEach(item => {
                 item.classList.remove('active-item');
                 if (item.getAttribute('data-section') === currentSection) {
@@ -249,10 +249,54 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         }
     });
-    
+
+    if (window.innerWidth > 768) {
+        const cursor = document.getElementById("glass-cursor");
+
+        document.addEventListener("mousemove", (e) => {
+            cursor.style.left = e.clientX + "px";
+            cursor.style.top = e.clientY + "px";
+        });
+
+        document.addEventListener("mouseleave", () => {
+            cursor.style.opacity = "0";
+        });
+
+        document.addEventListener("mouseenter", () => {
+            cursor.style.opacity = "1";
+        });
+
+        document.querySelectorAll("a, button, div, [cursor='pointer']").forEach((el) => {
+            el.addEventListener("mouseenter", () => {
+                cursor.style.width = "30px";
+                cursor.style.height = "30px";
+            });
+
+            el.addEventListener("mouseleave", () => {
+                cursor.style.width = "50px";
+                cursor.style.height = "50px";
+            });
+        });
+    }
+    let lastScroll = 0;
+    const logo = document.querySelector(".logo");
+
+    window.addEventListener("scroll", () => {
+        const currentScroll = window.scrollY || window.pageYOffset;
+
+        if (currentScroll > lastScroll && currentScroll > 200) {
+            logo.classList.add("hidden");
+
+        } else {
+            // اسکرول به بالا
+            logo.classList.remove("hidden");
+        }
+
+        lastScroll = currentScroll <= 0 ? 0 : currentScroll;
+    });
     // فعال‌سازی اسکرول صاف برای لینک‌های داخلی
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
+        anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const targetId = this.getAttribute('href').substring(1);
             if (targetId) {
@@ -260,8 +304,4 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     });
-
-
-    
-
 });

@@ -5,29 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ali Sharhan</title>
-    <link rel="stylesheet" href="/design/index.css">        
+    <link rel="stylesheet" href="/design/index.css">
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css" rel="stylesheet"
         type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/firacode@6.2.0/distr/fira_code.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
-    <!-- هدر خلاقانه -->
-   <div class="header-container">
-          <div class="logo">
+    <div id="glass-cursor"></div>
+
+    <header class="header-container">
+        <div class="logo">
             <span class="logo-icon">{</span>
             <span class="logo-text">Ali sharhan</span>
             <span class="logo-icon">}</span>
         </div>
         <div class="mobile-menu-toggle">
-            
+
             <div class="toggle-line"></div>
             <div class="toggle-line"></div>
             <div class="toggle-line"></div>
         </div>
-        
+
         <div class="capsule-header">
-            
+
             <div class="menu-item" data-section="home">
                 <i class="fas fa-home"></i>
                 <span class="menu-text">صفحه اصلی</span>
@@ -53,7 +55,7 @@
                 <span class="menu-text">تماس با من</span>
             </div>
         </div>
-    </div>
+    </header>
 
 
 
@@ -66,39 +68,42 @@
     <main>
         <!-- بخش صفحه اصلی -->
         <section id="home" class="section active">
-            <div class="hero glass-card">
-                <div class="hero-content">
-
-                    <h1 class="hero-title">سلام، من <span>fm;sdm</span> هستم</h1>
-                    <div class="text-animate">
-                        <h1 class="text-animateorg">من یک :</h1>
-                        <h3 id="typing-text"></h3>
-                        <span class="cursor">|</span>
+            <div class="background-glass-card">
+                <div class="hero glass-card">
+                    <div class="hero-content">
+                        <h1 class="hero-title">سلام، من <span>علی شرحان</span> هستم</h1>
+                        <div class="text-animate">
+                            <h1 class="text-animateorg">من یک :</h1>
+                            <h3 id="typing-text"></h3>
+                            <span class="cursor">|</span>
+                        </div>
+                        <p class="hero-description">
+                            با بیش از ۵ سال تجربه در توسعه اپلیکیشن‌های وب مدرن و مقیاس‌پذیر. عاشق حل مسائل پیچیده و خلق
+                            تجربیات کاربری منحصر به فرد
+                            هستم.
+                        </p>
+                        <div class="hero-buttons">
+                            <a href="#portfolio" class="btn btn-primary">نمونه کارهای من</a>
+                            <a href="#contact" class="btn btn-secondary">تماس با من</a>
+                        </div>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        </div>
                     </div>
-                    <p class="hero-description">
-                        با بیش از ۵ سال تجربه در توسعه اپلیکیشن‌های وب مدرن و مقیاس‌پذیر. عاشق حل مسائل پیچیده و خلق
-                        تجربیات کاربری منحصر به فرد
-                        هستم.
-                    </p>
-                    <div class="hero-buttons">
-                        <a href="#portfolio" class="btn btn-primary">نمونه کارهای من</a>
-                        <a href="#contact" class="btn btn-secondary">تماس با من</a>
-                    </div>
-                    <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                <div class="hero-image">
-                    <div class="image-wrapper">
-                        <img src="/content/images/mypic/pro1.png" alt="عکس پروفایل" class="profile-image">
-                        <div class="image-decoration"></div>
+                    <div class="hero-image">
+                        <div class="image-wrapper">
+                            <img src="/content/images/mypic/pro1.png" alt="عکس پروفایل" class="profile-image">
+                            <div class="image-decoration"></div>
+                        </div>
                     </div>
                 </div>
 
             </div>
+
+
 
         </section>
 
@@ -175,33 +180,6 @@
                     <h3 class="category-title">فرانت‌اند</h3>
                     <div class="skill-item">
                         <div class="skill-info">
-                            <span class="skill-name"><i class="fab fa-github"></i> HTML5 / CSS3</span>
-                            <span class="skill-percent">۹۵٪</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 95%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span class="skill-name">JavaScript (ES6+)</span>
-                            <span class="skill-percent">۹۰٪</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 90%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span class="skill-name">React.js</span>
-                            <span class="skill-percent">۸۵٪</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
                             <span class="skill-name">Vue.js</span>
                             <span class="skill-percent">۷۵٪</span>
                         </div>
@@ -215,33 +193,6 @@
                     <h3 class="category-title">بک‌اند</h3>
                     <div class="skill-item">
                         <div class="skill-info">
-                            <span class="skill-name">Node.js</span>
-                            <span class="skill-percent">۸۸٪</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 88%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span class="skill-name">Express</span>
-                            <span class="skill-percent">۸۵٪</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span class="skill-name">Python (Django)</span>
-                            <span class="skill-percent">۷۰٪</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 70%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
                             <span class="skill-name">PHP (Laravel)</span>
                             <span class="skill-percent">۶۵٪</span>
                         </div>
@@ -252,34 +203,7 @@
                 </div>
 
                 <div class="skills-category glass-card">
-                    <h3 class="category-title">دیگر مهارت‌ها</h3>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span class="skill-name"><i class="fab fa-github"></i> Git</span>
-                            <span class="skill-percent">۹۰٪</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 90%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span class="skill-name">Docker</span>
-                            <span class="skill-percent">۷۵٪</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 75%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span class="skill-name">MySQL / MongoDB</span>
-                            <span class="skill-percent">۸۰٪</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 80%;"></div>
-                        </div>
-                    </div>
+                    <h3 class="category-title">مهارت های جانبی</h3>
                     <div class="skill-item">
                         <div class="skill-info">
                             <span class="skill-name">UI/UX Design</span>
@@ -333,36 +257,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="portfolio-item glass-card" data-category="fullstack">
-                    <div class="portfolio-image">
-                        <img src="" alt="پروژه ۴">
-                        <div class="portfolio-overlay">
-                            <h3 class="portfolio-title">پلتفرم آموزش آنلاین</h3>
-                            <p class="portfolio-description">سیستم آموزش با Vue.js و Laravel</p>
-                            <a href="#" class="portfolio-link"><i class="fas fa-external-link-alt"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item glass-card" data-category="frontend">
-                    <div class="portfolio-image">
-                        <img src="" alt="پروژه ۵">
-                        <div class="portfolio-overlay">
-                            <h3 class="portfolio-title">پنل مدیریت</h3>
-                            <p class="portfolio-description">داشبورد مدیریت با React و Material UI</p>
-                            <a href="#" class="portfolio-link"><i class="fas fa-external-link-alt"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item glass-card" data-category="backend">
-                    <div class="portfolio-image">
-                        <img src="" alt="پروژه ۶">
-                        <div class="portfolio-overlay">
-                            <h3 class="portfolio-title">سرویس چت آنلاین</h3>
-                            <p class="portfolio-description">چت ریل‌تایم با Socket.io و Node.js</p>
-                            <a href="#" class="portfolio-link"><i class="fas fa-external-link-alt"></i></a>
-                        </div>
-                    </div>
-                </div>
             </div>
         </section>
 
@@ -370,34 +264,6 @@
         <section id="articles" class="section">
             <h2 class="section-title">مقالات <span>من</span></h2>
             <div class="articles-grid">
-                <div class="article-card glass-card">
-                    <div class="article-image">
-                        <img src="https://via.placeholder.com/400x250" alt="مقاله ۱">
-                    </div>
-                    <div class="article-content">
-                        <span class="article-date">۱۵ فروردین ۱۴۰۲</span>
-                        <h3 class="article-title">بهینه‌سازی عملکرد در برنامه‌های React</h3>
-                        <p class="article-excerpt">
-                            در این مقاله به بررسی تکنیک‌های پیشرفته برای بهینه‌سازی عملکرد برنامه‌های React می‌پردازیم و
-                            روش‌های کاهش رندرهای غیرضروری را بررسی می‌کنیم.
-                        </p>
-                        <a href="#" class="article-link">ادامه مطلب <i class="fas fa-arrow-left"></i></a>
-                    </div>
-                </div>
-                <div class="article-card glass-card">
-                    <div class="article-image">
-                        <img src="https://via.placeholder.com/400x250" alt="مقاله ۲">
-                    </div>
-                    <div class="article-content">
-                        <span class="article-date">۲۵ اسفند ۱۴۰۱</span>
-                        <h3 class="article-title">معماری میکروسرویس‌ها با Node.js</h3>
-                        <p class="article-excerpt">
-                            بررسی چالش‌ها و راهکارهای پیاده‌سازی معماری میکروسرویس‌ها با استفاده از Node.js و Docker.
-                            مزایا و معایب این معماری در مقایسه با مونولیت.
-                        </p>
-                        <a href="#" class="article-link">ادامه مطلب <i class="fas fa-arrow-left"></i></a>
-                    </div>
-                </div>
                 <div class="article-card glass-card">
                     <div class="article-image">
                         <img src="https://via.placeholder.com/400x250" alt="مقاله ۳">
@@ -482,7 +348,7 @@
     </main>
 
     <!-- فوتر -->
-    <footer class="glass-footer">
+    <footer class="footer">
         <div class="footer-content">
             <div class="footer-logo">
                 <span>{ Ali Sharhan }</span>
@@ -505,7 +371,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; ۱۴۰۲ - تمامی حقوق محفوظ است. طراحی و توسعه توسط محمد حسینی</p>
+            <p>&copy; ۱۴۰۲ - تمامی حقوق محفوظ است. طراحی و توسعه توسط محمد سعادتی</p>
         </div>
     </footer>
 
