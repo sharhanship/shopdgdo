@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+    font-family: 'Vazirmatn', sans-serif;
+    background: linear-gradient(rgba(0, 0, 0, 0.582), rgba(0, 0, 0, 0.733)),
+        url('/content/gifs/raneperfect.gif') no-repeat center center/cover;
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+    background-attachment: fixed;
+    height: 100%;
+   direction: rtl;  
+
+}
+
+.main-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+.banner {
+  position: relative;
+  height: 280px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 40px;
+  box-shadow: 0 10px 30px rgb(0, 0, 0);
+}
+
+.banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.5);
+}
+
+.banner-overlay {
+  position: absolute;
+  bottom: 20px;
+  right: 30px;
+  padding: 20px 30px;
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+    background: rgba(0, 0, 0, 0.315);
+    border: 2px solid rgba(255, 255, 255, 0.15);
+}
+
+.banner-overlay h1 {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.banner-overlay p {
+  font-size: 0.9rem;
+  color: #d0d0d0;
+}
+
+.article-content {
+   backdrop-filter: blur(5px);
+    background: rgba(0, 0, 0, 0.315);
+    border: 1px solid rgb(255, 255, 255);
+  padding: 40px;
+  border-radius: 10px;
+}
+
+.article-content p {
+  font-size: 1.1rem;
+  line-height: 2.2;
+  margin-bottom: 30px;
+  color: white;
+}
+
+/* باکس کد */
+.code-container {
+  position: relative;
+  background: #1c1c1c;
+  border-radius: 16px;
+  padding: 20px;
+  padding-top: 50px;
+  margin-bottom: 35px;
+  overflow-x: auto;
+  box-shadow: inset 0 0 8px rgba(0,255,255,0.15);
+  direction: ltr;
+  
+}
+
+.code-container pre {
+  margin: 0;
+  font-family: 'Courier New', monospace;
+  color: #00ffff;
+  font-size: 0.95rem;
+  margin-top: 20px;
+}
+
+.copy-button {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+  
+  
+}
+
+.copy-button:hover {
+  background: rgba(255,255,255,0.2);
+  color: #00ffff;
+}
+
+/* ریسپانسیو */
+@media (max-width: 768px) {
+  .banner {
+    height: 200px;
+  }
+
+  .banner-overlay {
+    padding: 15px 20px;
+    right: 15px;
+    left: 15px;
+    bottom: 15px;
+  }
+
+  .article-content {
+    padding: 25px;
+  }
+}

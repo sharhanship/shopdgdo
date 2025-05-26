@@ -30,6 +30,7 @@ body {
     overflow-x: hidden;
     background-attachment: fixed;
     height: 100%;
+   
 
 }
 
@@ -100,7 +101,7 @@ body {
     backdrop-filter: blur(1px);
     border: 1px solid rgb(255, 255, 255);
     border-radius: 10px;
-    margin-top: 50px;
+    margin-top: 30px;
     transition: 0.5s;
 }
 
@@ -131,9 +132,9 @@ body {
 .capsule-header {
     display: flex;
     justify-content: center;
-    background: url('/content/gifs/cybercity9.gif') no-repeat center center/cover;
+ 
     backdrop-filter: blur(10px);
-    border: 2px solid rgba(0, 0, 0, 0.4);
+    border: 2px solid rgb(255, 255, 255);
     border-radius: 10px;
     padding: 10px 25px;
     box-shadow: 0 8px 32px 0 rgb(0, 0, 0);
@@ -604,8 +605,8 @@ main {
 }
 
 .btn-primary {
-    background-color: rgb(79, 0, 110);
-    color: rgb(255, 255, 255);
+    background-color: var(--primary-color);
+    color: rgb(0, 0, 0);
     border: 2px solid rgb(0, 0, 0);
 }
 
@@ -1509,8 +1510,8 @@ body {
     pointer-events: none;
     z-index: 9999;
     border-radius: 50%;
-    backdrop-filter: blur(8px);
-    background: rgba(0, 0, 0, 0.63);
+    backdrop-filter: blur(2px);
+    background: rgba(0, 0, 0, 0.397);
     border: 1px solid rgb(255, 249, 249);
     box-shadow: 0 0 10px rgb(255, 255, 255);
     transform: translate(-50%, -50%);

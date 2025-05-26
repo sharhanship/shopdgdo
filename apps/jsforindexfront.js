@@ -266,7 +266,7 @@ document.addEventListener('DOMContentLoaded', function () {
             cursor.style.opacity = "1";
         });
 
-        document.querySelectorAll("a, button, div, [cursor='pointer']").forEach((el) => {
+        document.querySelectorAll("a, button, .menu-item, [cursor='pointer']").forEach((el) => {
             el.addEventListener("mouseenter", () => {
                 cursor.style.width = "30px";
                 cursor.style.height = "30px";
