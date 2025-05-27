@@ -1,34 +1,14 @@
-document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll(".code-area").forEach((area) => {
-    const tbody = area.querySelector("tbody");
-    const code = area.dataset.code;
-    const lines = code.trim().split("\n");
-
-    lines.forEach((line, index) => {
-      const tr = document.createElement("tr");
-
-      const tdNum = document.createElement("td");
-      tdNum.className = "line-number";
-      tdNum.textContent = index + 1;
-
-      const tdCode = document.createElement("td");
-      tdCode.innerHTML = line;
-
-      tr.appendChild(tdNum);
-      tr.appendChild(tdCode);
-      tbody.appendChild(tr);
+document.addEventListener('DOMContentLoaded', function() {
+    // Copy code functionality
+    document.querySelectorAll('.copy-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            const code = this.closest('.code-block').querySelector('code').textContent;
+            navigator.clipboard.writeText(code);
+            
+            // Show notification
+            const notification = document.getElementById('notification');
+            notification.classList.add('show');
+            setTimeout(() => notification.classList.remove('show'), 2000);
+        });
     });
-  });
 });
-
-function copyCode(btn) {
-  const code = btn.nextElementSibling.dataset.code
-    .replace(/&lt;/g, "<")
-    .replace(/&gt;/g, ">")
-    .replace(/&quot;/g, '"');
-
-  navigator.clipboard.writeText(code).then(() => {
-    btn.innerText = "✅";
-    setTimeout(() => (btn.innerText = "📋"), 1500);
-  });
-}

@@ -250,11 +250,13 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
+
+
     if (window.innerWidth > 768) {
         const cursor = document.getElementById("glass-cursor");
 
         document.addEventListener("mousemove", (e) => {
-            cursor.style.left = e.clientX + "px";
+            cursor.style.left = e.clientX + "px";   
             cursor.style.top = e.clientY + "px";
         });
 
