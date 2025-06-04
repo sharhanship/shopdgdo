@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shopdgdo-explorarticles</title>
+    <link rel="stylesheet" href="/design/explore-articles.css">
+    <link rel="shortcut icon" href="/content/images/logohead/shopdgdologoheadrm.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div id="particles-js" class="particles-background"></div>
+    <div class="header">
+
+        <h1 class="hero-title">اکسپلور مقالات <span>شاپ دیجی دو</span></h1>
+        <p>مجموعه‌ای از بهترین مقالات در زمینه تکنولوژی، برنامه‌نویسی و طراحی را کشف کنید</p>
+    </div>
+    <div class="hero-buttons">
+        <a href="/index.html" class="btn btn-primary">بازگشت یه صفحه اصلی</a>
+    </div>
+    <div class="search-container">
+        <i class="fas fa-search search-icon"></i>
+        <input type="text" class="search-box" placeholder="جستجوی مقالات...">
+    </div>
+
+    <div class="filters">
+        <button class="filter-btn active" data-filter="all">همه مقالات</button>
+        <button class="filter-btn" data-filter="technology">تکنولوژی</button>
+        <button class="filter-btn" data-filter="programming">برنامه‌نویسی</button>
+        <button class="filter-btn" data-filter="design">طراحی</button>
+        <button class="filter-btn" data-filter="ai">هوش مصنوعی</button>
+    </div>
+
+    <div class="articles-container">
+        <div class="article-card glass-card" data-category="programming" data-tags="web,wasm">
+            <div class="article-image">
+                <img src="" alt="WebAssembly">
+            </div>
+            <div class="article-content">
+                <span class="article-date">۱۰ بهمن ۱۴۰۱</span>
+                <h3 class="article-title">آشنایی با WebAssembly و کاربردهای آن</h3>
+                <p class="article-excerpt">
+                    WebAssembly چگونه عملکرد برنامه‌های وب را متحول می‌کند؟ در این مقاله به بررسی این تکنولوژی و
+                    موارد استفاده عملی آن می‌پردازیم.
+                </p>
+                <a href="/pages/articles.html" class="article-link">ادامه مطلب <i class="fas fa-arrow-left"></i></a>
+            </div>
+        </div>
+
+        <div class="no-results">
+            <p>مقاله‌ای با مشخصات مورد نظر شما یافت نشد.</p>
+            <button class="filter-btn" onclick="resetFilters()">بازنشانی فیلترها</button>
+        </div>
+    </div>
+
+    <script src="/apps/jsforexplorearticlesfront.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+</body>
+
+</html>

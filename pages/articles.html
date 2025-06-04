@@ -3,85 +3,291 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مقاله برنامه‌نویسی | آموزش </title>
+    <title>shopdgdo-article</title>
+        <!-- استایل‌های اختصاصی -->
     <link rel="stylesheet" href="/design/articles.css">
+     <link rel="shortcut icon" href="/content/images/logohead/shopdgdologoheadrm.png" type="image/x-icon">
+    <!-- فونت‌ها -->
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700&display=swap" rel="stylesheet">
+
 </head>
 <body>
-    <div class="glass-background"></div>
     
-    <header class="glass-card">
-        <h1 class="article-title">آموزش هوک‌های React</h1>
-        <div class="article-meta">
-            <span class="author">نویسنده: علی محمدی</span>
-            <span class="date">تیر ۱۴۰۲</span>
+    <!-- Particle Background -->
+    <div id="particles-js" class="particles-background"></div>
+    
+    <!-- Header -->
+    <header class="main-header">
+        <div class="header-container glassmorphism-card">
+            <div class="header-content">
+                <h1 class="article-main-title">
+                    <span class="title-gradient">آموزش جامع هوک‌های React</span>
+                </h1>
+                <div class="article-meta-data">
+                    <div class="author-info">
+                        <img src="/content/images/mypic/pro1.png" alt="علی محمدی" class="author-avatar">
+                        <div>
+                            <span class="meta-label">نویسنده:</span>
+                           <h4 class="name-author">علی شرحان</h4>
+                        </div>
+                    </div>
+                    <div class="article-stats">
+                        <div class="stat-item">
+                            <i class="far fa-calendar-alt"></i>
+                            <span class="meta-label">تاریخ انتشار:</span>
+                            <time datetime="2023-06-22">۲۲ تیر ۱۴۰۲</time>
+                        </div>
+                        <div class="stat-item">
+                            <i class="far fa-clock"></i>
+                            <span class="meta-label">زمان مطالعه:</span>
+                            <span>۱۵ دقیقه</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="far fa-eye"></i>
+                            <span class="meta-label">بازدید:</span>
+                            <span>۱,۲۴۵</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
-
-    <main class="container">
-        <section class="abstract glass-card">
-            <h2>چکیده</h2>
-            <p>هوک‌ها در React 16.8 معرفی شدند و امکان استفاده از state و ویژگی‌های دیگر را در کامپوننت‌های تابعی فراهم کردند. در این مقاله به بررسی useState، useEffect و useContext می‌پردازیم.</p>
-        </section>
-
+    
+    <!-- Main Content -->
+    <main class="article-container">
+        <!-- Navigation Buttons -->
+        <nav class="article-navigation">
+            <a href="/pages/explore-articles.html" class="nav-button back-button">
+                <i class="fas fa-arrow-right"></i>
+                <span>بازگشت به اکسپلور</span>
+            </a>
+            <a href="/index.html" class="nav-button home-button">
+                <i class="fas fa-home"></i>
+                <span>صفحه اصلی</span>
+            </a>
+       
+        </nav>
+        
+ 
+        
+        <!-- Article Content -->
         <article class="article-content">
-            <section>
-                <h2>useState</h2>
-                <p>برای مدیریت state در کامپوننت‌های تابعی استفاده می‌شود.</p>
-                
-                <div class="code-block glass-card">
-                    <div class="code-header">
-                        <button class="copy-btn">
-                            <i class="far fa-copy"></i> کپی
-                        </button>
+            <!-- Introduction Section -->
+            <section id="introduction" class="article-section">
+                <h2 class="section-title">
+                    <span class="title-icon">
+                        <i class="fas fa-star"></i>
+                    </span>
+                    مقدمه‌ای بر هوک‌های React
+                </h2>
+                <div class="section-content">
+                    <p>هوک‌ها در React 16.8 معرفی شدند و انقلابی در نحوه نوشتن کامپوننت‌های تابعی ایجاد کردند. با استفاده از هوک‌ها می‌توانید state و سایر ویژگی‌های React را بدون نوشتن کلاس استفاده کنید.</p>
+                    
+                    <div class="info-box glassmorphism-card">
+                        <div class="info-box-header">
+                            <i class="fas fa-info-circle"></i>
+                            <span>نکته مهم</span>
+                        </div>
+                        <div class="info-box-content">
+                            هوک‌ها backward-compatible هستند و جایگزین دانش شما از مفاهیم React نمی‌شوند. بلکه راه‌جدیدی برای استفاده از ویژگی‌های آشنا ارائه می‌دهند.
+                        </div>
                     </div>
-                    <pre><code>import { useState } from 'react';
+                    
+                    <p>هوک‌ها مشکلات زیر را حل می‌کنند:</p>
+                    <ul class="styled-list">
+                        <li>پیچیدگی‌های ناشی از استفاده از کلاس‌ها</li>
+                        <li>مشکل wrapper hell در استفاده از HOCها</li>
+                        <li>سردرگمی در کار با this</li>
+                        <li>جداسازی منطق مرتبط در کامپوننت‌ها</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <!-- useState Section -->
+            <section id="useState-hook" class="article-section">
+                <h2 class="section-title">
+                    <span class="title-icon">
+                        <i class="fas fa-code"></i>
+                    </span>
+                    هوک useState
+                </h2>
+                <div class="section-content">
+                    <p>هوک useState به شما امکان می‌دهد state را در کامپوننت‌های تابعی اضافه کنید. این هوک یک جفت مقدار برمی‌گرداند: مقدار فعلی state و تابعی برای به‌روزرسانی آن.</p>
+                    
+                    <div class="code-block-container glassmorphism-card">
+                        <div class="code-toolbar">
+                            <span class="language-label">JavaScript</span>
+                            <button class="copy-button">
+                                <i class="far fa-copy"></i>
+                                <span>کپی</span>
+                            </button>
+                        </div>
+                        <pre class="code-block"><code class="language-javascript">import { useState } from 'react';
 
 function Counter() {
+  // مقدار اولیه 0 و تابع به‌روزرسانی
   const [count, setCount] = useState(0);
 
   return (
     &lt;div&gt;
+      &lt;p&gt;شما {count} بار کلیک کرده‌اید&lt;/p&gt;
       &lt;button onClick={() =&gt; setCount(count + 1)}&gt;
-        تعداد: {count}
+        افزایش شمارنده
       &lt;/button&gt;
     &lt;/div&gt;
   );
 }</code></pre>
-                </div>
-            </section>
-
-            <section>
-                <h2>useEffect</h2>
-                <p>برای مدیریت اثرات جانبی در کامپوننت‌ها استفاده می‌شود.</p>
-                
-                <div class="code-block glass-card">
-                    <div class="code-header">
-                        <button class="copy-btn">
-                            <i class="far fa-copy"></i> کپی
-                        </button>
                     </div>
-                    <pre><code>import { useState, useEffect } from 'react';
+                    
+                    <h3 class="subsection-title">مثال پیشرفته با useState</h3>
+                    <p>می‌توانید از useState برای مدیریت stateهای پیچیده‌تر نیز استفاده کنید:</p>
+                    
+                    <div class="code-block-container glassmorphism-card">
+                        <div class="code-toolbar">
+                            <span class="language-label">JavaScript</span>
+                            <button class="copy-button">
+                                <i class="far fa-copy"></i>
+                                <span>کپی</span>
+                            </button>
+                        </div>
+                        <pre class="code-block"><code class="language-javascript">function Form() {
+  const [formData, setFormData] = useState({
+    username: '',
+    email: '',
+    password: ''
+  });
 
-function Example() {
-  const [count, setCount] = useState(0);
+  const handleChange = (e) =&gt; {
+    const { name, value } = e.target;
+    setFormData(prev =&gt; ({
+      ...prev,
+      [name]: value
+    }));
+  };
 
-  useEffect(() => {
-    document.title = `شما ${count} بار کلیک کردید`;
-  }, [count]);
-
-  return &lt;button onClick={() =&gt; setCount(count + 1)}&gt;
-    کلیک کنید
-  &lt;/button&gt;;
+  return (
+    &lt;form&gt;
+      &lt;input
+        name="username"
+        value={formData.username}
+        onChange={handleChange}
+      /&gt;
+      {/* سایر فیلدها */}
+    &lt;/form&gt;
+  );
 }</code></pre>
+                    </div>
                 </div>
             </section>
-        </article>
-    </main>
+            
+            <!-- سایر بخش‌های مقاله -->
+            <!-- ... -->
+            
+            <!-- Conclusion Section -->
+            <section id="conclusion" class="article-section">
+                <h2 class="section-title">
+                    <span class="title-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </span>
+                    جمع‌بندی
+                </h2>
+                <div class="section-content">
+                    <p>در این مقاله به بررسی جامع هوک‌های اصلی React پرداختیم. هوک‌ها ابزارهای قدرتمندی هستند که کدنویسی با React را ساده‌تر و خوانا‌تر می‌کنند.</p>
+                    
+                    <div class="key-points glassmorphism-card">
+                        <h4 class="key-points-title">نکات کلیدی:</h4>
+                        <ul class="key-points-list">
+                            <li>از useState برای مدیریت state استفاده کنید</li>
+                            <li>از useEffect برای اثرات جانبی استفاده کنید</li>
+                            <li>هوک‌های سفارشی برای استفاده مجدد از منطق ایجاد کنید</li>
+                            <li>قوانین هوک‌ها را رعایت کنید</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Article Footer -->
+            <footer class="article-footer">
+                <div class="rating-section">
+                    <h4>این مقاله چقدر برای شما مفید بود؟</h4>
+                    <div class="rating-stars">
+                        <i class="far fa-star" data-rating="1"></i>
+                        <i class="far fa-star" data-rating="2"></i>
+                        <i class="far fa-star" data-rating="3"></i>
+                        <i class="far fa-star" data-rating="4"></i>
+                        <i class="far fa-star" data-rating="5"></i>
+                    </div>
+                </div>
+                
 
-    <div class="notification" id="notification">کد کپی شد!</div>
+                
+                <div class="comments-section">
+                    <h3 class="comments-title">
+                        <i class="far fa-comments"></i>
+                        دیدگاه‌ها
+                    </h3>
+                    <div class="comment-form glassmorphism-card">
+                        <textarea placeholder="دیدگاه خود را بنویسید..." class="comment-input"></textarea>
+                        <button class="submit-comment-button">ارسال دیدگاه</button>
+                    </div>
+                </div>
+            </footer>
+        </article>
+        
+    
+    </main>
+    
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="/content/images/logohead/shopdgdologoheadrm.png" alt="لوگو">
+                <p>ممنون از نگاه زیباتون....</p>
+            </div>
+            <div class="footer-links">
+                <div class="links-column">
+                    <h4>دسترسی سریع</h4>
+                    <a href="/">صفحه اصلی</a>
+                    <a href="/articles">اکسپلور مقالات</a>
+                    <a href="/about">درباره ما</a>
+                </div>
+                <div class="links-column">
+                    <h4>پلتفرم‌ها</h4>
+                    <a href="#">گیت هاب</a>
+                    <a href="#">تلگرام</a>
+                    <a href="#">لینکدین</a>
+                    <a href="#">اینستاگرام</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+         <p>&copy;1404 - تمامی حقوق محفوظ است. طراحی و توسعه توسط تیم شاپ دیجی دو </p>
+            <div class="footer-social">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-telegram"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top-button">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <!-- Notification -->
+    <div id="notification" class="notification">
+        <div class="notification-content">
+            <i class="fas fa-check-circle"></i>
+            <span class="notification-message">کد با موفقیت کپی شد!</span>
+        </div>
+    </div>
+    
+    <!-- Scripts -->
 
     <script src="/apps/jsforarticlesfront.js"></script>
+        <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 </body>
 </html>

@@ -11,8 +11,8 @@
 }
 
 :root {
-    --primary-color: #00c3ff;
-    --secondary-color: #4d44db;
+   --primary-color: #4f46e5;
+   --secondary-color: #10b981;
     --accent-color: #ff6584;
     --text-color: #ffffff;
     --text-light: #ffffff;
@@ -22,15 +22,25 @@
     --transition-speed: 0.3s;
 }
 
+/* لایه پس‌زمینه ذرات */
+.particles-background {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  background: linear-gradient(135deg, var(--bg-dark), var(--gray-900));
+  opacity: 0.95;
+}
+
 body {
-    background: linear-gradient(rgba(0, 0, 0, 0), rgba(31, 36, 45, 0)),
-        url('/content/images/backsitewall/wall4.gif') no-repeat center center/cover;
     color: var(--text-color);
     line-height: 1.6;
     overflow-x: hidden;
     background-attachment: fixed;
     height: 100%;
-   
+   background-color: #1f2937;
 
 }
 
@@ -40,7 +50,6 @@ body {
 }
 
 .background {
-
     position: absolute;
     width: 100%;
     height: 100%;
@@ -97,16 +106,11 @@ body {
 /* استایل Glassmorphism */
 .glass-card {
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.805);
-    background-color: #0000009f;
-    backdrop-filter: blur(1px);
+    background-color: #000000c7;
+    backdrop-filter: blur(10px);
     border: 1px solid rgb(255, 255, 255);
     border-radius: 10px;
-    margin-top: 30px;
     transition: 0.5s;
-}
-
-.glass-card:hover {
-    box-shadow: 0 12px 40px 0 rgb(0, 0, 0);
 }
 
 /* استایل هدر ثابت */
@@ -180,8 +184,7 @@ section#home {
     height: 500px;
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
     background-color: #0000005b;
-    backdrop-filter: blur(10px);
-    border: 2px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(20px);
     z-index: 1050;
     transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     display: flex;
@@ -249,12 +252,7 @@ section#home {
 }
 
 .menu-item:hover {
-    text-shadow:
-        0 0 5px #fffbff80,
-        0 0 10px #fffbff80,
-        0 0 20px #fffbff80,
-        0 0 40px #fffbff80,
-        0 0 80px #fffbff80;
+   background-color: var(--primary-color);
 }
 
 .menu-item i {
@@ -274,7 +272,6 @@ section#home {
 
 /* رسپانسیو */
 @media (max-width: 768px) {
-
     .logo {
         padding-left: 60px;
     }
@@ -366,27 +363,25 @@ section#home {
 .logo-icon {
     display: inline-block;
     margin: 0 0.3rem;
-    color: var(--accent-color);
+   color: #ffffff;
     transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     transform-style: preserve-3d;
 }
 
 .logo-text {
-    background: linear-gradient(45deg, #cc00ff, #1100ff);
+    background: linear-gradient(45deg, #c300ff, #c300ff);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     text-shadow: 0 0 10px rgba(94, 0, 94, 0.46);
     font-family: 'Fira Code', monospace;
     font-feature-settings: 'liga' 1;
-    /* فعال‌سازی لیگاتور */
 }
 
 
 /* بخش‌های اصلی */
 main {
-    padding: 80px;
-
+    padding: 50px;
 }
 
 @keyframes fadeIn {
@@ -404,7 +399,7 @@ main {
 .section-title {
     text-align: center;
     font-size: 2.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     position: relative;
     border: none;
     outline: none;
@@ -418,7 +413,7 @@ main {
 }
 
 .section-title span {
-    color: var(--primary-color);
+  color: #4f46e5;
 }
 
 .section-title::after {
@@ -463,7 +458,7 @@ main {
 }
 
 .hero-title {
-    font-size: 2.2rem;
+    font-size: 1.9rem;
     margin-bottom: 1rem;
     border: none;
     outline: none;
@@ -591,7 +586,6 @@ main {
     text-decoration: none;
     font-weight: 500;
     transition: var(--transition);
-    cursor: none;
     border: none;
     border: none;
     outline: none;
@@ -629,22 +623,43 @@ main {
     border: 2px solid rgb(0, 0, 0);
 }
 
+  @keyframes smoothBounce {
+  
+    0%,
+    100% {
+      transform: translateY(0);
+      animation-timing-function: ease-out;
+    }
+  
+    50% {
+      transform: translateY(-10px);
+      animation-timing-function: ease-in;
+    }
+  }
+
 .image-wrapper {
     width: 350px;
     height: 350px;
     margin: 0 auto;
     position: relative;
     overflow: hidden;
-    border-radius: 30%;
-    background-image: url("/content/gifs/giphy_background_GIF___Find___Share_on_GIPHY.gif");
+    border-radius: 50%;
+        background: linear-gradient(rgb(0, 0, 0), rgba(31, 36, 45, 0.699)),
+      url("/content/gifs/giphy_background_GIF___Find___Share_on_GIPHY.gif") no-repeat center center/cover;
     border: 2px solid white;
+       animation: smoothBounce 2.5s infinite;
 }
 
 .profile-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
+      animation: rotate 10s ease-in-out infinite;
+}
 
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 .image-decoration {
@@ -653,7 +668,7 @@ main {
     right: -70px;
     width: 200px;
     height: 200px;
-    border-radius: 40%;
+    border-radius: 50%;
     background: transparent;
     opacity: 0.2;
     z-index: 1;
@@ -697,7 +712,6 @@ main {
     color: var(--text-color);
     font-size: 1.5rem;
     transition: var(--transition);
-    cursor: none;
 }
 
 .social-link:hover {
@@ -871,7 +885,7 @@ main {
     backdrop-filter: blur(15px);
     border: 2px solid rgba(255, 255, 255, 0.3);
     color: var(--primary-color);
-
+    margin-bottom: 20px;
     transition: var(--transition);
 }
 
@@ -961,7 +975,6 @@ main {
     align-items: center;
     justify-content: center;
     transition: var(--transition);
-    cursor: none;
 }
 
 .portfolio-link:hover {
@@ -1055,7 +1068,7 @@ main {
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    cursor: none;
+  
 }
 
 .article-link i {
@@ -1077,7 +1090,6 @@ main {
     outline: none;
     scroll-behavior: smooth;
     user-select: none;
-    cursor: none;
     -webkit-tap-highlight-color: transparent;
     -moz-tap-highlight-color: transparent;
     -webkit-user-select: none;
@@ -1198,7 +1210,6 @@ main {
     font-size: 1.2rem;
     transition: var(--transition);
     border: 1px solid white;
-    cursor: none;
 }
 
 .social-icon:hover {
@@ -1260,7 +1271,7 @@ main {
     background: rgba(0, 0, 0, 0.452);
     border-top: 2px solid rgba(255, 255, 255, 0.15);
     padding: 3rem 0 1.5rem;
-    margin-top: 180px;
+
 }
 
 .footer-content {
@@ -1310,7 +1321,6 @@ main {
     color: var(--text-color);
     text-decoration: none;
     transition: var(--transition);
-    cursor: none;
 }
 
 .footer-links a:hover {
@@ -1334,7 +1344,6 @@ main {
     background: rgba(108, 99, 255, 0.1);
     color: var(--primary-color);
     transition: var(--transition);
-    cursor: none;
 }
 
 .footer-social a:hover {
@@ -1358,11 +1367,6 @@ main {
         display: none !important;
     }
 
-    body {
-        background: linear-gradient(rgba(0, 0, 0, 0.432), rgba(31, 36, 45, 0)),
-            url('/content/images/backsitewall/wall4.gif');
-    }
-
     .background {
         display: none;
     }
@@ -1374,7 +1378,7 @@ main {
 
     .hero-content {
         padding-left: 0;
-        margin-top: 2rem;
+       
     }
 
     .hero-buttons {
@@ -1414,9 +1418,6 @@ main {
         margin-top: 20px;
     }
 
-    .glass-footer {
-        margin-top: 180px;
-    }
 
     .footer-bottom {
         text-align: center;
@@ -1425,6 +1426,7 @@ main {
         color: var(--text-light);
         font-size: 0.9rem;
     }
+    
 }
 
 @media (max-width: 984px) {
@@ -1474,6 +1476,8 @@ main {
 
 }
 
+
+
 /*=============== LAYOUT (DESKTOP ONLY) ===============*/
 @media screen and (min-width: 1024px) {
     .image-decoration {
@@ -1488,39 +1492,4 @@ main {
         z-index: 1;
         transition: 0.5s;
     }
-}
-
-/* پنهان کردن نشانگر اصلی */
-body {
-    cursor: none;
-}
-
-/* طراحی مکان‌نمای شیشه‌ای */
-#glass-cursor {
-    opacity: 1;
-    transition: opacity 0.3s ease, width 0.2s, height 0.2s, background 0.2s, border 0.2s;
-    position: fixed;
-    width: 50px;
-    height: 50px;
-    pointer-events: none;
-    z-index: 9999;
-    border-radius: 50%;
-    backdrop-filter: blur(2px);
-    background: rgba(0, 0, 0, 0.397);
-    border: 1px solid rgb(255, 249, 249);
-    box-shadow: 0 0 10px rgb(255, 255, 255);
-    transform: translate(-50%, -50%);
-    transition: width 0.2s, height 0.2s, background 0.2s, border 0.2s;
-}
-
-@media (max-width: 1199px) {
-body {
-    cursor:default;
-}
-}
-
-@media (max-width: 1200px) {
-body {
-    cursor:default;
-}
 }

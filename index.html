@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ali Sharhan</title>
+    <title>shopdgdo</title>
     <link rel="stylesheet" href="/design/index.css">
+    <link rel="shortcut icon" href="/content/images/logohead/shopdgdologoheadrm.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css" rel="stylesheet"
         type="text/css" />
     <link href="https://cdn.jsdelivr.net/npm/firacode@6.2.0/distr/fira_code.css" rel="stylesheet">
@@ -13,12 +14,12 @@
 </head>
 
 <body>
-    <div id="glass-cursor"></div>
-
+    <!-- Particle Background -->
+    <div id="particles-js" class="particles-background"></div>
     <header class="header-container">
         <div class="logo">
             <span class="logo-icon">{</span>
-            <span class="logo-text">Ali sharhan</span>
+            <span class="logo-text">Shopdgdo</span>
             <span class="logo-icon">}</span>
         </div>
         <div class="mobile-menu-toggle">
@@ -36,7 +37,7 @@
             </div>
             <div class="menu-item" data-section="about">
                 <i class="fas fa-user"></i>
-                <span class="menu-text">درباره من</span>
+                <span class="menu-text">درباره ما</span>
             </div>
             <div class="menu-item" data-section="skills">
                 <i class="fas fa-cogs"></i>
@@ -48,16 +49,14 @@
             </div>
             <div class="menu-item" data-section="articles">
                 <i class="fas fa-file-alt"></i>
-                <span class="menu-text">مقالات</span>
+                <span class="menu-text">مقالات ما</span>
             </div>
             <div class="menu-item" data-section="contact">
                 <i class="fas fa-envelope"></i>
-                <span class="menu-text">پیام به من</span>
+                <span class="menu-text">پیام به ما</span>
             </div>
         </div>
     </header>
-
-
 
     <div class="background">
         <div class="shape"></div>
@@ -71,9 +70,9 @@
             <div class="background-glass-card">
                 <div class="hero glass-card">
                     <div class="hero-content">
-                        <h1 class="hero-title">سلام، من <span>علی شرحان</span> هستم</h1>
+                        <h1 class="hero-title">سلام، به تیم <span>شاپ دیجی دو</span> خوش امدید</h1>
                         <div class="text-animate">
-                            <h1 class="text-animateorg">من یک :</h1>
+                            <h1 class="text-animateorg">ما یک :</h1>
                             <h3 id="typing-text"></h3>
                             <span class="cursor">|</span>
                         </div>
@@ -83,20 +82,20 @@
                             هستم.
                         </p>
                         <div class="hero-buttons">
-                            <a href="#portfolio" class="btn btn-primary">نمونه کارهای من</a>
-                            <a href="#contact" class="btn btn-secondary">تماس با من</a>
+                            <a href="#portfolio" class="btn btn-primary">نمونه کارهای ما</a>
+                            <a href="#contact" class="btn btn-secondary">تماس با ما</a>
                         </div>
                         <div class="social-links">
                             <a href="#" class="social-link"><i class="fab fa-github"></i></a>
                             <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
                             <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
                     <div class="hero-image">
                         <div class="image-wrapper">
-                            <img src="/content/images/mypic/pro1.png" alt="عکس پروفایل" class="profile-image">
-                            <div class="image-decoration"></div>
+                            <img src="/content/images/logohead/shopdgdologoheadrm.png" alt="لوگوی تیم"
+                                class="profile-image">
                         </div>
                     </div>
                 </div>
@@ -109,9 +108,11 @@
 
         <!-- بخش درباره من -->
         <section id="about" class="section">
-            <h2 class="section-title">درباره <span>من</span></h2>
+           
             <div class="about-content glass-card">
+                
                 <div class="about-text">
+                     <h2 class="section-title">درباره <span>تیم</span></h2>
                     <p>
                         من یک توسعه‌دهنده فول استک وب با تخصص در جاوااسکریپت هستم. از سال ۱۳۹۵ به صورت حرفه‌ای در این
                         زمینه فعالیت می‌کنم و در پروژه‌های مختلفی همکاری داشته‌ام.
@@ -174,7 +175,7 @@
 
         <!-- بخش مهارت‌ها -->
         <section id="skills" class="section">
-            <h2 class="section-title">مهارت‌های <span>من</span></h2>
+            <h2 class="section-title">مهارت‌های <span>تیم</span></h2>
             <div class="skills-container">
                 <div class="skills-category glass-card">
                     <h3 class="category-title">فرانت‌اند</h3>
@@ -262,7 +263,7 @@
 
         <!-- بخش مقالات -->
         <section id="articles" class="section">
-            <h2 class="section-title">مقالات <span>من</span></h2>
+            <h2 class="section-title">مقالات <span>تیم</span></h2>
             <div class="articles-grid">
                 <div class="article-card glass-card">
                     <div class="article-image">
@@ -281,13 +282,13 @@
                 </div>
             </div>
             <div class="articles-more">
-                <a href="#" class="btn btn-primary">مشاهده همه مقالات</a>
+                <a href="/pages/explore-articles.html" class="btn btn-primary">مشاهده همه مقالات</a>
             </div>
         </section>
 
         <!-- بخش تماس با من -->
         <section id="contact" class="section">
-            <h2 class="section-title">ارتباط با <span>من</span></h2>
+            <h2 class="section-title">ارتباط با <span>تیم</span></h2>
             <div class="contact-container">
                 <div class="contact-info glass-card">
                     <h3 class="contact-subtitle">اطلاعات تماس</h3>
@@ -352,31 +353,32 @@
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-logo">
-                <span>{ Ali Sharhan }</span>
+                <span>{ شاپ دیجی دو }</span>
             </div>
             <div class="footer-links">
                 <ul>
                     <li><a href="#home">صفحه اصلی</a></li>
-                    <li><a href="#about">درباره من</a></li>
+                    <li><a href="#about">درباره ما</a></li>
                     <li><a href="#skills">مهارت‌ها</a></li>
                     <li><a href="#portfolio">نمونه کارها</a></li>
-                    <li><a href="#articles">مقالات</a></li>
-                    <li><a href="#contact">تماس با من</a></li>
+                    <li><a href="#articles">مقالات ما</a></li>
+                    <li><a href="#contact">پیام به تیم</a></li>
                 </ul>
             </div>
             <div class="footer-social">
                 <a href="#"><i class="fab fa-github"></i></a>
                 <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-telegram"></i></a>
                 <a href="#"><i class="fab fa-instagram"></i></a>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; ۱۴۰۲ - تمامی حقوق محفوظ است. طراحی و توسعه توسط محمد سعادتی</p>
+            <p>&copy;1404 - تمامی حقوق محفوظ است. طراحی و توسعه توسط تیم شاپ دیجی دو </p>
         </div>
     </footer>
 
     <script src="/apps/jsforindexfront.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 </body>
 
 </html>
