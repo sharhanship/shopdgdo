@@ -1,0 +1,534 @@
+:root {
+    --primary-color: rgba(16, 18, 27, 0.8);
+    --secondary-color: rgba(23, 25, 35, 0.7);
+    --overlay-color: rgba(36, 39, 59, 0.6);
+    --text-color: #e0e0e0;
+    --highlight-color: rgba(101, 117, 255, 0.6);
+    --border-color: rgba(255, 255, 255, 0.1);
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --transition-speed: 0.3s;
+    --frontend-color: #4ecdc4;
+    --backend-color: #45aaf2;
+    --designer-color: #a55eea;
+    --editor-color: #fd9644;
+    --bg-dark: #111827;
+    --gray-900: #111827;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Vazir', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, var(--bg-dark), var(--gray-900));
+    color: var(--text-color);
+    min-height: 100vh;
+    padding: 40px 20px;
+    overflow-x: hidden;
+}
+
+/* لایه پس‌زمینه ذرات */
+.particles-background {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    background: linear-gradient(135deg, var(--bg-dark), var(--gray-900));
+    opacity: 0.95;
+}
+
+
+/* استایل دکمه بازگشت */
+.back-to-home {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    background: rgba(101, 117, 255, 0.3);
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+        border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    -moz-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.back-to-home i {
+    margin-right: 8px;
+    margin-left: 10px;
+    transition: transform 0.3s ease;
+}
+
+.back-to-home:hover {
+    background: rgba(101, 117, 255, 0.5);
+    box-shadow: 0 4px 15px rgba(101, 117, 255, 0.3);
+}
+
+.back-to-home:hover i {
+    transform: translateX(5px);
+}
+
+
+
+/* انیمیشن ویژه برای متن */
+.animated-text {
+    display: inline-block;
+    position: relative;
+    font-size: 1.8rem;
+    background: linear-gradient(90deg, #f500e0, #ffffff, #0059ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+        border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    -moz-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.team-subtitle {
+    text-align: center;
+    margin-bottom: 40px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* اضافه کردن افکت نور برای متن */
+.animated-text::after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    background: linear-gradient(90deg,
+            rgba(255, 107, 107, 0.2),
+            rgba(78, 205, 196, 0.2),
+            rgba(69, 170, 242, 0.2));
+    z-index: -1;
+    border-radius: 15px;
+    filter: blur(15px);
+    opacity: 0;
+    animation: pulse 3s infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 0.3;
+        transform: scale(0.95);
+    }
+
+    50% {
+        opacity: 0.6;
+        transform: scale(1.05);
+    }
+}
+
+.team-explorer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    
+}
+
+.team-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    background-clip: text;
+    color: transparent;
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.team-subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    opacity: 0.8;
+}
+
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.filter-btn {
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all var(--transition-speed) ease;
+    font-size: 0.9rem;
+        border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    -moz-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.filter-btn:hover {
+    background: rgba(101, 117, 255, 0.3);
+}
+
+.filter-btn.active {
+    background: var(--highlight-color);
+    border-color: rgba(101, 117, 255, 0.5);
+    box-shadow: 0 0 10px rgba(101, 117, 255, 0.3);
+}
+
+/* استایل کارت شیشه‌ای */
+.glass-card {
+    backdrop-filter: blur(5px);
+    background: rgba(0, 0, 0, 0.315);
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    opacity: 0;
+}
+
+/* استایل‌های کارت اعضا */
+.team-members-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    padding: 20px 0;
+}
+
+.member-card {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.member-card[data-category="frontend"] .image-border {
+    background: linear-gradient(45deg, var(--frontend-color), #a5f8d3);
+}
+
+.member-card[data-category="backend"] .image-border {
+    background: linear-gradient(45deg, var(--backend-color), #7ac5f8);
+}
+
+.member-card[data-category="designer"] .image-border {
+    background: linear-gradient(45deg, var(--designer-color), #d6a3fb);
+}
+
+.member-card[data-category="editor"] .image-border {
+    background: linear-gradient(45deg, var(--editor-color), #fdcb9e);
+}
+
+.member-image-container {
+    position: relative;
+    width: 130px;
+    height: 130px;
+    margin-bottom: 20px;
+        border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    -moz-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.member-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    z-index: 2;
+    position: relative;
+}
+
+.image-border {
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border-radius: 50%;
+    z-index: 1;
+    animation: rotateBorder 6s linear infinite;
+}
+
+@keyframes rotateBorder {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.member-name {
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+    color: white;
+        border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    -moz-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.member-role {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    font-weight: 500;
+        border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    -moz-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.member-card[data-category="frontend"] .member-role {
+    color: var(--frontend-color);
+}
+
+.member-card[data-category="backend"] .member-role {
+    color: var(--backend-color);
+}
+
+.member-card[data-category="designer"] .member-role {
+    color: var(--designer-color);
+}
+
+.member-card[data-category="editor"] .member-role {
+    color: var(--editor-color);
+}
+
+.member-bio {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    opacity: 0.9;
+}
+
+.resume-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    background: linear-gradient(45deg, #45aaf2, #4b7bec);
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    margin-bottom: 15px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(75, 123, 236, 0.4);
+    width: 80%;
+    max-width: 200px;
+        border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    -moz-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.resume-button i {
+    margin-right: 8px;
+    font-size: 0.9rem;
+}
+
+.resume-button:hover {
+    box-shadow: 0 6px 20px rgba(75, 123, 236, 0.6);
+}
+
+
+/* رسپانسیو */
+@media (max-width: 1200px) {
+    .team-members-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .team-title {
+        font-size: 2rem;
+    }
+
+    .team-subtitle {
+        font-size: 1rem;
+    }
+
+    .filter-buttons {
+        gap: 8px;
+    }
+
+    .filter-btn {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+
+    .team-members-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .member-card {
+        padding: 20px 15px;
+    }
+
+    .member-image-container {
+        width: 100px;
+        height: 100px;
+    }
+
+    .member-name {
+        font-size: 1.2rem;
+    }
+
+    .member-role {
+        font-size: 0.9rem;
+    }
+
+    .member-bio {
+        font-size: 0.8rem;
+    }
+
+    .resume-button {
+        padding: 8px 15px;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .team-members-grid {
+        grid-template-columns: 1fr;
+    }
+
+    body {
+        padding: 30px 10px;
+    }
+
+    .filter-buttons {
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding-bottom: 10px;
+        margin-left: -10px;
+        margin-right: -10px;
+        padding-left: 10px;
+    }
+
+    .filter-buttons::-webkit-scrollbar {
+        height: 4px;
+    }
+
+    .filter-buttons::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 2px;
+    }
+}
+
+/* رسپانسیو برای دکمه بازگشت و متن انیمیشن */
+@media (max-width: 768px) {
+    .back-to-home {
+        top: 15px;
+        right: 15px;
+        padding: 8px 12px;
+        font-size: 0.8rem;
+    }
+
+    .animated-text {
+        font-size: 1.4rem;
+    }
+
+    .team-subtitle {
+        height: 50px;
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .animated-text {
+        font-size: 1.2rem;
+    }
+
+    .back-to-home {
+        top: 10px;
+        right: 10px;
+        padding: 6px 10px;
+        font-size: 0.7rem;
+    }
+
+    .team-subtitle {
+        height: 40px;
+        margin-bottom: 25px;
+    }
+}

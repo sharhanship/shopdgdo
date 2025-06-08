@@ -12,11 +12,12 @@
 
 :root {
    --primary-color: #4f46e5;
-   --secondary-color: #10b981;
     --accent-color: #ff6584;
     --text-color: #ffffff;
     --text-light: #ffffff;
     --bg-color: #ff0000;
+       --bg-dark: #111827;
+        --gray-900: #111827;
     --transition: all 0.5s ease;
     --blur-intensity: 12px;
     --transition-speed: 0.3s;
@@ -40,7 +41,7 @@ body {
     overflow-x: hidden;
     background-attachment: fixed;
     height: 100%;
-   background-color: #1f2937;
+   background: linear-gradient(135deg, var(--bg-dark), var(--gray-900));
 
 }
 
