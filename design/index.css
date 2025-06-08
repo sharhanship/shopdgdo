@@ -1266,100 +1266,6 @@ main {
     -ms-user-select: none;
 }
 
-/* فوتر */
-.footer {
-    backdrop-filter: blur(5px);
-    background: rgba(0, 0, 0, 0.452);
-    border-top: 2px solid rgba(255, 255, 255, 0.15);
-    padding: 3rem 0 1.5rem;
-
-}
-
-.footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.footer-logo {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--primary-color);
-    margin-bottom: 1.5rem;
-    border: none;
-    outline: none;
-    scroll-behavior: smooth;
-    user-select: none;
-    -webkit-tap-highlight-color: transparent;
-    -moz-tap-highlight-color: transparent;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-}
-
-.footer-links ul {
-    display: flex;
-    list-style: none;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1.5rem;
-    margin-bottom: 2rem;
-    border: none;
-    outline: none;
-    scroll-behavior: smooth;
-    user-select: none;
-    -webkit-tap-highlight-color: transparent;
-    -moz-tap-highlight-color: transparent;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-}
-
-.footer-links a {
-    color: var(--text-color);
-    text-decoration: none;
-    transition: var(--transition);
-}
-
-.footer-links a:hover {
-    color: var(--primary-color);
-}
-
-.footer-social {
-    display: flex;
-    gap: 1.5rem;
-    margin-bottom: 2rem;
-
-}
-
-.footer-social a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 10%;
-    background: rgba(108, 99, 255, 0.1);
-    color: var(--primary-color);
-    transition: var(--transition);
-}
-
-.footer-social a:hover {
-    background: var(--primary-color);
-    color: white;
-    transform: translateY(-5px);
-}
-
-.footer-bottom {
-    text-align: center;
-    padding-top: 1.5rem;
-    border-top: 1px solid rgba(108, 99, 255, 0.1);
-    color: var(--text-light);
-    font-size: 0.9rem;
-}
 
 /* ریسپانسیو */
 @media (max-width: 1200px) {
@@ -1417,15 +1323,6 @@ main {
     .text-animateorg {
         font-size: 1.2rem;
         margin-top: 20px;
-    }
-
-
-    .footer-bottom {
-        text-align: center;
-        padding-top: 1.5rem;
-        border-top: 1px solid rgba(108, 99, 255, 0.1);
-        color: var(--text-light);
-        font-size: 0.9rem;
     }
     
 }

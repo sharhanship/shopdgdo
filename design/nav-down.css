@@ -1,18 +1,12 @@
-:root{
-  --primary-light: #818cf8;
-  --secondary-color: #10b981;
-}
-
-/* فوتر اصلی */
 .main-footer-org {
 background-color: black;
-  color: var(--text-light);
+  color: white;
   padding: 3rem 0 0;
   margin-top: 5rem;
-
+  border-radius: 50px;
 }
 a {
-  color: var(--primary-color);
+  color: #818cf8;
   text-decoration: none;
   transition: var(--transition-base);
 }
@@ -69,7 +63,7 @@ a {
 .links-column-org h4 {
   font-size: 1.25rem;
   margin-bottom: 1rem;
-  color: var(--text-light);
+  color: white;
   position: relative;
   padding-bottom: 0.5rem;
 }
@@ -81,11 +75,11 @@ a {
   right: 0;
   width: 50px;
   height: 2px;
-  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+  background: linear-gradient(to right, #818cf8, #10b981);
 }
 
 .links-column-org a {
-  color: var(--text-light);
+  color: white;
   opacity: 0.8;
   margin-bottom: 0.75rem;
   transition: all 0.3s ease;
@@ -95,7 +89,7 @@ a {
   opacity: 1;
   transform: translateX(-5px);
   text-decoration: none;
-  color: var(--primary-light);
+  color: #10b981;
 }
 
 .footer-bottom-org {
@@ -114,12 +108,12 @@ a {
 }
 
 .footer-social-org a {
-  color: var(--text-light);
+  color: white;
   font-size: 1.25rem;
  transition: all 0.3s ease;
 }
 
 .footer-social-org a:hover {
-  color: var(--primary-light);
+  color:#818cf8;
   transition: all 0.3s ease;
 }
