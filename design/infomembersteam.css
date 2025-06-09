@@ -1,18 +1,21 @@
+/* فونت وزیرمتن از گوگل فونت */
 @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
+/* تعریف متغیرهای رنگ */
 :root {
-    --primary-color: #4f46e5;
-    --secondary-color: #a29bfe;
-    --dark-color: #1e272e;
-    --darker-color: #0f1519;
-    --light-color: #f5f6fa;
-    --glass-color: rgba(0, 0, 0, 0.7);
-    --glass-border: rgba(255, 255, 255, 0.1);
-    --shadow-color: rgba(0, 0, 0, 0.3);
-    --bg-dark: #111827;
-    --gray-900: #111827;
+    --primary-color: #4f46e5; /* رنگ اصلی */
+    --secondary-color: #a29bfe; /* رنگ دوم */
+    --dark-color: #1e272e; /* رنگ تیره */
+    --darker-color: #0f1519; /* رنگ تاریک‌تر */
+    --light-color: #f5f6fa; /* رنگ روشن */
+    --glass-color: rgba(0, 0, 0, 0.7); /* رنگ شیشه‌ای */
+    --glass-border: rgba(255, 255, 255, 0.1); /* حاشیه شیشه‌ای */
+    --shadow-color: rgba(0, 0, 0, 0.3); /* رنگ سایه */
+    --bg-dark: #111827; /* پس‌زمینه تیره */
+    --gray-900: #111827; /* خاکستری تیره */
 }
 
+/* تنظیمات پایه برای تمام عناصر */
 * {
     margin: 0;
     padding: 0;
@@ -20,6 +23,7 @@
     font-family: 'Vazirmatn', sans-serif;
 }
 
+/* استایل بدنه اصلی صفحه */
 body {
     color: var(--light-color);
     min-height: 100vh;
@@ -31,7 +35,9 @@ body {
     background: linear-gradient(135deg, var(--bg-dark), var(--gray-900));
 }
 
-/* لایه پس‌زمینه ذرات */
+/* --------------------------------------------------- */
+/* استایل‌های پس‌زمینه ذرات */
+/* --------------------------------------------------- */
 .particles-background {
     position: fixed;
     top: 0;
@@ -40,7 +46,7 @@ body {
     left: 0;
     z-index: -1;
     opacity: 0.95;
-        border: none;
+    border: none;
     outline: none;
     scroll-behavior: smooth;
     user-select: none;
@@ -51,7 +57,9 @@ body {
     -ms-user-select: none;
 }
 
-/* استایل دکمه بازگشت */
+/* --------------------------------------------------- */
+/* استایل دکمه بازگشت به خانه */
+/* --------------------------------------------------- */
 .back-to-home {
     position: fixed;
     top: 20px;
@@ -69,7 +77,7 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.1);
     transition: all 0.3s ease;
     font-size: 0.9rem;
-        border: none;
+    border: none;
     outline: none;
     scroll-behavior: smooth;
     user-select: none;
@@ -78,14 +86,12 @@ body {
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-
 }
 
 .back-to-home i {
     margin-right: 8px;
     margin-left: 10px;
     transition: transform 0.3s ease;
-    
 }
 
 .back-to-home:hover {
@@ -97,9 +103,9 @@ body {
     transform: translateX(5px);
 }
 
-
-
-
+/* --------------------------------------------------- */
+/* استایل‌های اصلی رزومه */
+/* --------------------------------------------------- */
 .resume-container {
     width: 100%;
     max-width: 1200px;
@@ -107,7 +113,7 @@ body {
 }
 
 .resume-card {
-        backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
     background: rgba(0, 0, 0, 0.507);
     border: 2px solid rgba(255, 255, 255, 0.15);
     border-radius: 10px;
@@ -133,6 +139,9 @@ body {
     z-index: -1;
 }
 
+/* --------------------------------------------------- */
+/* استایل هدر رزومه */
+/* --------------------------------------------------- */
 .header {
     display: flex;
     flex-direction: column;
@@ -144,7 +153,7 @@ body {
 .avatar-container {
     position: relative;
     margin-bottom: 20px;
-        border: none;
+    border: none;
     outline: none;
     scroll-behavior: smooth;
     user-select: none;
@@ -173,7 +182,6 @@ body {
     border-radius: 50%;
     object-fit: cover;
     border: 3px solid var(--dark-color);
-
 }
 
 .header-info h1 {
@@ -181,7 +189,7 @@ body {
     margin-bottom: 5px;
     color: var(--light-color);
     font-weight: 700;
-        border: none;
+    border: none;
     outline: none;
     scroll-behavior: smooth;
     user-select: none;
@@ -214,6 +222,9 @@ body {
     gap: 5px;
 }
 
+/* --------------------------------------------------- */
+/* استایل‌های محتوای رزومه */
+/* --------------------------------------------------- */
 .resume-content {
     display: flex;
     flex-wrap: wrap;
@@ -238,8 +249,6 @@ section {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-
-
 h3 {
     color: var(--primary-color);
     margin-bottom: 15px;
@@ -247,7 +256,7 @@ h3 {
     display: flex;
     align-items: center;
     gap: 10px;
-        border: none;
+    border: none;
     outline: none;
     scroll-behavior: smooth;
     user-select: none;
@@ -260,9 +269,11 @@ h3 {
 
 h3 i {
     font-size: 1rem;
-    
 }
 
+/* --------------------------------------------------- */
+/* استایل بخش مهارت‌ها */
+/* --------------------------------------------------- */
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -276,7 +287,7 @@ h3 i {
 .skill-name {
     margin-bottom: 5px;
     font-size: 0.9rem;
-        border: none;
+    border: none;
     outline: none;
     scroll-behavior: smooth;
     user-select: none;
@@ -300,12 +311,15 @@ h3 i {
     border-radius: 4px;
 }
 
+/* --------------------------------------------------- */
+/* استایل بخش زبان‌ها */
+/* --------------------------------------------------- */
 .language-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
-        border: none;
+    border: none;
     outline: none;
     scroll-behavior: smooth;
     user-select: none;
@@ -326,6 +340,9 @@ h3 i {
     color: rgba(255, 255, 255, 0.2);
 }
 
+/* --------------------------------------------------- */
+/* استایل بخش تاریخچه (تایم لاین) */
+/* --------------------------------------------------- */
 .timeline {
     position: relative;
     padding-right: 20px;
@@ -383,6 +400,9 @@ h3 i {
     color: rgba(255, 255, 255, 0.7);
 }
 
+/* --------------------------------------------------- */
+/* استایل بخش پروژه‌ها */
+/* --------------------------------------------------- */
 .project-item {
     margin-bottom: 15px;
 }
@@ -398,14 +418,15 @@ h3 i {
     color: rgba(255, 255, 255, 0.7);
 }
 
+/* --------------------------------------------------- */
+/* استایل‌های واکنش‌گرا (رسپانسیو) */
+/* --------------------------------------------------- */
 @media (max-width: 768px) {
-
     .resume-container {
         width: 100%;
         max-width: 1800px;
         perspective: 2000px;
         margin-top: 30px;
-
     }
 
     .resume-card {

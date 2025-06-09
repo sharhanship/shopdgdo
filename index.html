@@ -1,36 +1,52 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+<!-- زبان صفحه فارسی و جهت متن از راست به چپ -->
 
 <head>
+    <!-- بخش متادیتا و اطلاعات پایه صفحه -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>shopdgdo</title>
+    
+    <!-- لینک فایل CSS اختصاصی -->
     <link rel="stylesheet" href="/design/index.css">
+    
+    <!-- فاوآیکون سایت -->
     <link rel="shortcut icon" href="/content/images/logohead/shopdgdologoheadrm.png" type="image/x-icon">
+    
+    <!-- فونت وزیر برای نمایش بهتر متن فارسی -->
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css" rel="stylesheet"
         type="text/css" />
+    
+    <!-- فونت فیرا کد برای نمایش کدها -->
     <link href="https://cdn.jsdelivr.net/npm/firacode@6.2.0/distr/fira_code.css" rel="stylesheet">
+    
+    <!-- آیکون‌های فونت آوسام -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
-    <!-- Particle Background -->
+    <!-- پس زمینه ذرات متحرک -->
     <div id="particles-js" class="particles-background"></div>
+    
+    <!-- هدر سایت -->
     <header class="header-container">
+        <!-- لوگو سایت -->
         <div class="logo">
             <span class="logo-icon">{</span>
             <span class="logo-text">Shopdgdo</span>
             <span class="logo-icon">}</span>
         </div>
+        
+        <!-- دکمه منوی موبایل -->
         <div class="mobile-menu-toggle">
-
             <div class="toggle-line"></div>
             <div class="toggle-line"></div>
             <div class="toggle-line"></div>
         </div>
 
+        <!-- منوی اصلی -->
         <div class="capsule-header">
-
             <div class="menu-item" data-section="home">
                 <i class="fas fa-home"></i>
                 <span class="menu-text">صفحه اصلی</span>
@@ -58,12 +74,13 @@
         </div>
     </header>
 
+    <!-- اشکال دکوراتیو در پس زمینه -->
     <div class="background">
         <div class="shape"></div>
         <div class="shape"></div>
     </div>
 
-    <!-- محتوای اصلی -->
+    <!-- محتوای اصلی سایت -->
     <main>
         <!-- بخش صفحه اصلی -->
         <section id="home" class="section active">
@@ -71,20 +88,27 @@
                 <div class="hero glass-card">
                     <div class="hero-content">
                         <h1 class="hero-title">سلام، به تیم <span>شاپ دیجی دو</span> خوش امدید</h1>
+                        
+                        <!-- انیمیشن تایپ متن -->
                         <div class="text-animate">
                             <h1 class="text-animateorg">ما یک :</h1>
                             <h3 id="typing-text"></h3>
                             <span class="cursor">|</span>
                         </div>
+                        
                         <p class="hero-description">
                             با بیش از ۵ سال تجربه در توسعه اپلیکیشن‌های وب مدرن و مقیاس‌پذیر. عاشق حل مسائل پیچیده و خلق
                             تجربیات کاربری منحصر به فرد
                             هستم.
                         </p>
+                        
+                        <!-- دکمه‌های صفحه اصلی -->
                         <div class="hero-buttons">
                             <a href="/pages/teammembers-explore.html" class="btn btn-primary">افراد تیم</a>
                             <a href="#contact" class="btn btn-secondary">تماس با ما</a>
                         </div>
+                        
+                        <!-- لینک‌های شبکه‌های اجتماعی -->
                         <div class="social-links">
                             <a href="#" class="social-link"><i class="fab fa-github"></i></a>
                             <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
@@ -92,6 +116,8 @@
                             <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
+                    
+                    <!-- تصویر لوگو در صفحه اصلی -->
                     <div class="hero-image">
                         <div class="image-wrapper">
                             <img src="/content/images/logohead/shopdgdologoheadrm.png" alt="لوگوی تیم"
@@ -99,18 +125,12 @@
                         </div>
                     </div>
                 </div>
-
             </div>
-
-
-
         </section>
 
-        <!-- بخش درباره من -->
+        <!-- بخش درباره ما -->
         <section id="about" class="section">
-
             <div class="about-content glass-card">
-
                 <div class="about-text">
                     <h2 class="section-title">درباره <span>تیم</span></h2>
                     <p>
@@ -125,6 +145,8 @@
                         وقتی کد نمی‌نویسم، دوست دارم کتاب بخوانم، مقاله بنویسم و در کنفرانس‌های تکنولوژی شرکت کنم.
                         همچنین علاقه زیادی به آموزش و به اشتراک گذاری دانش دارم.
                     </p>
+                    
+                    <!-- اطلاعات تکمیلی درباره تیم -->
                     <div class="about-info">
                         <div class="info-item">
                             <span class="info-label">نام کامل:</span>
@@ -152,6 +174,8 @@
                         </div>
                     </div>
                 </div>
+                
+                <!-- آمار و ارقام -->
                 <div class="about-stats">
                     <div class="stats-item glass-card">
                         <div class="stats-number">۵+</div>
@@ -177,6 +201,7 @@
         <section id="skills" class="section">
             <h2 class="section-title">مهارت‌های <span>تیم</span></h2>
             <div class="skills-container">
+                <!-- مهارت‌های فرانت‌اند -->
                 <div class="skills-category glass-card">
                     <h3 class="category-title">فرانت‌اند</h3>
                     <div class="skill-item">
@@ -190,6 +215,7 @@
                     </div>
                 </div>
 
+                <!-- مهارت‌های بک‌اند -->
                 <div class="skills-category glass-card">
                     <h3 class="category-title">بک‌اند</h3>
                     <div class="skill-item">
@@ -203,6 +229,7 @@
                     </div>
                 </div>
 
+                <!-- مهارت‌های جانبی -->
                 <div class="skills-category glass-card">
                     <h3 class="category-title">مهارت های جانبی</h3>
                     <div class="skill-item">
@@ -221,12 +248,16 @@
         <!-- بخش نمونه کارها -->
         <section id="portfolio" class="section">
             <h2 class="section-title">نمونه <span>کارها</span></h2>
+            
+            <!-- فیلتر نمونه کارها -->
             <div class="portfolio-filter">
                 <button class="filter-btn active" data-filter="all">همه</button>
                 <button class="filter-btn" data-filter="frontend">فرانت‌اند</button>
                 <button class="filter-btn" data-filter="backend">بک‌اند</button>
                 <button class="filter-btn" data-filter="fullstack">فول استک</button>
             </div>
+            
+            <!-- گالری نمونه کارها -->
             <div class="portfolio-grid">
                 <div class="portfolio-item glass-card" data-category="fullstack">
                     <div class="portfolio-image">
@@ -265,6 +296,7 @@
         <section id="articles" class="section">
             <h2 class="section-title">مقالات <span>تیم</span></h2>
             <div class="articles-grid">
+                <!-- کارت مقاله -->
                 <div class="article-card glass-card">
                     <div class="article-image">
                         <img src="" alt="">
@@ -281,15 +313,18 @@
                     </div>
                 </div>
             </div>
+            
+            <!-- دکمه مشاهده همه مقالات -->
             <div class="articles-more">
                 <a href="/pages/explore-articles.html" class="btn btn-primary">مشاهده همه مقالات</a>
             </div>
         </section>
 
-        <!-- بخش تماس با من -->
+        <!-- بخش تماس با ما -->
         <section id="contact" class="section">
             <h2 class="section-title">ارتباط با <span>تیم</span></h2>
             <div class="contact-container">
+                <!-- اطلاعات تماس -->
                 <div class="contact-info glass-card">
                     <h3 class="contact-subtitle">اطلاعات تماس</h3>
                     <div class="info-item">
@@ -319,6 +354,8 @@
                             <p>۰۹۱۲۱۲۳۴۵۶۷</p>
                         </div>
                     </div>
+                    
+                    <!-- لینک‌های شبکه‌های اجتماعی -->
                     <div class="contact-social">
                         <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
                         <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
@@ -326,6 +363,8 @@
                         <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
+                
+                <!-- فرم تماس -->
                 <div class="contact-form glass-card">
                     <h3 class="contact-subtitle">پیام به من</h3>
                     <form id="contactForm">
@@ -349,9 +388,9 @@
         </section>
     </main>
 
+    <!-- اسکریپت‌های سایت -->
     <script src="/apps/jsforindexfront.js"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="/apps/jsforaddfooterinallpage.js"></script>
 </body>
-
 </html>

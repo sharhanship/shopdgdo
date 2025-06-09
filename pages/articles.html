@@ -1,48 +1,73 @@
 <!DOCTYPE html>
+<!-- تعیین نوع سند به عنوان HTML5 -->
 <html lang="fa" dir="rtl">
+<!-- تعیین زبان فارسی و جهت راست به چپ -->
+
 <head>
+    <!-- بخش متادیتا و اطلاعات صفحه -->
     <meta charset="UTF-8">
+    <!-- تعیین کدینگ UTF-8 برای پشتیبانی از کاراکترهای فارسی -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- تنظیم viewport برای نمایش مناسب در دستگاه‌های مختلف -->
     <title>shopdgdo-article</title>
-        <!-- استایل‌های اختصاصی -->
+    <!-- عنوان صفحه در تب مرورگر -->
+    
+    <!-- استایل‌های اختصاصی -->
     <link rel="stylesheet" href="/design/articles.css">
-     <link rel="shortcut icon" href="/content/images/logohead/shopdgdologoheadrm.png" type="image/x-icon">
+    <!-- لینک به فایل CSS اختصاصی مقالات -->
+    <link rel="shortcut icon" href="/content/images/logohead/shopdgdologoheadrm.png" type="image/x-icon">
+    <!-- آیکون سایت در تب مرورگر -->
+    
     <!-- فونت‌ها -->
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css" rel="stylesheet">
+    <!-- فونت وزیر برای نمایش بهتر متون فارسی -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+    <!-- کتابخانه آیکون‌های Font Awesome -->
 </head>
+
 <body>
-    
-    <!-- Particle Background -->
+    <!-- پس‌زمینه ذرات متحرک -->
     <div id="particles-js" class="particles-background"></div>
     
-    <!-- Header -->
+    <!-- هدر اصلی صفحه -->
     <header class="main-header">
         <div class="header-container glassmorphism-card">
+            <!-- کانتینر هدر با افکت شیشه‌ای -->
             <div class="header-content">
+                <!-- عنوان اصلی مقاله -->
                 <h1 class="article-main-title">
                     <span class="title-gradient">آموزش جامع هوک‌های React</span>
                 </h1>
+                
+                <!-- متادیتای مقاله -->
                 <div class="article-meta-data">
+                    <!-- اطلاعات نویسنده -->
                     <div class="author-info">
                         <img src="/content/images/mypic/pro1.png" alt="علی محمدی" class="author-avatar">
+                        <!-- عکس نویسنده -->
                         <div>
                             <span class="meta-label">نویسنده:</span>
-                           <h4 class="name-author">علی شرحان</h4>
+                            <h4 class="name-author">علی شرحان</h4>
                         </div>
                     </div>
+                    
+                    <!-- آمار مقاله -->
                     <div class="article-stats">
+                        <!-- تاریخ انتشار -->
                         <div class="stat-item">
                             <i class="far fa-calendar-alt"></i>
                             <span class="meta-label">تاریخ انتشار:</span>
                             <time datetime="2023-06-22">۲۲ تیر ۱۴۰۲</time>
                         </div>
+                        
+                        <!-- زمان مطالعه -->
                         <div class="stat-item">
                             <i class="far fa-clock"></i>
                             <span class="meta-label">زمان مطالعه:</span>
                             <span>۱۵ دقیقه</span>
                         </div>
+                        
+                        <!-- تعداد بازدیدها -->
                         <div class="stat-item">
                             <i class="far fa-eye"></i>
                             <span class="meta-label">بازدید:</span>
@@ -54,26 +79,26 @@
         </div>
     </header>
     
-    <!-- Main Content -->
+    <!-- محتوای اصلی مقاله -->
     <main class="article-container">
-        <!-- Navigation Buttons -->
+        <!-- نویگیشن مقاله -->
         <nav class="article-navigation">
+            <!-- دکمه بازگشت به صفحه اکسپلور -->
             <a href="/pages/explore-articles.html" class="nav-button back-button">
                 <i class="fas fa-arrow-right"></i>
                 <span>بازگشت به اکسپلور</span>
             </a>
+            
+            <!-- دکمه بازگشت به صفحه اصلی -->
             <a href="/index.html" class="nav-button home-button">
                 <i class="fas fa-home"></i>
                 <span>صفحه اصلی</span>
             </a>
-       
         </nav>
         
- 
-        
-        <!-- Article Content -->
+        <!-- محتوای مقاله -->
         <article class="article-content">
-            <!-- Introduction Section -->
+            <!-- بخش مقدمه -->
             <section id="introduction" class="article-section">
                 <h2 class="section-title">
                     <span class="title-icon">
@@ -84,6 +109,7 @@
                 <div class="section-content">
                     <p>هوک‌ها در React 16.8 معرفی شدند و انقلابی در نحوه نوشتن کامپوننت‌های تابعی ایجاد کردند. با استفاده از هوک‌ها می‌توانید state و سایر ویژگی‌های React را بدون نوشتن کلاس استفاده کنید.</p>
                     
+                    <!-- باکس نکته مهم -->
                     <div class="info-box glassmorphism-card">
                         <div class="info-box-header">
                             <i class="fas fa-info-circle"></i>
@@ -95,6 +121,7 @@
                     </div>
                     
                     <p>هوک‌ها مشکلات زیر را حل می‌کنند:</p>
+                    <!-- لیست مشکلاتی که هوک‌ها حل می‌کنند -->
                     <ul class="styled-list">
                         <li>پیچیدگی‌های ناشی از استفاده از کلاس‌ها</li>
                         <li>مشکل wrapper hell در استفاده از HOCها</li>
@@ -104,7 +131,7 @@
                 </div>
             </section>
             
-            <!-- useState Section -->
+            <!-- بخش هوک useState -->
             <section id="useState-hook" class="article-section">
                 <h2 class="section-title">
                     <span class="title-icon">
@@ -115,6 +142,7 @@
                 <div class="section-content">
                     <p>هوک useState به شما امکان می‌دهد state را در کامپوننت‌های تابعی اضافه کنید. این هوک یک جفت مقدار برمی‌گرداند: مقدار فعلی state و تابعی برای به‌روزرسانی آن.</p>
                     
+                    <!-- بلوک کد مثال useState -->
                     <div class="code-block-container glassmorphism-card">
                         <div class="code-toolbar">
                             <span class="language-label">JavaScript</span>
@@ -143,6 +171,7 @@ function Counter() {
                     <h3 class="subsection-title">مثال پیشرفته با useState</h3>
                     <p>می‌توانید از useState برای مدیریت stateهای پیچیده‌تر نیز استفاده کنید:</p>
                     
+                    <!-- بلوک کد مثال پیشرفته useState -->
                     <div class="code-block-container glassmorphism-card">
                         <div class="code-toolbar">
                             <span class="language-label">JavaScript</span>
@@ -184,7 +213,7 @@ function Counter() {
             <!-- سایر بخش‌های مقاله -->
             <!-- ... -->
             
-            <!-- Conclusion Section -->
+            <!-- بخش جمع‌بندی -->
             <section id="conclusion" class="article-section">
                 <h2 class="section-title">
                     <span class="title-icon">
@@ -195,6 +224,7 @@ function Counter() {
                 <div class="section-content">
                     <p>در این مقاله به بررسی جامع هوک‌های اصلی React پرداختیم. هوک‌ها ابزارهای قدرتمندی هستند که کدنویسی با React را ساده‌تر و خوانا‌تر می‌کنند.</p>
                     
+                    <!-- باکس نکات کلیدی -->
                     <div class="key-points glassmorphism-card">
                         <h4 class="key-points-title">نکات کلیدی:</h4>
                         <ul class="key-points-list">
@@ -207,8 +237,9 @@ function Counter() {
                 </div>
             </section>
             
-            <!-- Article Footer -->
+            <!-- فوتر مقاله -->
             <footer class="article-footer">
+                <!-- بخش امتیازدهی -->
                 <div class="rating-section">
                     <h4>این مقاله چقدر برای شما مفید بود؟</h4>
                     <div class="rating-stars">
@@ -220,8 +251,7 @@ function Counter() {
                     </div>
                 </div>
                 
-
-                
+                <!-- بخش نظرات -->
                 <div class="comments-section">
                     <h3 class="comments-title">
                         <i class="far fa-comments"></i>
@@ -234,16 +264,14 @@ function Counter() {
                 </div>
             </footer>
         </article>
-        
-    
     </main>
     
-    <!-- Back to Top Button -->
+    <!-- دکمه بازگشت به بالا -->
     <button id="back-to-top" class="back-to-top-button">
         <i class="fas fa-arrow-up"></i>
     </button>
     
-    <!-- Notification -->
+    <!-- نوتیفیکیشن -->
     <div id="notification" class="notification">
         <div class="notification-content">
             <i class="fas fa-check-circle"></i>
@@ -251,10 +279,12 @@ function Counter() {
         </div>
     </div>
     
-    <!-- Scripts -->
-
+    <!-- اسکریپت‌ها -->
     <script src="/apps/jsforarticlesfront.js"></script>
-        <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-            <script src="/apps/jsforaddfooterinallpage.js"></script>
+    <!-- اسکریپت اختصاصی مقالات -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <!-- کتابخانه particles.js برای ایجاد پس‌زمینه متحرک -->
+    <script src="/apps/jsforaddfooterinallpage.js"></script>
+    <!-- اسکریپت اضافه کردن فوتر به تمام صفحات -->
 </body>
 </html>

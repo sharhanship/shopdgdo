@@ -1,50 +1,61 @@
-// article.js
+/**
+ * =============================================
+ *                  article.js
+ * =============================================
+ * مدیریت کپی کردن کدها و سیستم امتیازدهی در مقالات
+ */
+
 document.addEventListener('DOMContentLoaded', function() {
-  // Copy Code Blocks
+  // ==================== سیستم کپی کردن کدها ====================
   document.querySelectorAll('.copy-button').forEach(button => {
     button.addEventListener('click', function() {
+      // یافتن بلوک کد مربوطه و محتوای آن
       const codeBlock = this.closest('.code-block-container').querySelector('code');
       const textToCopy = codeBlock.textContent;
       
+      // عملیات کپی به کلیپ‌بورد
       navigator.clipboard.writeText(textToCopy).then(() => {
         showNotification('کد با موفقیت کپی شد!');
       }).catch(err => {
-        console.error('Failed to copy: ', err);
+        console.error('خطا در کپی کردن: ', err);
       });
     });
   });
 
-  // Rating System
+  // ==================== سیستم امتیازدهی ====================
   const stars = document.querySelectorAll('.rating-stars i');
   stars.forEach(star => {
     star.addEventListener('click', function() {
       const rating = this.getAttribute('data-rating');
       
-      // Reset all stars
+      // ریست کردن تمام ستاره‌ها به حالت خالی
       stars.forEach(s => {
         s.classList.remove('fas');
         s.classList.add('far');
       });
       
-      // Fill stars up to the clicked one
+      // پر کردن ستاره‌ها تا امتیاز انتخاب شده
       for (let i = 0; i < rating; i++) {
         stars[i].classList.remove('far');
         stars[i].classList.add('fas');
       }
       
-      // Here you would typically send the rating to your server
+      // نمایش پیام امتیازدهی (در حالت واقعی به سرور ارسال می‌شود)
       showNotification(`امتیاز ${rating} از 5 ثبت شد!`);
     });
   });
 
-
-  // Helper function to show notifications
+  /**
+   * تابع نمایش نوتیفیکیشن موقت
+   * @param {string} message - پیام نمایشی
+   */
   function showNotification(message) {
     const notification = document.getElementById('notification');
     if (notification) {
       notification.querySelector('.notification-message').textContent = message;
       notification.classList.add('show');
       
+      // مخفی کردن خودکار پس از 3 ثانیه
       setTimeout(() => {
         notification.classList.remove('show');
       }, 3000);
@@ -52,20 +63,25 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
-// main.js
+/**
+ * =============================================
+ *                  main.js
+ * =============================================
+ * اسکریپت‌های اصلی سایت شامل:
+ * - دکمه بازگشت به بالا
+ * - پیکربندی particles.js
+ */
+
 document.addEventListener('DOMContentLoaded', function() {
- 
-  // Back to Top Button
+  // ==================== دکمه بازگشت به بالا ====================
   const backToTopBtn = document.getElementById('back-to-top');
   if (backToTopBtn) {
+    // نمایش/مخفی کردن دکمه بر اساس موقعیت اسکرول
     window.addEventListener('scroll', () => {
-      if (window.pageYOffset > 300) {
-        backToTopBtn.classList.add('visible');
-      } else {
-        backToTopBtn.classList.remove('visible');
-      }
+      backToTopBtn.classList.toggle('visible', window.pageYOffset > 300);
     });
 
+    // اسکرول نرم به بالای صفحه
     backToTopBtn.addEventListener('click', (e) => {
       e.preventDefault();
       window.scrollTo({
@@ -75,96 +91,49 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-   const preloader = document.querySelector('.preloader');
-  // Initialize Particles.js
+  // ==================== پیکربندی particles.js ====================
   if (window.particlesJS) {
     particlesJS('particles-js', {
       "particles": {
-        "number": {
-          "value": 80,
-          "density": {
-            "enable": true,
-            "value_area": 800
-          }
-        },
-        "color": {
-          "value": "#ffffff"
-        },
-        "shape": {
-          "type": "circle",
-          "stroke": {
-            "width": 0,
-            "color": "#000000"
-          }
-        },
-        "opacity": {
-          "value": 0.5,
+        "number": { "value": 80 },  // تعداد ذرات
+        "color": { "value": "#ffffff" },  // رنگ سفید
+        "shape": { "type": "circle" },  // شکل دایره‌ای
+        "opacity": { 
+          "value": 0.5,  // نیمه شفاف
           "random": true,
-          "anim": {
-            "enable": true,
-            "speed": 1,
-            "opacity_min": 0.1,
-            "sync": false
-          }
+          "anim": { "enable": true, "speed": 1 }
         },
         "size": {
-          "value": 3,
+          "value": 3,  // اندازه متوسط
           "random": true,
-          "anim": {
-            "enable": true,
-            "speed": 2,
-            "size_min": 0.1,
-            "sync": false
-          }
+          "anim": { "enable": true, "speed": 2 }
         },
         "line_linked": {
           "enable": true,
-          "distance": 150,
+          "distance": 150,  // فاصله اتصال خطوط
           "color": "#ffffff",
           "opacity": 0.4,
           "width": 1
         },
         "move": {
           "enable": true,
-          "speed": 1,
+          "speed": 1,  // سرعت حرکت آهسته
           "direction": "none",
-          "random": true,
-          "straight": false,
-          "out_mode": "out",
-          "bounce": false,
-          "attract": {
-            "enable": false,
-            "rotateX": 600,
-            "rotateY": 1200
-          }
+          "random": true
         }
       },
       "interactivity": {
-        "detect_on": "canvas",
         "events": {
-          "onhover": {
-            "enable": true,
-            "mode": "grab"
-          },
-          "onclick": {
-            "enable": true,
-            "mode": "push"
-          },
+          "onhover": { "enable": true, "mode": "grab" },  // حالت جذب هنگام هاور
+          "onclick": { "enable": true, "mode": "push" },  // حالت پرتاب هنگام کلیک
           "resize": true
         },
         "modes": {
-          "grab": {
-            "distance": 140,
-            "line_linked": {
-              "opacity": 1
-            }
-          },
-          "push": {
-            "particles_nb": 4
-          }
+          "grab": { "distance": 140 },  // شعاع جذب
+          "push": { "particles_nb": 4 }  // تعداد ذرات تولیدی هنگام کلیک
         }
       },
-      "retina_detect": true
+      "retina_detect": true  // پشتیبانی از صفحه‌های رتینا
     });
   }
 });

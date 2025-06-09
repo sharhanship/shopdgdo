@@ -2,9 +2,12 @@
 <html lang="fa" dir="rtl">
 
 <head>
+    <!-- تنظیمات پایه صفحه -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>shopdgdo-explore-members</title>
+    
+    <!-- لینک‌های استایل و فونت -->
     <link rel="shortcut icon" href="/content/images/logohead/shopdgdologoheadrm.png" type="image/x-icon">
     <link rel="stylesheet" href="/design/teammembers-explore.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -12,19 +15,24 @@
 </head>
 
 <body>
+    <!-- پس زمینه ذرات -->
     <div id="particles-js" class="particles-background"></div>
+    
+    <!-- دکمه بازگشت به صفحه اصلی -->
     <a href="/index.html" class="back-to-home">
         <i class="fas fa-arrow-right"></i>
         بازگشت به صفحه اصلی
     </a>
 
-
+    <!-- بخش اصلی نمایش اعضای تیم -->
     <div class="team-explorer-container">
+        <!-- عنوان و توضیحات صفحه -->
         <h1 class="team-title">تیم ما</h1>
         <p class="team-subtitle">
             <span class="animated-text">با اعضای بااستعداد ما آشنا شوید</span>
         </p>
 
+        <!-- دکمه‌های فیلتر دسته‌بندی اعضا -->
         <div class="filter-buttons">
             <button class="filter-btn active" data-filter="all">همه اعضا</button>
             <button class="filter-btn" data-filter="frontend">فرانت‌اند</button>
@@ -33,7 +41,9 @@
             <button class="filter-btn" data-filter="editor">تدوین‌گر</button>
         </div>
 
+        <!-- شبکه کارت‌های اعضای تیم -->
         <div class="team-members-grid">
+            
             <!-- کارت عضو 1 - فرانت‌اند -->
             <div class="member-card glass-card" data-category="frontend">
                 <div class="member-image-container">
@@ -42,8 +52,7 @@
                 </div>
                 <h2 class="member-name">نام عضو</h2>
                 <p class="member-role">توسعه‌دهنده فرانت‌اند</p>
-                <p class="member-bio">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
-                    گرافیک است.</p>
+                <p class="member-bio">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
                 <a href="/pages/infomembersteam.html" class="resume-button">
                     <span>مشاهده رزومه</span>
                     <i class="fas fa-arrow-left"></i>
@@ -58,8 +67,7 @@
                 </div>
                 <h2 class="member-name">نام عضو</h2>
                 <p class="member-role">توسعه‌دهنده بک‌اند</p>
-                <p class="member-bio">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
-                    گرافیک است.</p>
+                <p class="member-bio">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
                 <a href="#" class="resume-button">
                     <span>مشاهده رزومه</span>
                     <i class="fas fa-arrow-left"></i>
@@ -74,8 +82,7 @@
                 </div>
                 <h2 class="member-name">نام عضو</h2>
                 <p class="member-role">طراح UI/UX</p>
-                <p class="member-bio">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
-                    گرافیک است.</p>
+                <p class="member-bio">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
                 <a href="#" class="resume-button">
                     <span>مشاهده رزومه</span>
                     <i class="fas fa-arrow-left"></i>
@@ -90,8 +97,7 @@
                 </div>
                 <h2 class="member-name">نام عضو</h2>
                 <p class="member-role">تدوین‌گر ویدیو</p>
-                <p class="member-bio">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
-                    گرافیک است.</p>
+                <p class="member-bio">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
                 <a href="#" class="resume-button">
                     <span>مشاهده رزومه</span>
                     <i class="fas fa-arrow-left"></i>
@@ -100,6 +106,7 @@
         </div>
     </div>
 
+    <!-- اسکریپت‌های جاوااسکریپت -->
     <script src="/apps/jsforexploremembersfront.js"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="/apps/jsforaddfooterinallpage.js"></script>

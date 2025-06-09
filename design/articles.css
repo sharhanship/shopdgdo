@@ -1,16 +1,34 @@
-/* Reset و پایه‌های اصلی */
+/* 
+  فایل استایل اصلی مقاله
+  شامل استایل‌های پایه، کامپوننت‌ها و انیمیشن‌ها
+*/
+
+/* 
+  ============================================
+  متغیرهای CSS و استایل‌های پایه
+  ============================================
+*/
+
+/* تعریف متغیرهای رنگ، فونت و سایه‌ها */
 :root {
+  /* رنگ‌های اصلی */
   --primary-color: #4f46e5;
   --primary-light: #818cf8;
   --primary-dark: #3730a3;
   --secondary-color: #10b981;
   --secondary-light: #34d399;
   --secondary-dark: #059669;
+  
+  /* رنگ‌های متن */
   --text-primary: #1f2937;
   --text-secondary: #6b7280;
   --text-light: #f9fafb;
+  
+  /* رنگ‌های پس‌زمینه */
   --bg-light: #f3f4f6;
   --bg-dark: #111827;
+  
+  /* طیف رنگ خاکستری */
   --gray-100: #f3f4f6;
   --gray-200: #e5e7eb;
   --gray-300: #d1d5db;
@@ -20,20 +38,30 @@
   --gray-700: #374151;
   --gray-800: #1f2937;
   --gray-900: #111827;
+  
+  /* رنگ‌های وضعیت */
   --success-color: #10b981;
   --warning-color: #f59e0b;
   --error-color: #ef4444;
   --info-color: #3b82f6;
+  
+  /* فونت‌ها */
   --font-primary: 'Vazir', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   --font-code: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  
+  /* سایه‌ها */
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  
+  /* انتقال‌ها */
   --transition-base: all 0.3s ease;
   --transition-fade: opacity 0.15s linear;
   --transition-collapse: height 0.35s ease;
+  
+  /* انحنای گوشه‌ها */
   --border-radius-sm: 0.125rem;
   --border-radius-md: 0.375rem;
   --border-radius-lg: 0.5rem;
@@ -42,64 +70,59 @@
   --border-radius-full: 9999px;
 }
 
+/* ریست استایل‌های پیش‌فرض */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-   direction: rtl;
+  direction: rtl;
 }
 
+/* استایل‌های پایه HTML */
 html {
   scroll-behavior: smooth;
 }
 
+/* استایل‌های پایه بدنه */
 body {
   font-family: var(--font-primary);
   line-height: 1.6;
   text-align: right;
   overflow-x: hidden;
-   background: linear-gradient(135deg, var(--bg-dark), var(--gray-900));
+  background: linear-gradient(135deg, var(--bg-dark), var(--gray-900));
 }
 
-/* تایپوگرافی */
+/* 
+  ============================================
+  تایپوگرافی
+  ============================================
+*/
+
+/* استایل‌های سرتیترها */
 h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   line-height: 1.3;
   margin-bottom: 1rem;
 }
 
-h1 {
-  font-size: 2.5rem;
-}
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1rem; }
 
-h2 {
-  font-size: 2rem;
-}
-
-h3 {
-  font-size: 1.75rem;
-}
-
-h4 {
-  font-size: 1.5rem;
-}
-
-.name-author{
+/* استایل متن نویسنده */
+.name-author {
   color: rgb(212, 0, 255);
 }
 
-h5 {
-  font-size: 1.25rem;
-}
-
-h6 {
-  font-size: 1rem;
-}
-
+/* استایل پاراگراف */
 p {
   margin-bottom: 1.25rem;
 }
 
+/* استایل لینک‌ها */
 a {
   color: var(--primary-color);
   text-decoration: none;
@@ -111,7 +134,13 @@ a:hover {
   text-decoration: underline;
 }
 
-/* لایه پس‌زمینه ذرات */
+/* 
+  ============================================
+  کامپوننت‌های اصلی
+  ============================================
+*/
+
+/* پس‌زمینه ذرات */
 .particles-background {
   position: fixed;
   top: 0;
@@ -123,28 +152,27 @@ a:hover {
   opacity: 0.95;
 }
 
-/* هدر مقاله */
+/* هدر اصلی مقاله */
 .main-header {
   padding: 2rem 0;
   position: relative;
   margin-bottom: 3rem;
-    border: none;
-    outline: none;
-    scroll-behavior: smooth;
-    user-select: none;
-    -webkit-tap-highlight-color: transparent;
-    -moz-tap-highlight-color: transparent;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
+  border: none;
+  outline: none;
+  scroll-behavior: smooth;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  -moz-tap-highlight-color: transparent;
 }
 
+/* کانتینر هدر */
 .header-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
   border-radius: var(--border-radius-xl);
 }
+
 /* افکت Glassmorphism */
 .glassmorphism-card {
   background: rgba(0, 0, 0, 0.308);
@@ -154,6 +182,7 @@ a:hover {
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
 }
 
+/* عنوان اصلی مقاله */
 .article-main-title {
   font-size: 2.8rem;
   margin-bottom: 1.5rem;
@@ -162,6 +191,7 @@ a:hover {
   padding-bottom: 1rem;
 }
 
+/* خط زیر عنوان اصلی */
 .article-main-title::after {
   content: '';
   position: absolute;
@@ -174,6 +204,7 @@ a:hover {
   border-radius: var(--border-radius-full);
 }
 
+/* متن با گرادینت رنگی */
 .title-gradient {
   background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
   -webkit-background-clip: text;
@@ -181,6 +212,7 @@ a:hover {
   color: transparent;
 }
 
+/* بخش متادیتای مقاله */
 .article-meta-data {
   display: flex;
   justify-content: space-between;
@@ -190,12 +222,14 @@ a:hover {
   margin-bottom: 1.5rem;
 }
 
+/* اطلاعات نویسنده */
 .author-info {
   display: flex;
   align-items: center;
   gap: 1rem;
 }
 
+/* آواتار نویسنده */
 .author-avatar {
   width: 100px;
   height: 100px;
@@ -205,11 +239,13 @@ a:hover {
   box-shadow: var(--shadow-md);
 }
 
+/* نام نویسنده */
 .author-name {
   font-weight: 700;
   color: var(--text-light);
 }
 
+/* برچسب متادیتا */
 .meta-label {
   color: var(--text-light);
   opacity: 0.8;
@@ -217,11 +253,13 @@ a:hover {
   margin-left: 0.3rem;
 }
 
+/* آمار مقاله */
 .article-stats {
   display: flex;
   gap: 1.5rem;
 }
 
+/* آیتم آمار */
 .stat-item {
   display: flex;
   align-items: center;
@@ -229,6 +267,7 @@ a:hover {
   color: var(--text-light);
 }
 
+/* تگ‌های مقاله */
 .article-tags {
   display: flex;
   flex-wrap: wrap;
@@ -236,6 +275,7 @@ a:hover {
   justify-content: center;
 }
 
+/* استایل تگ */
 .tag-badge {
   background: rgba(255, 255, 255, 0.1);
   color: var(--text-light);
@@ -246,13 +286,20 @@ a:hover {
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+/* هاور تگ */
 .tag-badge:hover {
   background: rgba(255, 255, 255, 0.2);
   transform: translateY(-2px);
   text-decoration: none;
 }
 
-/* محتوای اصلی */
+/* 
+  ============================================
+  محتوای مقاله
+  ============================================
+*/
+
+/* کانتینر اصلی مقاله */
 .article-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -261,9 +308,9 @@ a:hover {
   display: grid;
   grid-template-columns: 1fr 300px;
   gap: 2rem;
-  
 }
 
+/* محتوای مقاله */
 .article-content {
   background: rgba(27, 1, 1, 0.479);
   border-radius: var(--border-radius-xl);
@@ -271,12 +318,13 @@ a:hover {
   box-shadow: var(--shadow-lg);
   position: relative;
   overflow: hidden;
-    background-color: #000000ad;
-    backdrop-filter: blur(10px);
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    color: white;
+  background-color: #000000ad;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: white;
 }
 
+/* خط بالای محتوا */
 .article-content::before {
   content: '';
   position: absolute;
@@ -287,23 +335,27 @@ a:hover {
   background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
 }
 
+/* 
+  ============================================
+  نویگیشن مقاله
+  ============================================
+*/
+
 /* نویگیشن مقاله */
 .article-navigation {
   display: flex;
   justify-content: space-between;
   margin-bottom: 2rem;
   grid-column: 1 / -1;
-    border: none;
-    outline: none;
-    scroll-behavior: smooth;
-    user-select: none;
-    -webkit-tap-highlight-color: transparent;
-    -moz-tap-highlight-color: transparent;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
+  border: none;
+  outline: none;
+  scroll-behavior: smooth;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  -moz-tap-highlight-color: transparent;
 }
 
+/* دکمه‌های نویگیشن */
 .nav-button {
   display: inline-flex;
   align-items: center;
@@ -319,6 +371,7 @@ a:hover {
   box-shadow: var(--shadow-md);
 }
 
+/* هاور دکمه‌های نویگیشن */
 .nav-button:hover {
   background: rgba(255, 255, 255, 0.2);
   transform: translateY(-3px);
@@ -327,12 +380,19 @@ a:hover {
   color: white;
 }
 
+/* 
+  ============================================
+  بخش‌های مقاله
+  ============================================
+*/
+
 /* بخش‌های مقاله */
 .article-section {
   margin-bottom: 3rem;
   position: relative;
 }
 
+/* عنوان بخش */
 .section-title {
   font-size: 1.75rem;
   margin-bottom: 1.5rem;
@@ -343,16 +403,24 @@ a:hover {
   gap: 0.75rem;
 }
 
+/* آیکون عنوان */
 .title-icon {
   color: var(--primary-color);
   display: flex;
   align-items: center;
 }
 
+/* عنوان زیربخش */
 .subsection-title {
   font-size: 1.5rem;
   margin: 1.5rem 0 1rem;
 }
+
+/* 
+  ============================================
+  کامپوننت‌های محتوا
+  ============================================
+*/
 
 /* باکس اطلاعات */
 .info-box {
@@ -363,6 +431,7 @@ a:hover {
   background: rgba(59, 130, 246, 0.05);
 }
 
+/* هدر باکس اطلاعات */
 .info-box-header {
   display: flex;
   align-items: center;
@@ -377,12 +446,14 @@ a:hover {
   margin: 1.5rem 0;
 }
 
+/* آیتم‌های لیست */
 .styled-list li {
   padding-right: 1.75rem;
   margin-bottom: 0.75rem;
   position: relative;
 }
 
+/* بولت‌های لیست */
 .styled-list li::before {
   content: '';
   position: absolute;
@@ -395,23 +466,27 @@ a:hover {
   transform: translateY(-50%);
 }
 
-/* بلوک کد */
+/* 
+  ============================================
+  بلوک کد
+  ============================================
+*/
+
+/* کانتینر بلوک کد */
 .code-block-container {
   margin: 1.5rem 0;
   border-radius: var(--border-radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-md);
   border: none;
-    outline: none;
-    scroll-behavior: smooth;
-    user-select: none;
-    -webkit-tap-highlight-color: transparent;
-    -moz-tap-highlight-color: transparent;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
+  outline: none;
+  scroll-behavior: smooth;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  -moz-tap-highlight-color: transparent;
 }
 
+/* نوار ابزار کد */
 .code-toolbar {
   display: flex;
   justify-content: space-between;
@@ -421,14 +496,15 @@ a:hover {
   color: var(--text-light);
 }
 
+/* برچسب زبان */
 .language-label {
   font-family: var(--font-code);
   font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 1px;
-
 }
 
+/* دکمه کپی */
 .copy-button {
   background: rgba(255, 255, 255, 0.1);
   border: none;
@@ -444,10 +520,12 @@ a:hover {
   transition: var(--transition-base);
 }
 
+/* هاور دکمه کپی */
 .copy-button:hover {
   background: rgba(255, 255, 255, 0.2);
 }
 
+/* محتوای بلوک کد */
 .code-block {
   background: #282c34;
   color: #abb2bf;
@@ -461,7 +539,13 @@ a:hover {
   text-align: left;
 }
 
-/* نکات کلیدی */
+/* 
+  ============================================
+  نکات کلیدی
+  ============================================
+*/
+
+/* بخش نکات کلیدی */
 .key-points {
   padding: 1.5rem;
   margin: 1.5rem 0;
@@ -470,22 +554,26 @@ a:hover {
   border-left: 4px solid var(--primary-color);
 }
 
+/* عنوان نکات کلیدی */
 .key-points-title {
   font-size: 1.25rem;
   margin-bottom: 1rem;
   color: var(--primary-color);
 }
 
+/* لیست نکات کلیدی */
 .key-points-list {
   list-style: none;
 }
 
+/* آیتم‌های نکات کلیدی */
 .key-points-list li {
   padding-right: 1.5rem;
   margin-bottom: 0.75rem;
   position: relative;
 }
 
+/* علامت نکات کلیدی */
 .key-points-list li::before {
   content: '✓';
   position: absolute;
@@ -494,6 +582,12 @@ a:hover {
   font-weight: bold;
 }
 
+/* 
+  ============================================
+  فوتر مقاله
+  ============================================
+*/
+
 /* فوتر مقاله */
 .article-footer {
   margin-top: 3rem;
@@ -501,20 +595,19 @@ a:hover {
   border-top: 1px solid var(--gray-200);
 }
 
+/* بخش امتیازدهی */
 .rating-section {
   text-align: center;
   margin-bottom: 2rem;
-   border: none;
-    outline: none;
-    scroll-behavior: smooth;
-    user-select: none;
-    -webkit-tap-highlight-color: transparent;
-    -moz-tap-highlight-color: transparent;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
+  border: none;
+  outline: none;
+  scroll-behavior: smooth;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  -moz-tap-highlight-color: transparent;
 }
 
+/* ستاره‌های امتیازدهی */
 .rating-stars {
   display: flex;
   justify-content: center;
@@ -525,26 +618,24 @@ a:hover {
   cursor: pointer;
 }
 
+/* هاور ستاره‌ها */
 .rating-stars i:hover,
 .rating-stars i:hover ~ i {
   color: var(--warning-color);
 }
 
-
-
+/* بخش نظرات */
 .comments-section {
   margin-top: 2rem;
-   border: none;
-    outline: none;
-    scroll-behavior: smooth;
-    user-select: none;
-    -webkit-tap-highlight-color: transparent;
-    -moz-tap-highlight-color: transparent;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
+  border: none;
+  outline: none;
+  scroll-behavior: smooth;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  -moz-tap-highlight-color: transparent;
 }
 
+/* عنوان نظرات */
 .comments-title {
   font-size: 1.5rem;
   margin-bottom: 1.5rem;
@@ -554,12 +645,14 @@ a:hover {
   color: var(--primary-color);
 }
 
+/* فرم نظر */
 .comment-form {
   padding: 1.5rem;
   border-radius: var(--border-radius-lg);
   background-color: #02001d;
 }
 
+/* فیلد نظر */
 .comment-input {
   width: 100%;
   padding: 1rem;
@@ -575,16 +668,19 @@ a:hover {
   resize: none;
 }
 
-::placeholder{
+/* placeholder فیلد نظر */
+::placeholder {
   color: white;
 }
 
+/* فوکوس فیلد نظر */
 .comment-input:focus {
   outline: none;
   border-color: var(--primary-color);
   box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
 }
 
+/* دکمه ارسال نظر */
 .submit-comment-button {
   background: var(--primary-color);
   color: white;
@@ -597,13 +693,18 @@ a:hover {
   transition: var(--transition-base);
 }
 
+/* هاور دکمه ارسال نظر */
 .submit-comment-button:hover {
   background: var(--primary-dark);
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
 
-
+/* 
+  ============================================
+  کامپوننت‌های عمومی
+  ============================================
+*/
 
 /* دکمه بازگشت به بالا */
 .back-to-top-button {
@@ -627,11 +728,13 @@ a:hover {
   transition: var(--transition-base);
 }
 
+/* نمایش دکمه بازگشت به بالا */
 .back-to-top-button.visible {
   opacity: 1;
   visibility: visible;
 }
 
+/* هاور دکمه بازگشت به بالا */
 .back-to-top-button:hover {
   background: var(--primary-dark);
   transform: translateY(-3px);
@@ -657,13 +760,20 @@ a:hover {
   transition: var(--transition-base);
 }
 
+/* نمایش نوتیفیکیشن */
 .notification.show {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
 }
 
-/* انیمیشن‌ها */
+/* 
+  ============================================
+  انیمیشن‌ها
+  ============================================
+*/
+
+/* تعریف انیمیشن‌ها */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -686,73 +796,6 @@ a:hover {
   100% { transform: scale(1); }
 }
 
-
-
-/* رسپانسیو */
-@media (max-width: 992px) {
-  .article-container {
-    grid-template-columns: 1fr;
-  }
-  
-  .table-of-contents {
-    position: static;
-    order: -1;
-    margin-bottom: 2rem;
-  }
-  
-  .article-main-title {
-    font-size: 2.2rem;
-  }
-  
-  .article-meta-data {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  
-  .article-stats {
-    flex-wrap: wrap;
-  }
-}
-
-@media (max-width: 768px) {
-  .header-container {
-    padding: 1.5rem;
-  }
-  
-  .article-content {
-    padding: 1.5rem;
-  }
-  
-  .author-card {
-    flex-direction: column;
-    text-align: center;
-  }
-  
-  .author-social {
-    justify-content: center;
-  }
-}
-
-@media (max-width: 576px) {
-  .article-main-title {
-    font-size: 1.8rem;
-  }
-  
-  .section-title {
-    font-size: 1.5rem;
-  }
-  
-  .article-navigation {
-    flex-direction: column;
-    gap: 1rem;
-  }
-  
-  .nav-button {
-    justify-content: center;
-  }
-}
-
-/* animations.css */
 @keyframes float {
   0%, 100% {
     transform: translateY(0);
@@ -781,7 +824,7 @@ a:hover {
   }
 }
 
-/* Animation Classes */
+/* کلاس‌های انیمیشن */
 .float-animation {
   animation: float 3s ease-in-out infinite;
 }
@@ -821,8 +864,13 @@ a:hover {
   animation: ripple 0.6s ease-out;
 }
 
-/* code-theme.css */
-/* Based on Atom One Dark theme */
+/* 
+  ============================================
+  تم کد
+  ============================================
+*/
+
+/* استایل‌های هایلایت کد */
 .hljs {
   display: block;
   overflow-x: auto;
@@ -830,18 +878,21 @@ a:hover {
   border-radius: var(--border-radius-md);
 }
 
+/* رنگ‌بندی کلمات کلیدی */
 .hljs-keyword,
 .hljs-selector-tag,
 .hljs-tag {
   color: #c678dd;
 }
 
+/* رنگ‌بندی رشته‌ها */
 .hljs-template-tag,
 .hljs-string,
 .hljs-meta .hljs-string {
   color: #98c379;
 }
 
+/* رنگ‌بندی اعداد و متغیرها */
 .hljs-number,
 .hljs-symbol,
 .hljs-variable,
@@ -851,6 +902,7 @@ a:hover {
   color: #d19a66;
 }
 
+/* رنگ‌بندی مقادیر و پارامترها */
 .hljs-literal,
 .hljs-built_in,
 .hljs-builtin-name,
@@ -859,6 +911,7 @@ a:hover {
   color: #e06c75;
 }
 
+/* رنگ‌بندی کامنت‌ها */
 .hljs-comment,
 .hljs-quote,
 .hljs-deletion {
@@ -866,11 +919,13 @@ a:hover {
   font-style: italic;
 }
 
+/* رنگ‌بندی سلکتورها */
 .hljs-selector-id,
 .hljs-selector-class {
   color: #be5046;
 }
 
+/* استایل‌های متن */
 .hljs-doctag,
 .hljs-strong {
   font-weight: bold;
@@ -880,17 +935,102 @@ a:hover {
   font-style: italic;
 }
 
+/* رنگ‌بندی توابع */
 .hljs-function,
 .hljs-title,
 .hljs-section {
   color: #61afef;
 }
 
+/* رنگ‌بندی لینک‌ها */
 .hljs-link {
   color: #56b6c2;
 }
 
+/* رنگ‌بندی اضافه‌ها */
 .hljs-addition {
   color: #98c379;
   background-color: rgba(152, 195, 121, 0.1);
+}
+
+/* 
+  ============================================
+  رسپانسیو
+  ============================================
+*/
+
+@media (max-width: 992px) {
+  /* تغییر چیدمان در صفحه‌های متوسط */
+  .article-container {
+    grid-template-columns: 1fr;
+  }
+  
+  /* تغییر موقعیت فهرست مطالب */
+  .table-of-contents {
+    position: static;
+    order: -1;
+    margin-bottom: 2rem;
+  }
+  
+  /* کاهش سایز عنوان اصلی */
+  .article-main-title {
+    font-size: 2.2rem;
+  }
+  
+  /* تغییر چیدمان متادیتا */
+  .article-meta-data {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  /* چیدمان جدید برای آمار */
+  .article-stats {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 768px) {
+  /* کاهش پدینگ در صفحه‌های کوچک */
+  .header-container {
+    padding: 1.5rem;
+  }
+  
+  /* کاهش پدینگ محتوا */
+  .article-content {
+    padding: 1.5rem;
+  }
+  
+  /* تغییر چیدمان کارت نویسنده */
+  .author-card {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  /* تغییر چیدمان شبکه‌های اجتماعی */
+  .author-social {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 576px) {
+  /* کاهش بیشتر سایز عنوان اصلی */
+  .article-main-title {
+    font-size: 1.8rem;
+  }
+  
+  /* کاهش سایز عنوان بخش */
+  .section-title {
+    font-size: 1.5rem;
+  }
+  
+  /* تغییر چیدمان نویگیشن */
+  .article-navigation {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  /* تغییر چیدمان دکمه‌های نویگیشن */
+  .nav-button {
+    justify-content: center;
+  }
 }
