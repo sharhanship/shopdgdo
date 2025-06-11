@@ -394,6 +394,38 @@ body {
     box-shadow: 0 6px 20px rgba(75, 123, 236, 0.6);
 }
 
+/* دکمه دانلود رزومه */
+.dowanload-resume-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    background: linear-gradient(45deg, #c145f2, #4b7bec);
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    margin-bottom: 15px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(75, 123, 236, 0.4);
+    width: 80%;
+    max-width: 200px;
+    border: none;
+    outline: none;
+    user-select: none;
+}
+
+.dowanload-resume-button i {
+    margin-right: 8px;
+    font-size: 0.9rem;
+}
+
+.dowanload-resume-button:hover {
+    box-shadow: 0 6px 20px rgba(145, 75, 236, 0.6);
+}
+
 /* استایل‌های رسپانسیو برای صفحه‌نمایش بزرگ */
 @media (max-width: 1200px) {
     .team-members-grid {

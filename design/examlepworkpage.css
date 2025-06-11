@@ -1,305 +1,316 @@
+/* ایمپورت فونت وزیر از CDN */
 @import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css');
 
-:root{
-        --bg-dark: #111827; /* رنگ پس‌زمینه تیره */
+/* تعریف متغیرهای رنگ */
+:root {
+    --bg-dark: #111827; /* رنگ پس‌زمینه تیره */
     --gray-900: #111827; /* رنگ خاکستری تیره */
 }
 
-/* Reset and Base Styles */
+/* استایل‌های ریست و پایه */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-   font-family: 'Vazir', sans-serif;
-    transition: all 0.5s ease-in-out;
+    font-family: 'Vazir', sans-serif; /* استفاده از فونت وزیر */
+    transition: all 0.5s ease-in-out; /* انیمیشن انتقال برای تمام المان‌ها */
 }
 
+/* استایل بدنه اصلی صفحه */
 body {
-    background: linear-gradient(135deg, var(--bg-dark), var(--gray-900));
-    color: #fff;
-    min-height: 100vh;
-    padding: 20px;
+    background: linear-gradient(135deg, var(--bg-dark), var(--gray-900)); /* گرادینت پس‌زمینه */
+    color: #fff; /* رنگ متن سفید */
+    min-height: 100vh; /* حداقل ارتفاع برابر با ارتفاع صفحه */
+    padding: 20px; /* فاصله از لبه‌ها */
 }
 
+/* استایل پس‌زمینه ذره‌ای */
 .particles-background {
     position: fixed;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: -1;
-    background: linear-gradient(135deg, var(--bg-dark), var(--gray-900));
-    opacity: 0.95;
+    z-index: -1; /* قرارگیری در پشت سایر المان‌ها */
+    background: linear-gradient(135deg, var(--bg-dark), var(--gray-900)); /* گرادینت مشابه بدنه */
+    opacity: 0.95; /* شفافیت کمی */
 }
 
-/* Glassmorphism Styles */
+/* استایل کارت‌های شیشه‌ای (Glassmorphism) */
 .glass-card {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
-    padding: 20px;
-    margin-bottom: 20px;
-    transition: all 0.3s ease;
-          backdrop-filter: blur(5px);
-    background: rgba(0, 0, 0, 0.315);
+    background: rgba(255, 255, 255, 0.05); /* پس‌زمینه نیمه شفاف */
+    backdrop-filter: blur(10px); /* افکت بلور */
+    -webkit-backdrop-filter: blur(10px); /* نسخه پشتیبان برای مرورگرهای وبکیت */
+    border-radius: 10px; /* گوشه‌های گرد */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* حاشیه نیمه شفاف */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36); /* سایه */
+    padding: 20px; /* فاصله داخلی */
+    margin-bottom: 20px; /* فاصله از المان پایینی */
+    transition: all 0.3s ease; /* انیمیشن انتقال */
+    background: rgba(0, 0, 0, 0.315); /* پس‌زمینه تیره نیمه شفاف */
 }
 
+/* استایل هاور برای کارت‌های شیشه‌ای */
 .glass-card:hover {
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.2); /* حاشیه روشن‌تر در هاور */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5); /* سایه پررنگ‌تر */
 }
 
-/* Project Header */
+/* استایل هدر پروژه */
 .project-header {
-    text-align: center;
-    margin-bottom: 30px;
+    text-align: center; /* تراز وسط */
+    margin-bottom: 30px; /* فاصله از المان پایینی */
 }
 
 .project-header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-    background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    font-size: 2.5rem; /* سایز بزرگ متن */
+    margin-bottom: 10px; /* فاصله از المان پایینی */
+    background: linear-gradient(90deg, #ff6b6b, #4ecdc4); /* گرادینت متن */
+    -webkit-background-clip: text; /* محدود کردن گرادینت به متن */
+    background-clip: text; /* نسخه استاندارد */
+    color: transparent; /* متن شفاف برای نمایش گرادینت */
 }
 
 .project-header p {
-    font-size: 1.1rem;
-    opacity: 0.8;
+    font-size: 1.1rem; /* سایز متن */
+    opacity: 0.8; /* شفافیت کمی */
 }
 
-/* Media Section */
+/* استایل بخش مدیا */
 .media-section {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+    display: flex; /* استفاده از flexbox */
+    flex-direction: column; /* چیدمان عمودی */
+    gap: 20px; /* فاصله بین المان‌ها */
 }
 
 .media-container {
-    width: 100%;
-    border-radius: 10px;
-    overflow: hidden;
+    width: 100%; /* عرض کامل */
+    border-radius: 10px; /* گوشه‌های گرد */
+    overflow: hidden; /* مخفی کردن محتوای خارج از محدوده */
 }
 
+/* استایل کانتینر ویدیو */
 .video-container {
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    position: relative; /* موقعیت نسبی برای المان‌های فرزند */
+    padding-bottom: 56.25%; /* نسبت ابعاد 16:9 */
     height: 0;
-    overflow: hidden;
+    overflow: hidden; /* مخفی کردن محتوای خارج از محدوده */
 }
 
 .video-container iframe {
-    position: absolute;
+    position: absolute; /* موقعیت مطلق نسبت به والد */
     top: 0;
     right: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
-    border-radius: 10px;
+    width: 100%; /* عرض کامل */
+    height: 100%; /* ارتفاع کامل */
+    border: none; /* حذف حاشیه */
+    border-radius: 10px; /* گوشه‌های گرد */
 }
 
-/* Slider Styles */
+/* استایل‌های اسلایدر */
 .slider-container {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    border-radius: 10px;
-    padding: 10px;
+    position: relative; /* موقعیت نسبی برای المان‌های فرزند */
+    width: 100%; /* عرض کامل */
+    overflow: hidden; /* مخفی کردن محتوای خارج از محدوده */
+    border-radius: 10px; /* گوشه‌های گرد */
+    padding: 10px; /* فاصله داخلی */
 }
 
 .slider {
-    display: flex;
-    transition: transform 0.5s ease;
-    height: 100%;
+    display: flex; /* استفاده از flexbox */
+    transition: transform 0.5s ease; /* انیمیشن انتقال */
+    height: 100%; /* ارتفاع کامل */
 }
 
 .slide {
-    min-width: 100%;
-    height: 100%;
-    display: none;
+    min-width: 100%; /* حداقل عرض برابر با عرض کانتینر */
+    height: 100%; /* ارتفاع کامل */
+    display: none; /* مخفی بودن به صورت پیش‌فرض */
 }
 
 .slide.active {
-    display: block;
+    display: block; /* نمایش اسلاید فعال */
 }
 
 .slide img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 8px;
+    width: 100%; /* عرض کامل */
+    height: auto; /* ارتفاع خودکار برای حفظ نسبت */
+    display: block; /* نمایش به صورت بلوکی */
+    border-radius: 8px; /* گوشه‌های گرد */
 }
 
+/* استایل دکمه‌های اسلایدر */
 .slider-btn {
-    position: absolute;
-    top: 50%;
-      backdrop-filter: blur(5px);
-    background: rgba(0, 0, 0, 0.315);
-    color: white;
-    border: none;
-    border-radius: 10%;
-    width: 40px;
-    height: 40px;
-    font-size: 1.9rem;
-    cursor: pointer;
-    z-index: 10;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-    border: none;
-    outline: none;
-    scroll-behavior: smooth;
-    user-select: none;
-    -webkit-tap-highlight-color: transparent;
+    position: absolute; /* موقعیت مطلق */
+    top: 50%; /* موقعیت عمودی وسط */
+    backdrop-filter: blur(5px); /* افکت بلور */
+    background: rgba(0, 0, 0, 0.315); /* پس‌زمینه نیمه شفاف */
+    color: white; /* رنگ متن سفید */
+    border: none; /* حذف حاشیه */
+    border-radius: 10%; /* گوشه‌های کمی گرد */
+    width: 40px; /* عرض ثابت */
+    height: 40px; /* ارتفاع ثابت */
+    font-size: 1.9rem; /* سایز بزرگ آیکون */
+    cursor: pointer; /* تغییر شکل کرسر به اشاره‌گر */
+    z-index: 10; /* قرارگیری در لایه بالاتر */
+    display: flex; /* استفاده از flexbox برای تراز وسط */
+    align-items: center; /* تراز عمودی وسط */
+    justify-content: center; /* تراز افقی وسط */
+    transition: all 0.3s ease; /* انیمیشن انتقال */
+    outline: none; /* حذف هایلایت هنگام فوکوس */
+    scroll-behavior: smooth; /* اسکرول نرم */
+    user-select: none; /* غیرفعال کردن انتخاب متن */
+    -webkit-tap-highlight-color: transparent; /* حذف هایلایت تاچ در موبایل */
     -moz-tap-highlight-color: transparent;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
 }
 
+/* استایل هاور برای دکمه‌های اسلایدر */
 .slider-btn:hover {
-    background: rgb(0, 0, 0);
+    background: rgb(0, 0, 0); /* پس‌زمینه سیاه در هاور */
 }
 
 .prev-btn {
-    right: 15px;
+    right: 15px; /* موقعیت دکمه قبلی */
 }
 
 .next-btn {
-    left: 15px;
+    left: 15px; /* موقعیت دکمه بعدی */
 }
 
+/* استایل نقاط نشانگر اسلایدر */
 .slider-dots {
-    position: absolute;
-    bottom: 15px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 8px;
-    z-index: 10;
+    position: absolute; /* موقعیت مطلق */
+    bottom: 15px; /* فاصله از پایین */
+    left: 50%; /* موقعیت افقی وسط */
+    transform: translateX(-50%); /* تراز دقیق وسط */
+    display: flex; /* استفاده از flexbox */
+    gap: 8px; /* فاصله بین نقاط */
+    z-index: 10; /* قرارگیری در لایه بالاتر */
 }
 
 .slider-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.5);
-    cursor: pointer;
-    transition: all 0.3s ease;
+    width: 10px; /* عرض ثابت */
+    height: 10px; /* ارتفاع ثابت */
+    border-radius: 50%; /* شکل دایره */
+    background: rgba(255, 255, 255, 0.5); /* رنگ نیمه شفاف */
+    cursor: pointer; /* تغییر شکل کرسر به اشاره‌گر */
+    transition: all 0.3s ease; /* انیمیشن انتقال */
 }
 
+/* استایل نقطه فعال اسلایدر */
 .slider-dot.active {
-    background: #ce00bd;
-    transform: scale(1.2);
+    background: #ce00bd; /* رنگ بنفش */
+    transform: scale(1.2); /* بزرگ‌تر شدن نقطه فعال */
 }
 
-/* Project Details */
+/* استایل بخش جزئیات پروژه */
 .project-details {
-    line-height: 1.8;
+    line-height: 1.8; /* فاصله بین خطوط */
 }
 
 .project-details h2 {
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-    color: #4ecdc4;
+    font-size: 1.8rem; /* سایز متن */
+    margin-bottom: 15px; /* فاصله از المان پایینی */
+    color: #4ecdc4; /* رنگ فیروزه‌ای */
 }
 
 .project-details ul {
-    list-style-type: none;
-    padding: 0;
+    list-style-type: none; /* حذف نشانگرهای لیست */
+    padding: 0; /* حذف فاصله داخلی */
 }
 
 .project-details li {
-    margin-bottom: 10px;
-    position: relative;
-    padding-right: 20px;
+    margin-bottom: 10px; /* فاصله از المان پایینی */
+    position: relative; /* موقعیت نسبی برای المان فرزند */
+    padding-right: 20px; /* فاصله داخلی برای جایگاه نشانگر */
 }
 
+/* استایل نشانگرهای سفارشی لیست */
 .project-details li:before {
-    content: "•";
-    color: #ff6b6b;
-    font-size: 1.5rem;
-    position: absolute;
-    right: 0;
-    top: -5px;
+    content: "•"; /* استفاده از نقطه به عنوان نشانگر */
+    color: #ff6b6b; /* رنگ قرمز */
+    font-size: 1.5rem; /* سایز بزرگ */
+    position: absolute; /* موقعیت مطلق */
+    right: 0; /* چسبیدن به راست */
+    top: -5px; /* تنظیم موقعیت عمودی */
 }
 
-/* CTA Button */
+/* استایل دکمه CTA (Call To Action) */
 .cta-button {
-    display: inline-block;
-    padding: 12px 30px;
-    color: white;
-    text-decoration: none;
-    border-radius: 10px;
-    font-weight: bold;
-    text-align: center;
-transition: all 0.5s ease;
-    cursor: pointer;
-    font-size: 1.1rem;
-    margin-top: 20px;
-    margin-left: 10px;
-    outline: none;
-    scroll-behavior: smooth;
-    user-select: none;
-    -webkit-tap-highlight-color: transparent;
+    display: inline-block; /* نمایش به صورت inline-block */
+    padding: 12px 30px; /* فاصله داخلی */
+    color: white; /* رنگ متن سفید */
+    text-decoration: none; /* حذف زیرخط */
+    border-radius: 10px; /* گوشه‌های گرد */
+    font-weight: bold; /* متن پررنگ */
+    text-align: center; /* تراز وسط */
+    transition: all 0.5s ease; /* انیمیشن انتقال */
+    cursor: pointer; /* تغییر شکل کرسر به اشاره‌گر */
+    font-size: 1.1rem; /* سایز متن */
+    margin-top: 20px; /* فاصله از بالا */
+    margin-left: 10px; /* فاصله از چپ */
+    outline: none; /* حذف هایلایت هنگام فوکوس */
+    scroll-behavior: smooth; /* اسکرول نرم */
+    user-select: none; /* غیرفعال کردن انتخاب متن */
+    -webkit-tap-highlight-color: transparent; /* حذف هایلایت تاچ در موبایل */
     -moz-tap-highlight-color: transparent;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
 }
 
+/* استایل هاور برای دکمه CTA */
 .cta-button:hover {
-    box-shadow: 0 6px 20px rgba(255, 242, 253, 0.37);
+    box-shadow: 0 6px 20px rgba(255, 242, 253, 0.37); /* سایه روشن در هاور */
 }
 
 .cta-container {
-    text-align: center;
-    margin-top: 40px;
+    text-align: center; /* تراز وسط */
+    margin-top: 40px; /* فاصله از بالا */
 }
 
-/* Responsive Design */
+/* استایل‌های رسپانسیو برای صفحه‌های بزرگ‌تر از 768px */
 @media (min-width: 768px) {
     .container {
-        max-width: 900px;
-        margin: 0 auto;
+        max-width: 900px; /* حداکثر عرض */
+        margin: 0 auto; /* تراز وسط */
     }
 
     .media-section {
-        flex-direction: row;
+        flex-direction: row; /* چیدمان افقی */
     }
 
     .media-section .slider-container,
     .media-section .media-container {
-        flex: 1;
+        flex: 1; /* تقسیم فضای برابر */
     }
 
     .project-header h1 {
-        font-size: 3rem;
+        font-size: 3rem; /* سایز بزرگ‌تر متن */
     }
 }
 
+/* استایل‌های رسپانسیو برای صفحه‌های کوچک‌تر از 480px */
 @media (max-width: 480px) {
     .project-header h1 {
-        font-size: 2rem;
+        font-size: 2rem; /* سایز کوچک‌تر متن */
     }
 
     .project-details h2 {
-        font-size: 1.5rem;
+        font-size: 1.5rem; /* سایز کوچک‌تر متن */
     }
 
     .cta-button {
-        width: 100%;
-        padding: 15px 30px;
+        width: 100%; /* عرض کامل */
+        padding: 15px 30px; /* فاصله داخلی بیشتر */
     }
 
     .slider-btn {
-        width: 30px;
-        height: 30px;
-        font-size: 1rem;
+        width: 30px; /* عرض کوچک‌تر */
+        height: 30px; /* ارتفاع کوچک‌تر */
+        font-size: 1rem; /* سایز کوچک‌تر آیکون */
     }
 }

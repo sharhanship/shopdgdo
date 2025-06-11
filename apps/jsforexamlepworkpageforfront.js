@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentSlide = 0;
     const slideCount = slides.length;
 
-        // Initialize Particles.js
     if (window.particlesJS) {
         particlesJS('particles-js', {
             "particles": {
