@@ -510,6 +510,15 @@ section#home {
     text-decoration: none;
     font-weight: 500;
     transition: var(--transition);
+        border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    -moz-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 
 .btn-primary {
@@ -555,6 +564,15 @@ section#home {
     height: 100%;
     object-fit: cover;
     animation: rotate 10s ease-in-out infinite;
+        border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    -moz-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 
 @keyframes rotate {

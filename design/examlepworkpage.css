@@ -1,0 +1,305 @@
+@import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css');
+
+:root{
+        --bg-dark: #111827; /* رنگ پس‌زمینه تیره */
+    --gray-900: #111827; /* رنگ خاکستری تیره */
+}
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+   font-family: 'Vazir', sans-serif;
+    transition: all 0.5s ease-in-out;
+}
+
+body {
+    background: linear-gradient(135deg, var(--bg-dark), var(--gray-900));
+    color: #fff;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.particles-background {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    background: linear-gradient(135deg, var(--bg-dark), var(--gray-900));
+    opacity: 0.95;
+}
+
+/* Glassmorphism Styles */
+.glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+          backdrop-filter: blur(5px);
+    background: rgba(0, 0, 0, 0.315);
+}
+
+.glass-card:hover {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+}
+
+/* Project Header */
+.project-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.project-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.project-header p {
+    font-size: 1.1rem;
+    opacity: 0.8;
+}
+
+/* Media Section */
+.media-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.media-container {
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 10px;
+}
+
+/* Slider Styles */
+.slider-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease;
+    height: 100%;
+}
+
+.slide {
+    min-width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.slide.active {
+    display: block;
+}
+
+.slide img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+      backdrop-filter: blur(5px);
+    background: rgba(0, 0, 0, 0.315);
+    color: white;
+    border: none;
+    border-radius: 10%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.9rem;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    -moz-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.slider-btn:hover {
+    background: rgb(0, 0, 0);
+}
+
+.prev-btn {
+    right: 15px;
+}
+
+.next-btn {
+    left: 15px;
+}
+
+.slider-dots {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+}
+
+.slider-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.slider-dot.active {
+    background: #ce00bd;
+    transform: scale(1.2);
+}
+
+/* Project Details */
+.project-details {
+    line-height: 1.8;
+}
+
+.project-details h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #4ecdc4;
+}
+
+.project-details ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.project-details li {
+    margin-bottom: 10px;
+    position: relative;
+    padding-right: 20px;
+}
+
+.project-details li:before {
+    content: "•";
+    color: #ff6b6b;
+    font-size: 1.5rem;
+    position: absolute;
+    right: 0;
+    top: -5px;
+}
+
+/* CTA Button */
+.cta-button {
+    display: inline-block;
+    padding: 12px 30px;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+    text-align: center;
+transition: all 0.5s ease;
+    cursor: pointer;
+    font-size: 1.1rem;
+    margin-top: 20px;
+    margin-left: 10px;
+    outline: none;
+    scroll-behavior: smooth;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    -moz-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.cta-button:hover {
+    box-shadow: 0 6px 20px rgba(255, 242, 253, 0.37);
+}
+
+.cta-container {
+    text-align: center;
+    margin-top: 40px;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    .media-section {
+        flex-direction: row;
+    }
+
+    .media-section .slider-container,
+    .media-section .media-container {
+        flex: 1;
+    }
+
+    .project-header h1 {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .project-header h1 {
+        font-size: 2rem;
+    }
+
+    .project-details h2 {
+        font-size: 1.5rem;
+    }
+
+    .cta-button {
+        width: 100%;
+        padding: 15px 30px;
+    }
+
+    .slider-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 1rem;
+    }
+}
