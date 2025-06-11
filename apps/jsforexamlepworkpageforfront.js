@@ -1,123 +1,158 @@
+/**
+ * =============================================
+ *               slider-particles.js
+ * =============================================
+ * مدیریت اسلایدر تصاویر و انیمیشن ذرات در پس‌زمینه
+ * قابلیت‌ها شامل:
+ * - اسلایدر با قابلیت حرکت به چپ و راست
+ * - پیمایش با دکمه‌ها، نقاط و صفحه کلید
+ * - انیمیشن ذرات تعاملی با particles.js
+ */
+
 document.addEventListener('DOMContentLoaded', function() {
-    // Slider functionality
+    // ██████████████████████████████████████████████
+    // ████████████ سیستم اسلایدر تصاویر ████████████
+    // ██████████████████████████████████████████████
+    
+    // انتخاب عناصر اصلی اسلایدر
     const slider = document.querySelector('.slider');
     const slides = document.querySelectorAll('.slide');
     const prevBtn = document.querySelector('.prev-btn');
     const nextBtn = document.querySelector('.next-btn');
     const dotsContainer = document.querySelector('.slider-dots');
     
+    // متغیرهای حالت اسلایدر
     let currentSlide = 0;
     const slideCount = slides.length;
 
+    // ██████████████████████████████████████████████
+    // ████████ پیکربندی انیمیشن ذرات ████████
+    // ██████████████████████████████████████████████
     if (window.particlesJS) {
         particlesJS('particles-js', {
             "particles": {
                 "number": {
-                    "value": 80,
+                    "value": 80,  // تعداد ذرات
                     "density": {
-                        "enable": true,
-                        "value_area": 800
+                        "enable": true,  // تراکم پویا
+                        "value_area": 800  // مساحت توزیع
                     }
                 },
                 "color": {
-                    "value": "#ffffff"
+                    "value": "#ffffff"  // رنگ سفید
                 },
                 "shape": {
-                    "type": "circle",
+                    "type": "circle",  // شکل دایره‌ای
                     "stroke": {
-                        "width": 0,
-                        "color": "#000000"
+                        "width": 0,  // بدون حاشیه
+                        "color": "#000000"  // رنگ حاشیه
                     }
                 },
                 "opacity": {
-                    "value": 0.5,
-                    "random": true,
+                    "value": 0.5,  // شفافیت 50%
+                    "random": true,  // شفافیت تصادفی
                     "anim": {
-                        "enable": true,
-                        "speed": 1,
-                        "opacity_min": 0.1,
-                        "sync": false
+                        "enable": true,  // انیمیشن شفافیت
+                        "speed": 1,  // سرعت انیمیشن
+                        "opacity_min": 0.1,  // حداقل شفافیت
+                        "sync": false  // غیرهمزمان
                     }
                 },
                 "size": {
-                    "value": 3,
-                    "random": true,
+                    "value": 3,  // اندازه پایه
+                    "random": true,  // اندازه تصادفی
                     "anim": {
-                        "enable": true,
-                        "speed": 2,
-                        "size_min": 0.1,
-                        "sync": false
+                        "enable": true,  // انیمیشن اندازه
+                        "speed": 2,  // سرعت انیمیشن
+                        "size_min": 0.1,  // حداقل اندازه
+                        "sync": false  // غیرهمزمان
                     }
                 },
                 "line_linked": {
-                    "enable": true,
-                    "distance": 150,
-                    "color": "#ffffff",
-                    "opacity": 0.4,
-                    "width": 1
+                    "enable": true,  // فعال کردن خطوط اتصال
+                    "distance": 150,  // حداکثر فاصله اتصال
+                    "color": "#ffffff",  // رنگ خطوط
+                    "opacity": 0.4,  // شفافیت خطوط
+                    "width": 1  // ضخامت خطوط
                 },
                 "move": {
-                    "enable": true,
-                    "speed": 1,
-                    "direction": "none",
-                    "random": true,
-                    "straight": false,
-                    "out_mode": "out",
-                    "bounce": false,
+                    "enable": true,  // فعال کردن حرکت
+                    "speed": 1,  // سرعت حرکت
+                    "direction": "none",  // جهت حرکت
+                    "random": true,  // حرکت تصادفی
+                    "straight": false,  // حرکت غیر مستقیم
+                    "out_mode": "out",  // رفتار هنگام خروج
+                    "bounce": false,  // عدم برخورد با مرز
                     "attract": {
-                        "enable": false,
-                        "rotateX": 600,
-                        "rotateY": 1200
+                        "enable": false,  // جذب غیرفعال
+                        "rotateX": 600,  // جذب در محور X
+                        "rotateY": 1200  // جذب در محور Y
                     }
                 }
             },
             "interactivity": {
-                "detect_on": "canvas",
+                "detect_on": "canvas",  // تشخیص روی کانواس
                 "events": {
                     "onhover": {
-                        "enable": true,
-                        "mode": "grab"
+                        "enable": true,  // فعال با هاور
+                        "mode": "grab"  // حالت جذب
                     },
                     "onclick": {
-                        "enable": true,
-                        "mode": "push"
+                        "enable": true,  // فعال با کلیک
+                        "mode": "push"  // حالت پرتاب
                     },
-                    "resize": true
+                    "resize": true  // پاسخ به تغییر سایز
                 },
                 "modes": {
                     "grab": {
-                        "distance": 140,
+                        "distance": 140,  // شعاع جذب
                         "line_linked": {
-                            "opacity": 1
+                            "opacity": 1  // شفافیت خطوط هنگام جذب
                         }
                     },
                     "push": {
-                        "particles_nb": 4
+                        "particles_nb": 4  // تعداد ذرات تولیدی
                     }
                 }
             },
-            "retina_detect": true
+            "retina_detect": true  // پشتیبانی از صفحه رتینا
         });
     }
     
-    // Create dots
+    // ██████████████████████████████████████████████
+    // ███████████ توابع مدیریت اسلایدر ███████████
+    // ██████████████████████████████████████████████
+    
+    /**
+     * ایجاد نقاط راهنما برای اسلایدر
+     * هر نقطه نمایانگر یک اسلاید است
+     */
     function createDots() {
         slides.forEach((_, index) => {
             const dot = document.createElement('div');
             dot.classList.add('slider-dot');
+            
+            // فعال کردن نقطه مربوط به اسلاید فعلی
             if (index === currentSlide) dot.classList.add('active');
+            
+            // افزودن رویداد کلیک برای پرش به اسلاید مربوطه
             dot.addEventListener('click', () => goToSlide(index));
+            
             dotsContainer.appendChild(dot);
         });
     }
     
-    // Go to specific slide
+    /**
+     * پرش به اسلاید مشخص
+     * @param {number} slideIndex - اندیس اسلاید مورد نظر
+     */
     function goToSlide(slideIndex) {
+        // به روزرسانی اسلایدهای مرئي
         slides.forEach((slide, index) => {
             slide.classList.toggle('active', index === slideIndex);
         });
         
-        // Update dots
+        // به روزرسانی نقاط راهنما
         const dots = document.querySelectorAll('.slider-dot');
         dots.forEach((dot, index) => {
             dot.classList.toggle('active', index === slideIndex);
@@ -126,35 +161,50 @@ document.addEventListener('DOMContentLoaded', function() {
         currentSlide = slideIndex;
     }
     
-    // Next slide
+    /**
+     * رفتن به اسلاید بعدی
+     * در صورت رسیدن به آخرین اسلاید، به ابتدا بازمی‌گردد
+     */
     function nextSlide() {
         currentSlide = (currentSlide + 1) % slideCount;
         goToSlide(currentSlide);
     }
     
-    // Previous slide
+    /**
+     * رفتن به اسلاید قبلی
+     * در صورت رسیدن به اولین اسلاید، به انتها می‌رود
+     */
     function prevSlide() {
         currentSlide = (currentSlide - 1 + slideCount) % slideCount;
         goToSlide(currentSlide);
     }
     
-    // Event listeners
+    // ██████████████████████████████████████████████
+    // ██████████ رویدادهای تعاملی اسلایدر ██████████
+    // ██████████████████████████████████████████████
+    
+    // رویداد کلیک برای دکمه بعدی
     nextBtn.addEventListener('click', nextSlide);
+    
+    // رویداد کلیک برای دکمه قبلی
     prevBtn.addEventListener('click', prevSlide);
     
-    // Keyboard navigation
+    // پیمایش با صفحه کلید
     document.addEventListener('keydown', function(e) {
         if (e.key === 'ArrowRight') {
-            nextSlide();
+            nextSlide();  // فلش راست برای اسلاید بعدی
         } else if (e.key === 'ArrowLeft') {
-            prevSlide();
+            prevSlide();  // فلش چپ برای اسلاید قبلی
         }
     });
     
-    // Initialize slider
-    createDots();
-    goToSlide(0);
+    // ██████████████████████████████████████████████
+    // ██████████ راه‌اندازی اولیه اسلایدر ██████████
+    // ██████████████████████████████████████████████
     
-    // Auto slide (optional)
-    // setInterval(nextSlide, 5000);
+    createDots();  // ایجاد نقاط راهنما
+    goToSlide(0);  // نمایش اولین اسلاید
+    
+    // فعال کردن اسلاید خودکار (اختیاری)
+    // setInterval(nextSlide, 5000);  // هر 5 ثانیه اسلاید بعدی
 });

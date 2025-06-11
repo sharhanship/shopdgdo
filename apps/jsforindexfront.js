@@ -1,249 +1,258 @@
+/**
+ * =============================================
+ *               main-interactions.js
+ * =============================================
+ * مدیریت تمام تعاملات اصلی صفحه شامل:
+ * - تایپ خودکار متن
+ * - انیمیشن ذرات پس‌زمینه
+ * - سیستم فیلتر نمونه کارها
+ * - انیمیشن مهارت‌ها
+ * - نویگیشن اسکرولی
+ * - منوی موبایل
+ */
+
 document.addEventListener('DOMContentLoaded', function () {
-    // تنظیمات اولیه
-    const body = document.body
-    const textElement = document.getElementById('typing-text')
-    const cursor = document.querySelector('.cursor')
+    // ██████████████████████████████████████████████
+    // █████████ سیستم تایپ خودکار متن █████████
+    // ██████████████████████████████████████████████
+    
+    // انتخاب عناصر مورد نیاز
+    const textElement = document.getElementById('typing-text');
+    const cursor = document.querySelector('.cursor');
+    
+    // لیست متون برای تایپ خودکار
     const professions = [
         'تیم توسعه دهنده سایت',
         'تیم توسعه اپلیکیشن',
         'تیم خدمات اینترنتی',
-    ]
-    let professionIndex = 0
-    let charIndex = 0
-    let isDeleting = false
-    let typeSpeed = 100
+    ];
+    
+    // متغیرهای حالت
+    let professionIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let typeSpeed = 100;
 
+    /**
+     * تابع اصلی برای تایپ خودکار متن
+     * به صورت بازگشتی فراخوانی می‌شود
+     */
     function typeWriter() {
-        const currentText = professions[professionIndex]
-        const displayText = currentText.substring(0, charIndex)
+        const currentText = professions[professionIndex];
+        const displayText = currentText.substring(0, charIndex);
+        
+        // به‌روزرسانی متن نمایش داده شده
+        textElement.textContent = displayText;
 
-        textElement.textContent = displayText
-
+        // مدیریت حالت‌های مختلف تایپ/پاک‌کردن
         if (!isDeleting && charIndex === currentText.length) {
-            cursor.classList.remove('inactive')
-            isDeleting = true
-            typeSpeed = 3000
+            // توقف در پایان متن
+            cursor.classList.remove('inactive');
+            isDeleting = true;
+            typeSpeed = 3000; // توقف 3 ثانیه‌ای
         } else if (isDeleting && charIndex === 0) {
-            cursor.classList.add('inactive')
-            isDeleting = false
-            professionIndex = (professionIndex + 1) % professions.length
-            typeSpeed = 500
+            // شروع متن جدید
+            cursor.classList.add('inactive');
+            isDeleting = false;
+            professionIndex = (professionIndex + 1) % professions.length;
+            typeSpeed = 500; // تأخیر قبل از شروع متن جدید
         } else {
-            typeSpeed = isDeleting ? 50 : 100
-            cursor.classList.remove('inactive')
-
-            if (isDeleting) {
-                charIndex--
-            } else {
-                charIndex++
-            }
+            // تنظیم سرعت بر اساس حالت
+            typeSpeed = isDeleting ? 50 : 100;
+            cursor.classList.remove('inactive');
+            
+            // افزایش یا کاهش اندیس کاراکتر
+            isDeleting ? charIndex-- : charIndex++;
         }
 
-        setTimeout(typeWriter, typeSpeed)
+        // فراخوانی مجدد با تأخیر
+        setTimeout(typeWriter, typeSpeed);
     }
 
+    // شروع انیمیشن پس از بارگذاری صفحه
     window.addEventListener('load', () => {
         setTimeout(() => {
-            cursor.classList.remove('inactive')
-            typeWriter()
-        }, 1000)
-    })
+            cursor.classList.remove('inactive');
+            typeWriter();
+        }, 1000); // تأخیر 1 ثانیه‌ای قبل از شروع
+    });
 
-
-    // Initialize Particles.js
+    // ██████████████████████████████████████████████
+    // ███████ پیکربندی انیمیشن ذرات ███████
+    // ██████████████████████████████████████████████
+    
     if (window.particlesJS) {
         particlesJS('particles-js', {
             "particles": {
                 "number": {
-                    "value": 80,
+                    "value": 80, // تعداد ذرات
                     "density": {
-                        "enable": true,
-                        "value_area": 800
+                        "enable": true, // تراکم پویا
+                        "value_area": 800 // مساحت توزیع
                     }
                 },
                 "color": {
-                    "value": "#ffffff"
+                    "value": "#ffffff" // رنگ سفید
                 },
                 "shape": {
-                    "type": "circle",
+                    "type": "circle", // شکل دایره‌ای
                     "stroke": {
-                        "width": 0,
-                        "color": "#000000"
+                        "width": 0, // بدون حاشیه
+                        "color": "#000000" // رنگ حاشیه
                     }
                 },
                 "opacity": {
-                    "value": 0.5,
-                    "random": true,
+                    "value": 0.5, // شفافیت 50%
+                    "random": true, // شفافیت تصادفی
                     "anim": {
-                        "enable": true,
-                        "speed": 1,
-                        "opacity_min": 0.1,
-                        "sync": false
+                        "enable": true, // انیمیشن شفافیت
+                        "speed": 1, // سرعت انیمیشن
+                        "opacity_min": 0.1, // حداقل شفافیت
+                        "sync": false // غیرهمزمان
                     }
                 },
                 "size": {
-                    "value": 3,
-                    "random": true,
+                    "value": 3, // اندازه پایه
+                    "random": true, // اندازه تصادفی
                     "anim": {
-                        "enable": true,
-                        "speed": 2,
-                        "size_min": 0.1,
-                        "sync": false
+                        "enable": true, // انیمیشن اندازه
+                        "speed": 2, // سرعت انیمیشن
+                        "size_min": 0.1, // حداقل اندازه
+                        "sync": false // غیرهمزمان
                     }
                 },
                 "line_linked": {
-                    "enable": true,
-                    "distance": 150,
-                    "color": "#ffffff",
-                    "opacity": 0.4,
-                    "width": 1
+                    "enable": true, // فعال کردن خطوط اتصال
+                    "distance": 150, // حداکثر فاصله اتصال
+                    "color": "#ffffff", // رنگ خطوط
+                    "opacity": 0.4, // شفافیت خطوط
+                    "width": 1 // ضخامت خطوط
                 },
                 "move": {
-                    "enable": true,
-                    "speed": 1,
-                    "direction": "none",
-                    "random": true,
-                    "straight": false,
-                    "out_mode": "out",
-                    "bounce": false,
+                    "enable": true, // فعال کردن حرکت
+                    "speed": 1, // سرعت حرکت
+                    "direction": "none", // جهت حرکت
+                    "random": true, // حرکت تصادفی
+                    "straight": false, // حرکت غیرمستقیم
+                    "out_mode": "out", // رفتار هنگام خروج
+                    "bounce": false, // عدم برخورد با مرز
                     "attract": {
-                        "enable": false,
-                        "rotateX": 600,
-                        "rotateY": 1200
+                        "enable": false, // جذب غیرفعال
+                        "rotateX": 600, // جذب در محور X
+                        "rotateY": 1200 // جذب در محور Y
                     }
                 }
             },
             "interactivity": {
-                "detect_on": "canvas",
+                "detect_on": "canvas", // تشخیص روی کانواس
                 "events": {
                     "onhover": {
-                        "enable": true,
-                        "mode": "grab"
+                        "enable": true, // فعال با هاور
+                        "mode": "grab" // حالت جذب
                     },
                     "onclick": {
-                        "enable": true,
-                        "mode": "push"
+                        "enable": true, // فعال با کلیک
+                        "mode": "push" // حالت پرتاب
                     },
-                    "resize": true
+                    "resize": true // پاسخ به تغییر سایز
                 },
                 "modes": {
                     "grab": {
-                        "distance": 140,
+                        "distance": 140, // شعاع جذب
                         "line_linked": {
-                            "opacity": 1
+                            "opacity": 1 // شفافیت خطوط هنگام جذب
                         }
                     },
                     "push": {
-                        "particles_nb": 4
+                        "particles_nb": 4 // تعداد ذرات تولیدی
                     }
                 }
             },
-            "retina_detect": true
+            "retina_detect": true // پشتیبانی از صفحه رتینا
         });
     }
 
-
-    // فیلتر نمونه کارها
-    const filterBtns = document.querySelectorAll('.filter-btn')
-    const portfolioItems = document.querySelectorAll('.portfolio-item')
+    // ██████████████████████████████████████████████
+    // ███████ سیستم فیلتر نمونه کارها ███████
+    // ██████████████████████████████████████████████
+    
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
 
     filterBtns.forEach((btn) => {
         btn.addEventListener('click', function () {
-            // تغییر وضعیت فعال دکمه‌های فیلتر
-            filterBtns.forEach((btn) => btn.classList.remove('active'))
-            this.classList.add('active')
+            // به‌روزرسانی دکمه فعال
+            filterBtns.forEach((btn) => btn.classList.remove('active'));
+            this.classList.add('active');
 
-            const filterValue = this.getAttribute('data-filter')
+            const filterValue = this.getAttribute('data-filter');
 
-            // فیلتر نمونه کارها
+            // اعمال فیلتر بر روی آیتم‌ها
             portfolioItems.forEach((item) => {
-                if (
-                    filterValue === 'all' ||
-                    item.getAttribute('data-category') === filterValue
-                ) {
-                    item.style.display = 'block'
+                if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                    item.style.display = 'block'; // نمایش آیتم
                 } else {
-                    item.style.display = 'none'
+                    item.style.display = 'none'; // مخفی کردن آیتم
                 }
-            })
-        })
-    })
+            });
+        });
+    });
 
-    // فعال کردن انیمیشن مهارت‌ها هنگام اسکرول
-    const skillBars = document.querySelectorAll('.skill-progress')
+    // ██████████████████████████████████████████████
+    // ███████ انیمیشن مهارت‌ها ███████
+    // ██████████████████████████████████████████████
+    
+    const skillBars = document.querySelectorAll('.skill-progress');
 
+    /**
+     * فعال‌سازی انیمیشن مهارت‌ها
+     */
     function animateSkills() {
         skillBars.forEach((bar) => {
-            const percent = bar.style.width
-            bar.style.width = '0'
+            const percent = bar.style.width;
+            bar.style.width = '0'; // شروع از صفر
 
             setTimeout(() => {
-                bar.style.width = percent
-            }, 100)
-        })
+                bar.style.width = percent; // انیمیشن به مقدار نهایی
+            }, 100); // تأخیر برای اثر آبشاری
+        });
     }
 
-    // مشاهده بخش مهارت‌ها
-    const skillsSection = document.querySelector('#skills')
+    // مشاهده بخش مهارت‌ها با IntersectionObserver
+    const skillsSection = document.querySelector('#skills');
     const skillsObserver = new IntersectionObserver(
         (entries) => {
             if (entries[0].isIntersecting) {
-                animateSkills()
-                skillsObserver.unobserve(skillsSection)
+                animateSkills();
+                skillsObserver.unobserve(skillsSection); // توقف مشاهده پس از فعال‌سازی
             }
         },
-        { threshold: 0.3 },
-    )
+        { threshold: 0.3 }, // فعال شدن وقتی 30% بخش قابل مشاهده باشد
+    );
 
-    skillsObserver.observe(skillsSection)
+    skillsObserver.observe(skillsSection);
 
-    // تغییر فعال منو بر اساس اسکرول
-    window.addEventListener('scroll', function () {
-        const scrollPosition = window.scrollY
-
-        document.querySelectorAll('.section').forEach((section) => {
-            const sectionTop = section.offsetTop - 100
-            const sectionHeight = section.offsetHeight
-            const sectionId = section.getAttribute('id')
-
-            if (
-                scrollPosition >= sectionTop &&
-                scrollPosition < sectionTop + sectionHeight
-            ) {
-                document.querySelectorAll('.nav-link').forEach((link) => {
-                    link.classList.remove('active')
-                    if (link.getAttribute('href') === `#${sectionId}`) {
-                        link.classList.add('active')
-
-                        // تغییر وضعیت فعال بخش‌ها
-                        document.querySelectorAll('.section').forEach((s) => {
-                            s.classList.remove('active')
-                        })
-                        section.classList.add('active')
-                    }
-                })
-            }
-        })
-    })
-
-
-    // تنظیم ارتفاع هدر
+    // ██████████████████████████████████████████████
+    // ███████ سیستم نویگیشن اسکرولی ███████
+    // ██████████████████████████████████████████████
+    
+    // تنظیم ارتفاع هدر و حاشیه‌ها
     const headerHeight = document.querySelector('.header-container').offsetHeight;
     document.documentElement.style.setProperty('--header-height', `${headerHeight}px`);
     document.body.style.paddingTop = `${headerHeight}px`;
 
-    // تنظیم scroll-margin برای سکشن‌ها
+    // تنظیم scroll-margin برای اسکرول دقیق به بخش‌ها
     document.querySelectorAll('section').forEach(section => {
         section.style.scrollMarginTop = `${headerHeight}px`;
     });
 
-    // متغیرهای global
+    // متغیرهای منوی موبایل
     const menuToggle = document.querySelector('.mobile-menu-toggle');
     const capsuleHeader = document.querySelector('.capsule-header');
     const menuItems = document.querySelectorAll('.menu-item');
     const sections = document.querySelectorAll('section');
 
-    // ایجاد منوی موبایل
+    // ایجاد منوی موبایل پویا
     const mobileMenu = document.createElement('div');
     mobileMenu.className = 'mobile-menu';
 
@@ -256,29 +265,27 @@ document.addEventListener('DOMContentLoaded', function () {
     document.body.appendChild(mobileMenu);
     const mobileMenuItems = mobileMenu.querySelectorAll('.menu-item');
 
-    // فعال کردن بخش صفحه اصلی به صورت پیش‌فرض
+    // فعال‌سازی بخش صفحه اصلی به صورت پیش‌فرض
     document.querySelector('section#home').classList.add('active');
 
-    // مدیریت کلیک روی دکمه منو در موبایل
+    /**
+     * مدیریت نمایش/مخفی کردن منوی موبایل
+     */
     menuToggle.addEventListener('click', function () {
         this.classList.toggle('active');
         mobileMenu.classList.toggle('active');
-
-        if (mobileMenu.classList.contains('active')) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = '';
-        }
+        document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
     });
 
-    // تابع تغییر بخش‌ها
+    /**
+     * تغییر به بخش مورد نظر
+     * @param {string} sectionId - ID بخش هدف
+     */
     function changeSection(sectionId) {
-        // مخفی کردن همه بخش‌ها
+        // به‌روزرسانی وضعیت فعال بخش‌ها
         sections.forEach(section => {
             section.classList.remove('active');
         });
-
-        // نمایش بخش انتخاب شده
         document.getElementById(sectionId).classList.add('active');
 
         // بستن منوی موبایل در حالت موبایل
@@ -288,30 +295,38 @@ document.addEventListener('DOMContentLoaded', function () {
             document.body.style.overflow = '';
         }
 
-        // اسکرول به بخش مورد نظر
+        // اسکرول نرم به بخش مورد نظر
         document.getElementById(sectionId).scrollIntoView({
             behavior: 'smooth',
             block: 'start'
         });
     }
 
-    // اضافه کردن رویداد کلیک برای آیتم‌های منو
+    /**
+     * تنظیم رویدادهای کلیک برای آیتم‌های منو
+     * @param {NodeList} items - لیست آیتم‌های منو
+     */
     function setupMenuItems(items) {
         items.forEach(item => {
             item.addEventListener('click', function () {
                 const section = this.getAttribute('data-section');
                 changeSection(section);
 
-                // افزودن افکت فعال به آیتم انتخاب شده
+                // به‌روزرسانی وضعیت فعال آیتم‌ها
                 items.forEach(i => i.classList.remove('active-item'));
                 this.classList.add('active-item');
             });
         });
     }
 
+    // راه‌اندازی منوهای دسکتاپ و موبایل
     setupMenuItems(menuItems);
     setupMenuItems(mobileMenuItems);
 
+    // ██████████████████████████████████████████████
+    // ███████ مدیریت اسکرول و نویگیشن ███████
+    // ██████████████████████████████████████████████
+    
     // تشخیص بخش فعال بر اساس اسکرول
     window.addEventListener('scroll', function () {
         let currentSection = '';
@@ -325,26 +340,20 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
 
-        // بروزرسانی آیتم منوی فعال
+        // به‌روزرسانی آیتم منوی فعال
         if (currentSection) {
-            menuItems.forEach(item => {
-                item.classList.remove('active-item');
-                if (item.getAttribute('data-section') === currentSection) {
-                    item.classList.add('active-item');
-                }
-            });
-
-            mobileMenuItems.forEach(item => {
-                item.classList.remove('active-item');
-                if (item.getAttribute('data-section') === currentSection) {
-                    item.classList.add('active-item');
-                }
+            [menuItems, mobileMenuItems].forEach(itemList => {
+                itemList.forEach(item => {
+                    item.classList.remove('active-item');
+                    if (item.getAttribute('data-section') === currentSection) {
+                        item.classList.add('active-item');
+                    }
+                });
             });
         }
     });
 
-
-
+    // مدیریت نمایش/مخفی کردن لوگو بر اساس اسکرول
     let lastScroll = 0;
     const logo = document.querySelector(".logo");
 
@@ -352,15 +361,14 @@ document.addEventListener('DOMContentLoaded', function () {
         const currentScroll = window.scrollY || window.pageYOffset;
 
         if (currentScroll > lastScroll && currentScroll > 200) {
-            logo.classList.add("hidden");
-
+            logo.classList.add("hidden"); // مخفی کردن هنگام اسکرول به پایین
         } else {
-            // اسکرول به بالا
-            logo.classList.remove("hidden");
+            logo.classList.remove("hidden"); // نمایش هنگام اسکرول به بالا
         }
 
         lastScroll = currentScroll <= 0 ? 0 : currentScroll;
     });
+
     // فعال‌سازی اسکرول صاف برای لینک‌های داخلی
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -372,5 +380,3 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
-
-

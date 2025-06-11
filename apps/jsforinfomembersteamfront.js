@@ -1,5 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Initialize Particles.js
+    // ██████████████████████████████████████████████
+    // ███████ پیکربندی انیمیشن ذرات ███████
+    // ██████████████████████████████████████████████
+
     if (window.particlesJS) {
         particlesJS('particles-js', {
             "particles": {
