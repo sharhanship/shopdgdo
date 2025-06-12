@@ -1,1026 +1,441 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>پنل مدیریت | Admin Panel</title>
+    <title>shopdgdo-adminpanel</title>
+    <link rel="stylesheet" href="/design/adminpanel.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary-color: #6e48aa;
-            --secondary-color: #9d50bb;
-            --accent-color: #4776e6;
-            --text-color: #f8f9fa;
-            --card-bg: rgba(255, 255, 255, 0.1);
-            --glass-border: rgba(255, 255, 255, 0.2);
-            --danger-color: #ff4757;
-            --success-color: #2ed573;
-            --warning-color: #ffa502;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-            color: var(--text-color);
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-
-        /* Glassmorphism Effect */
-        .glass-card {
-            background: var(--card-bg);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-radius: 15px;
-            border: 1px solid var(--glass-border);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
-            padding: 20px;
-            margin-bottom: 20px;
-            transition: all 0.3s ease;
-        }
-
-        .glass-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.4);
-        }
-
-        /* Header Styles */
-        header {
-            background: rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(10px);
-            padding: 15px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 1px solid var(--glass-border);
-        }
-
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            background: linear-gradient(to right, #4776e6, #8e54e9);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .logout-btn {
-            background: rgba(255, 255, 255, 0.1);
-            color: var(--text-color);
-            border: none;
-            padding: 8px 15px;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .logout-btn:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        /* Main Container */
-        .container {
-            max-width: 1200px;
-            margin: 30px auto;
-            padding: 0 20px;
-        }
-
-        /* Section Titles */
-        .section-title {
-            font-size: 22px;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid var(--glass-border);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .section-title i {
-            color: var(--accent-color);
-        }
-
-        /* Table Styles */
-        .messages-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 15px;
-        }
-
-        .messages-table th, .messages-table td {
-            padding: 12px 15px;
-            text-align: right;
-            border-bottom: 1px solid var(--glass-border);
-        }
-
-        .messages-table th {
-            background: rgba(0, 0, 0, 0.2);
-            font-weight: 600;
-        }
-
-        .messages-table tr:hover {
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        /* Button Styles */
-        .btn {
-            padding: 8px 15px;
-            border-radius: 50px;
-            border: none;
-            cursor: pointer;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .btn-danger {
-            background: var(--danger-color);
-            color: white;
-        }
-
-        .btn-danger:hover {
-            background: #ff6b81;
-        }
-
-        .btn-primary {
-            background: var(--accent-color);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: #5a8af0;
-        }
-
-        .btn-success {
-            background: var(--success-color);
-            color: white;
-        }
-
-        .btn-success:hover {
-            background: #3ce183;
-        }
-
-        /* Form Styles */
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 500;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 10px 15px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid var(--glass-border);
-            border-radius: 8px;
-            color: var(--text-color);
-            transition: all 0.3s ease;
-        }
-
-        .form-control:focus {
-            outline: none;
-            border-color: var(--accent-color);
-            box-shadow: 0 0 0 2px rgba(71, 118, 230, 0.3);
-        }
-
-        textarea.form-control {
-            min-height: 100px;
-            resize: vertical;
-        }
-
-        /* Grid System */
-        .row {
-            display: flex;
-            flex-wrap: wrap;
-            margin: 0 -10px;
-        }
-
-        .col-md-6 {
-            width: 50%;
-            padding: 0 10px;
-        }
-
-        .col-md-4 {
-            width: 33.33%;
-            padding: 0 10px;
-        }
-
-        .col-md-3 {
-            width: 25%;
-            padding: 0 10px;
-        }
-
-        /* Card Styles */
-        .portfolio-card, .team-card, .article-card {
-            position: relative;
-            margin-bottom: 20px;
-        }
-
-        .portfolio-card img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 10px 10px 0 0;
-        }
-
-        .portfolio-card .card-body, .team-card .card-body, .article-card .card-body {
-            padding: 15px;
-        }
-
-        .portfolio-card .card-title, .team-card .card-title, .article-card .card-title {
-            font-size: 18px;
-            margin-bottom: 5px;
-        }
-
-        .portfolio-card .card-text, .team-card .card-text, .article-card .card-text {
-            font-size: 14px;
-            opacity: 0.8;
-            margin-bottom: 10px;
-        }
-
-        .portfolio-card .badge, .team-card .badge, .article-card .badge {
-            display: inline-block;
-            padding: 3px 8px;
-            border-radius: 50px;
-            font-size: 12px;
-            background: rgba(0, 0, 0, 0.3);
-        }
-
-        .portfolio-card .btn-container, .team-card .btn-container, .article-card .btn-container {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 10px;
-        }
-
-        /* Rating Stars */
-        .rating {
-            display: flex;
-            gap: 3px;
-            margin-top: 5px;
-        }
-
-        .rating i {
-            color: #ffc107;
-            font-size: 14px;
-        }
-
-        /* Tabs */
-        .tabs {
-            display: flex;
-            margin-bottom: 20px;
-            border-bottom: 1px solid var(--glass-border);
-        }
-
-        .tab {
-            padding: 10px 20px;
-            cursor: pointer;
-            position: relative;
-        }
-
-        .tab.active {
-            color: var(--accent-color);
-        }
-
-        .tab.active::after {
-            content: '';
-            position: absolute;
-            bottom: -1px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: var(--accent-color);
-        }
-
-        .tab-content {
-            display: none;
-        }
-
-        .tab-content.active {
-            display: block;
-        }
-
-        /* File Input */
-        .file-input {
-            display: none;
-        }
-
-        .file-label {
-            display: block;
-            padding: 10px 15px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px dashed var(--glass-border);
-            border-radius: 8px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .file-label:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        /* Footer */
-        footer {
-            background: rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(10px);
-            padding: 20px 0;
-            margin-top: 50px;
-            border-top: 1px solid var(--glass-border);
-        }
-
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            text-align: center;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .col-md-6, .col-md-4, .col-md-3 {
-                width: 100%;
-            }
-            
-            .messages-table {
-                display: block;
-                overflow-x: auto;
-            }
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: rgba(0, 0, 0, 0.1);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--accent-color);
-            border-radius: 10px;
-        }
-
-        /* Animation */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .fade-in {
-            animation: fadeIn 0.5s ease forwards;
-        }
-    </style>
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css" rel="stylesheet"
+        type="text/css" />
 </head>
+
 <body>
+    <div id="particles-js" class="particles-background"></div>
     <header>
-        <div class="header-container">
-            <div class="logo">پنل مدیریت</div>
-            <button class="logout-btn">
-                <i class="fas fa-sign-out-alt"></i>
-                خروج
-            </button>
+        <div class="logo">
+            <span>Shipdgdo Admin Panel</span>
         </div>
+        <nav>
+            <ul>
+                <li><a href="#" class="nav-link active" data-section="messages-section"><i class="fas fa-envelope"></i>
+                        پیام‌ها</a></li>
+                <li><a href="#" class="nav-link" data-section="about-section"><i class="fas fa-info-circle"></i> درباره
+                        ما</a></li>
+                <li><a href="#" class="nav-link" data-section="portfolio-section"><i class="fas fa-briefcase"></i> نمونه
+                        کارها</a></li>
+                <li><a href="#" class="nav-link" data-section="team-section"><i class="fas fa-users"></i> تیم</a></li>
+                <li><a href="#" class="nav-link" data-section="articles-section"><i class="fas fa-newspaper"></i>
+                        مقالات</a></li>
+            </ul>
+        </nav>
+        <button class="logout-btn">
+            <i class="fas fa-sign-out-alt"></i>
+            خروج
+        </button>
     </header>
 
     <div class="container">
         <!-- Messages Section -->
-        <section class="glass-card fade-in">
-            <h2 class="section-title">
-                <i class="fas fa-envelope"></i>
-                مدیریت پیام‌ها
-            </h2>
-            <div class="table-responsive">
-                <table class="messages-table">
-                    <thead>
-                        <tr>
-                            <th>ردیف</th>
-                            <th>نام</th>
-                            <th>ایمیل</th>
-                            <th>تلفن</th>
-                            <th>موضوع</th>
-                            <th>متن پیام</th>
-                            <th>عملیات</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>محمد رضایی</td>
-                            <td>mohammad@example.com</td>
-                            <td>09123456789</td>
-                            <td>پرسش درباره محصول</td>
-                            <td>سلام، می‌خواستم درباره ویژگی‌های محصول اطلاعات بیشتری کسب کنم...</td>
-                            <td>
-                                <button class="btn btn-danger">
-                                    <i class="fas fa-trash"></i>
-                                    حذف
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>فاطمه محمدی</td>
-                            <td>fatemeh@example.com</td>
-                            <td>09351234567</td>
-                            <td>مشکل در خرید</td>
-                            <td>با سلام، هنگام خرید از سایت با خطا مواجه شدم...</td>
-                            <td>
-                                <button class="btn btn-danger">
-                                    <i class="fas fa-trash"></i>
-                                    حذف
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>علی حسینی</td>
-                            <td>ali@example.com</td>
-                            <td>09107654321</td>
-                            <td>پیشنهاد همکاری</td>
-                            <td>سلام، من یک توسعه‌دهنده فرانت‌اند هستم و علاقه‌مند به همکاری با تیم شما...</td>
-                            <td>
-                                <button class="btn btn-danger">
-                                    <i class="fas fa-trash"></i>
-                                    حذف
-                                </button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <!-- About Us Section -->
-        <section class="glass-card fade-in">
-            <h2 class="section-title">
-                <i class="fas fa-info-circle"></i>
-                مدیریت درباره ما
-            </h2>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label>توضیحات درباره ما</label>
-                        <textarea class="form-control" rows="5">ما یک تیم حرفه‌ای در زمینه توسعه نرم‌افزار و طراحی وب هستیم...</textarea>
+        <section id="messages-section" class="content-section active">
+            <!-- Modal برای نمایش متن کامل پیام -->
+            <div id="messageModal" class="modal">
+                <div class="modal-content">
+                    <span class="close-modal">&times;</span>
+                    <h3>متن کامل پیام</h3>
+                    <div class="modal-body">
+                        <p id="fullMessageText"></p>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label>سابقه کار (سال)</label>
-                        <input type="number" class="form-control" value="5">
-                    </div>
-                    <div class="form-group">
-                        <label>پروژه‌های تکمیل شده</label>
-                        <input type="number" class="form-control" value="120">
-                    </div>
-                    <div class="form-group">
-                        <label>مشتری‌های راضی</label>
-                        <input type="number" class="form-control" value="98">
-                    </div>
-                    <button class="btn btn-success">
-                        <i class="fas fa-save"></i>
-                        ذخیره تغییرات
-                    </button>
+                    <button class="modal-close-btn">بستن</button>
                 </div>
             </div>
-        </section>
-
-        <!-- Portfolio Section -->
-        <section class="glass-card fade-in">
-            <h2 class="section-title">
-                <i class="fas fa-briefcase"></i>
-                مدیریت نمونه کارها
-            </h2>
-            <div class="tabs">
-                <div class="tab active" data-tab="portfolio-list">لیست نمونه کارها</div>
-                <div class="tab" data-tab="add-portfolio">اضافه کردن نمونه کار</div>
-            </div>
-            
-            <div class="tab-content active" id="portfolio-list">
-                <div class="row">
-                    <!-- Portfolio Item 1 -->
-                    <div class="col-md-4">
-                        <div class="portfolio-card glass-card">
-                            <img src="https://via.placeholder.com/300x180?text=Project+1" alt="پروژه 1">
-                            <div class="card-body">
-                                <h3 class="card-title">وبسایت فروشگاهی</h3>
-                                <p class="card-text">یک وبسایت فروشگاهی با امکانات پیشرفته</p>
-                                <span class="badge">فرانت‌اند</span>
-                                <div class="btn-container">
-                                    <button class="btn btn-primary">
-                                        <i class="fas fa-eye"></i>
-                                        مشاهده
-                                    </button>
-                                    <button class="btn btn-danger">
-                                        <i class="fas fa-trash"></i>
-                                        حذف
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Portfolio Item 2 -->
-                    <div class="col-md-4">
-                        <div class="portfolio-card glass-card">
-                            <img src="https://via.placeholder.com/300x180?text=Project+2" alt="پروژه 2">
-                            <div class="card-body">
-                                <h3 class="card-title">اپلیکیشن موبایل</h3>
-                                <p class="card-text">اپلیکیشن مدیریت مالی برای اندروید و iOS</p>
-                                <span class="badge">فول‌استک</span>
-                                <div class="btn-container">
-                                    <button class="btn btn-primary">
-                                        <i class="fas fa-eye"></i>
-                                        مشاهده
-                                    </button>
-                                    <button class="btn btn-danger">
-                                        <i class="fas fa-trash"></i>
-                                        حذف
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Portfolio Item 3 -->
-                    <div class="col-md-4">
-                        <div class="portfolio-card glass-card">
-                            <img src="https://via.placeholder.com/300x180?text=Project+3" alt="پروژه 3">
-                            <div class="card-body">
-                                <h3 class="card-title">سیستم مدیریت محتوا</h3>
-                                <p class="card-text">یک CMS اختصاصی برای مدیریت وبسایت‌ها</p>
-                                <span class="badge">بک‌اند</span>
-                                <div class="btn-container">
-                                    <button class="btn btn-primary">
-                                        <i class="fas fa-eye"></i>
-                                        مشاهده
-                                    </button>
-                                    <button class="btn btn-danger">
-                                        <i class="fas fa-trash"></i>
-                                        حذف
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="tab-content" id="add-portfolio">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>نام پروژه</label>
-                            <input type="text" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label>دسته‌بندی</label>
-                            <select class="form-control">
-                                <option value="frontend">فرانت‌اند</option>
-                                <option value="backend">بک‌اند</option>
-                                <option value="fullstack">فول‌استک</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>نام مشتری</label>
-                            <input type="text" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label>زمان تحویل پروژه</label>
-                            <input type="date" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label>لینک پروژه</label>
-                            <input type="url" class="form-control" placeholder="https://example.com">
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>تصاویر پروژه (حداکثر 5 تصویر)</label>
-                            <input type="file" class="file-input" id="portfolio-images" multiple accept="image/*">
-                            <label for="portfolio-images" class="file-label">
-                                <i class="fas fa-cloud-upload-alt"></i>
-                                انتخاب تصاویر
-                            </label>
-                        </div>
-                        <div class="form-group">
-                            <label>ویدیوی پروژه</label>
-                            <input type="file" class="file-input" id="portfolio-video" accept="video/*">
-                            <label for="portfolio-video" class="file-label">
-                                <i class="fas fa-video"></i>
-                                انتخاب ویدیو
-                            </label>
-                        </div>
-                        <div class="form-group">
-                            <label>تکنولوژی‌های استفاده شده</label>
-                            <textarea class="form-control" rows="4"></textarea>
-                        </div>
-                        <button class="btn btn-success">
-                            <i class="fas fa-plus"></i>
-                            اضافه کردن پروژه
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Team Management Section -->
-        <section class="glass-card fade-in">
-            <h2 class="section-title">
-                <i class="fas fa-users"></i>
-                مدیریت اعضای تیم
-            </h2>
-            <div class="tabs">
-                <div class="tab active" data-tab="team-list">لیست اعضا</div>
-                <div class="tab" data-tab="add-member">اضافه کردن عضو جدید</div>
-            </div>
-            
-            <div class="tab-content active" id="team-list">
-                <div class="row">
-                    <!-- Team Member 1 -->
-                    <div class="col-md-3">
-                        <div class="team-card glass-card">
-                            <img src="https://via.placeholder.com/150?text=Person+1" alt="عضو تیم" style="width: 100%; border-radius: 10px;">
-                            <div class="card-body">
-                                <h3 class="card-title">محمد احمدی</h3>
-                                <p class="card-text">توسعه‌دهنده فرانت‌اند</p>
-                                <div class="btn-container">
-                                    <button class="btn btn-danger">
-                                        <i class="fas fa-trash"></i>
-                                        حذف
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Team Member 2 -->
-                    <div class="col-md-3">
-                        <div class="team-card glass-card">
-                            <img src="https://via.placeholder.com/150?text=Person+2" alt="عضو تیم" style="width: 100%; border-radius: 10px;">
-                            <div class="card-body">
-                                <h3 class="card-title">فاطمه محمدی</h3>
-                                <p class="card-text">توسعه‌دهنده بک‌اند</p>
-                                <div class="btn-container">
-                                    <button class="btn btn-danger">
-                                        <i class="fas fa-trash"></i>
-                                        حذف
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Team Member 3 -->
-                    <div class="col-md-3">
-                        <div class="team-card glass-card">
-                            <img src="https://via.placeholder.com/150?text=Person+3" alt="عضو تیم" style="width: 100%; border-radius: 10px;">
-                            <div class="card-body">
-                                <h3 class="card-title">علی رضایی</h3>
-                                <p class="card-text">طراح UI/UX</p>
-                                <div class="btn-container">
-                                    <button class="btn btn-danger">
-                                        <i class="fas fa-trash"></i>
-                                        حذف
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Team Member 4 -->
-                    <div class="col-md-3">
-                        <div class="team-card glass-card">
-                            <img src="https://via.placeholder.com/150?text=Person+4" alt="عضو تیم" style="width: 100%; border-radius: 10px;">
-                            <div class="card-body">
-                                <h3 class="card-title">زهرا حسینی</h3>
-                                <p class="card-text">تدوین‌گر ویدیو</p>
-                                <div class="btn-container">
-                                    <button class="btn btn-danger">
-                                        <i class="fas fa-trash"></i>
-                                        حذف
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="tab-content" id="add-member">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>نام</label>
-                            <input type="text" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label>نام خانوادگی</label>
-                            <input type="text" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label>شماره تلفن</label>
-                            <input type="tel" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label>ایمیل</label>
-                            <input type="email" class="form-control">
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>عکس پروفایل</label>
-                            <input type="file" class="file-input" id="member-avatar" accept="image/*">
-                            <label for="member-avatar" class="file-label">
-                                <i class="fas fa-user-circle"></i>
-                                انتخاب عکس
-                            </label>
-                        </div>
-                        <div class="form-group">
-                            <label>حرفه</label>
-                            <select class="form-control">
-                                <option value="frontend">فرانت‌اند</option>
-                                <option value="backend">بک‌اند</option>
-                                <option value="designer">طراح</option>
-                                <option value="editor">تدوین‌گر</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>درباره من</label>
-                            <textarea class="form-control" rows="3"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label>پروژه‌های انجام شده</label>
-                            <textarea class="form-control" rows="3" placeholder="پروژه‌ها را با کاما جدا کنید"></textarea>
-                        </div>
-                        <button class="btn btn-success">
-                            <i class="fas fa-user-plus"></i>
-                            اضافه کردن عضو
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Articles Management Section -->
-        <section class="glass-card fade-in">
-            <h2 class="section-title">
-                <i class="fas fa-newspaper"></i>
-                مدیریت مقالات
-            </h2>
-            <div class="tabs">
-                <div class="tab active" data-tab="articles-list">لیست مقالات</div>
-                <div class="tab" data-tab="add-article">اضافه کردن مقاله</div>
-                <div class="tab" data-tab="article-comments">نظرات مقالات</div>
-            </div>
-            
-            <div class="tab-content active" id="articles-list">
-                <div class="row">
-                    <!-- Article 1 -->
-                    <div class="col-md-6">
-                        <div class="article-card glass-card">
-                            <div class="card-body">
-                                <h3 class="card-title">آموزش React JS از صفر</h3>
-                                <div class="rating">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star-half-alt"></i>
-                                    <span>(4.5)</span>
-                                </div>
-                                <p class="card-text">یک راهنمای جامع برای یادگیری React از پایه تا پیشرفته</p>
-                                <span class="badge">برنامه نویسی</span>
-                                <div class="btn-container">
-                                    <button class="btn btn-primary">
-                                        <i class="fas fa-comments"></i>
-                                        نظرات (12)
-                                    </button>
-                                    <button class="btn btn-danger">
-                                        <i class="fas fa-trash"></i>
-                                        حذف
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Article 2 -->
-                    <div class="col-md-6">
-                        <div class="article-card glass-card">
-                            <div class="card-body">
-                                <h3 class="card-title">آینده هوش مصنوعی در طراحی وب</h3>
-                                <div class="rating">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="far fa-star"></i>
-                                    <span>(4.0)</span>
-                                </div>
-                                <p class="card-text">نگاهی به تأثیرات هوش مصنوعی بر صنعت طراحی وب در سال‌های آینده</p>
-                                <span class="badge">هوش مصنوعی</span>
-                                <div class="btn-container">
-                                    <button class="btn btn-primary">
-                                        <i class="fas fa-comments"></i>
-                                        نظرات (8)
-                                    </button>
-                                    <button class="btn btn-danger">
-                                        <i class="fas fa-trash"></i>
-                                        حذف
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="tab-content" id="add-article">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>عنوان مقاله</label>
-                            <input type="text" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label>دسته‌بندی</label>
-                            <select class="form-control">
-                                <option value="programming">برنامه نویسی</option>
-                                <option value="technology">تکنولوژی</option>
-                                <option value="design">طراحی</option>
-                                <option value="ai">هوش مصنوعی</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>نکته مهم</label>
-                            <input type="text" class="form-control" placeholder="نکته کلیدی مقاله">
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>متن کامل مقاله</label>
-                            <textarea class="form-control" rows="8"></textarea>
-                        </div>
-                        <button class="btn btn-success">
-                            <i class="fas fa-plus"></i>
-                            انتشار مقاله
-                        </button>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="tab-content" id="article-comments">
+            <div class="card">
+                <h2 class="section-title">
+                    <i class="fas fa-envelope"></i>
+                    مدیریت پیام‌ها
+                </h2>
                 <div class="table-responsive">
                     <table class="messages-table">
                         <thead>
                             <tr>
-                                <th>مقاله</th>
-                                <th>نام کاربر</th>
-                                <th>متن نظر</th>
-                                <th>تاریخ</th>
+                                <th>ردیف</th>
+                                <th>نام</th>
+                                <th>ایمیل</th>
+                                <th>تلفن</th>
+                                <th>موضوع</th>
+                                <th>متن پیام</th>
                                 <th>عملیات</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>آموزش React JS</td>
+                                <td>1</td>
                                 <td>علی محمدی</td>
-                                <td>مقاله بسیار عالی و کاربردی بود. ممنون</td>
-                                <td>1402/05/12</td>
+                                <td>ali@gmail.com</td>
+                                <td>09121234567</td>
+                                <td>سوال درباره محصول</td>
                                 <td>
-                                    <button class="btn btn-danger">
-                                        <i class="fas fa-trash"></i>
-                                        حذف
-                                    </button>
+                                    <span class="message-preview">سلام، می‌خواستم درباره ویژگی‌های محصول جدیدتون سوال
+                                        کنم...</span>
+                                    <span class="view-more"
+                                        data-fulltext="سلام، می‌خواستم درباره ویژگی‌های محصول جدیدتون سوال کنم. آیا این محصول قابلیت اتصال به دستگاه‌های اندروید را دارد؟ من یک گوشی سامسونگ دارم و می‌خواهم بدانم آیا با این مدل سازگار است یا نه. همچنین در مورد گارانتی محصول هم سوال داشتم. ممنون میشم راهنمایی کنید.">مشاهده
+                                        بیشتر</span>
                                 </td>
+                                <td><button class="delete-btn"><i class="fas fa-trash"></i> حذف</button></td>
                             </tr>
                             <tr>
-                                <td>هوش مصنوعی در وب</td>
-                                <td>فاطمه رضایی</td>
-                                <td>خیلی جالب بود. لطفاً بیشتر در این مورد بنویسید</td>
-                                <td>1402/05/10</td>
+                                <td>1</td>
+                                <td>علی محمدی</td>
+                                <td>ali@gmail.com</td>
+                                <td>09121234567</td>
+                                <td>سوال درباره محصول</td>
                                 <td>
-                                    <button class="btn btn-danger">
-                                        <i class="fas fa-trash"></i>
-                                        حذف
-                                    </button>
+                                    <span class="message-preview">سلام، می‌خواستم درباره ویژگی‌های محصول جدیدتون سوال
+                                        کنم...</span>
+                                    <span class="view-more"
+                                        data-fulltext="سلام، می‌خواستم درباره ویژگی‌های محصول جدیدتون سوال کنم. آیا این محصول قابلیت اتصال به دستگاه‌های اندروید را دارد؟ من یک گوشی سامسونگ دارم و می‌خواهم بدانم آیا با این مدل سازگار است یا نه. همچنین در مورد گارانتی محصول هم سوال داشتم. ممنون میشم راهنمایی کنید.">مشاهده
+                                        بیشتر</span>
                                 </td>
+                                <td><button class="delete-btn"><i class="fas fa-trash"></i> حذف</button></td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>علی محمدی</td>
+                                <td>ali@gmail.com</td>
+                                <td>09121234567</td>
+                                <td>سوال درباره محصول</td>
+                                <td>
+                                    <span class="message-preview">سلام، می‌خواستم درباره ویژگی‌های محصول جدیدتون سوال
+                                        کنم...</span>
+                                    <span class="view-more"
+                                        data-fulltext="سلام، می‌خواستم درباره ویژگی‌های محصول جدیدتون سوال کنم. آیا این محصول قابلیت اتصال به دستگاه‌های اندروید را دارد؟ من یک گوشی سامسونگ دارم و می‌خواهم بدانم آیا با این مدل سازگار است یا نه. همچنین در مورد گارانتی محصول هم سوال داشتم. ممنون میشم راهنمایی کنید.">مشاهده
+                                        بیشتر</span>
+                                </td>
+                                <td><button class="delete-btn"><i class="fas fa-trash"></i> حذف</button></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
         </section>
+
+        <!-- About Us Section -->
+        <section id="about-section" class="content-section">
+            <div class="card">
+                <h2 class="section-title">
+                    <i class="fas fa-info-circle"></i>
+                    مدیریت درباره ما
+                </h2>
+                <form id="about-form">
+                    <div class="form-group">
+                        <label for="about-description">توضیحات درباره ما:</label>
+                        <textarea id="about-description" class="form-control" rows="5"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="work-experience">سابقه کار (سال):</label>
+                        <input type="number" id="work-experience" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="completed-projects">پروژه‌های تکمیل شده:</label>
+                        <input type="number" id="completed-projects" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="happy-clients">مشتریان راضی:</label>
+                        <input type="number" id="happy-clients" class="form-control">
+                    </div>
+                    <button type="submit" class="submit-btn">ذخیره تغییرات</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio-section" class="content-section">
+            <div class="card">
+                <h2 class="section-title">
+                    <i class="fas fa-briefcase"></i>
+                    مدیریت نمونه کارها
+                </h2>
+
+                <h3>نمونه کارهای موجود</h3>
+                <div class="portfolio-grid">
+                    <div class="portfolio-card">
+                        <div class="portfolio-img">
+                            <i class="fas fa-image"></i>
+                        </div>
+                        <div class="portfolio-info">
+                            <h3 class="portfolio-title">وبسایت فروشگاهی</h3>
+                            <span class="portfolio-category frontend">فرانت‌اند</span>
+                            <div class="portfolio-actions">
+                                <button class="delete-btn"><i class="fas fa-trash"></i> حذف</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-card">
+                        <div class="portfolio-img">
+                            <i class="fas fa-image"></i>
+                        </div>
+                        <div class="portfolio-info">
+                            <h3 class="portfolio-title">سیستم مدیریت محتوا</h3>
+                            <span class="portfolio-category fullstack">فول استک</span>
+                            <div class="portfolio-actions">
+                                <button class="delete-btn"><i class="fas fa-trash"></i> حذف</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-card">
+                        <div class="portfolio-img">
+                            <i class="fas fa-image"></i>
+                        </div>
+                        <div class="portfolio-info">
+                            <h3 class="portfolio-title">API پرداخت</h3>
+                            <span class="portfolio-category backend">بک‌اند</span>
+                            <div class="portfolio-actions">
+                                <button class="delete-btn"><i class="fas fa-trash"></i> حذف</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>افزودن نمونه کار جدید</h3>
+                <form id="portfolio-form">
+                    <div class="form-group">
+                        <label for="project-name">نام پروژه:</label>
+                        <input type="text" id="project-name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="project-category">دسته‌بندی:</label>
+                        <select id="project-category" class="form-control" required>
+                            <option value="">-- انتخاب کنید --</option>
+                            <option value="frontend">فرانت‌اند</option>
+                            <option value="backend">بک‌اند</option>
+                            <option value="fullstack">فول استک</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>تصاویر پروژه (حداکثر 5 تصویر):</label>
+                        <input type="file" id="project-images" class="file-input" multiple accept="image/*">
+                        <label for="project-images" class="file-label">
+                            <i class="fas fa-cloud-upload-alt"></i> انتخاب تصاویر
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label>فیلم پروژه:</label>
+                        <input type="file" id="project-video" class="file-input" accept="video/*">
+                        <label for="project-video" class="file-label">
+                            <i class="fas fa-cloud-upload-alt"></i> انتخاب فیلم
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label for="project-tech">تکنولوژی‌های استفاده شده:</label>
+                        <textarea id="project-tech" class="form-control" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="project-client">مشتری:</label>
+                        <input type="text" id="project-client" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="project-delivery">زمان تحویل:</label>
+                        <input type="text" id="project-delivery" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="project-link">لینک پروژه:</label>
+                        <input type="url" id="project-link" class="form-control" placeholder="https://example.com">
+                    </div>
+                    <button type="submit" class="submit-btn">ذخیره پروژه</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section id="team-section" class="content-section">
+            <div class="card">
+                <h2 class="section-title">
+                    <i class="fas fa-users"></i>
+                    مدیریت تیم
+                </h2>
+
+                <h3>اعضای تیم</h3>
+                <div class="team-grid">
+                    <div class="team-card">
+                        <div class="team-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3 class="team-name">علی محمدی</h3>
+                        <span class="team-role frontend">فرانت‌اند</span>
+                        <div class="portfolio-actions">
+                            <button class="delete-btn"><i class="fas fa-trash"></i> حذف</button>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3 class="team-name">فاطمه زهرا</h3>
+                        <span class="team-role backend">بک‌اند</span>
+                        <div class="portfolio-actions">
+                            <button class="delete-btn"><i class="fas fa-trash"></i> حذف</button>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3 class="team-name">رضا احمدی</h3>
+                        <span class="team-role designer">طراح</span>
+                        <div class="portfolio-actions">
+                            <button class="delete-btn"><i class="fas fa-trash"></i> حذف</button>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>افزودن عضو جدید</h3>
+                <form id="team-form">
+                    <div class="form-group">
+                        <label for="member-name">نام:</label>
+                        <input type="text" id="member-name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="member-lastname">نام خانوادگی:</label>
+                        <input type="text" id="member-lastname" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="member-avatar">تصویر پروفایل:</label>
+                        <input type="file" id="member-avatar" class="file-input" accept="image/*">
+                        <label for="member-avatar" class="file-label">
+                            <i class="fas fa-cloud-upload-alt"></i> انتخاب تصویر
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label for="member-phone">شماره تلفن:</label>
+                        <input type="tel" id="member-phone" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="member-email">ایمیل:</label>
+                        <input type="email" id="member-email" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="member-about">درباره من:</label>
+                        <textarea id="member-about" class="form-control" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="member-projects">پروژه‌های انجام داده شده:</label>
+                        <textarea id="member-projects" class="form-control" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="member-role">نقش در تیم:</label>
+                        <select id="member-role" class="form-control" required>
+                            <option value="">-- انتخاب کنید --</option>
+                            <option value="frontend">فرانت‌اند</option>
+                            <option value="backend">بک‌اند</option>
+                            <option value="designer">طراح</option>
+                            <option value="editor">تدوین‌گر</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="submit-btn">ذخیره عضو</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Articles Section -->
+        <section id="articles-section" class="content-section">
+            <div class="card">
+                <h2 class="section-title">
+                    <i class="fas fa-newspaper"></i>
+                    مدیریت مقالات
+                </h2>
+
+                <h3>مقالات منتشر شده</h3>
+                <div class="articles-list">
+                    <div class="article-item">
+                        <div class="article-info">
+                            <h3>آموزش ری‌اکت در 30 روز</h3>
+                            <div class="article-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                        <div class="article-actions">
+                            <button class="comments-btn"><i class="fas fa-comments"></i> نظرات</button>
+                            <button class="delete-btn"><i class="fas fa-trash"></i> حذف</button>
+                        </div>
+                    </div>
+                    <div class="article-item">
+                        <div class="article-info">
+                            <h3>بهترین روش‌های طراحی UI/UX</h3>
+                            <div class="article-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="article-actions">
+                            <button class="comments-btn"><i class="fas fa-comments"></i> نظرات</button>
+                            <button class="delete-btn"><i class="fas fa-trash"></i> حذف</button>
+                        </div>
+                    </div>
+                    <div class="article-item">
+                        <div class="article-info">
+                            <h3>آینده هوش مصنوعی در توسعه وب</h3>
+                            <div class="article-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="article-actions">
+                            <button class="comments-btn"><i class="fas fa-comments"></i> نظرات</button>
+                            <button class="delete-btn"><i class="fas fa-trash"></i> حذف</button>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>افزودن مقاله جدید</h3>
+                <form id="article-form">
+                    <div class="form-group">
+                        <label for="article-title">عنوان مقاله:</label>
+                        <input type="text" id="article-title" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="article-category">دسته‌بندی:</label>
+                        <select id="article-category" class="form-control" required>
+                            <option value="">-- انتخاب کنید --</option>
+                            <option value="programming">برنامه‌نویسی</option>
+                            <option value="technology">تکنولوژی</option>
+                            <option value="design">طراحی</option>
+                            <option value="ai">هوش مصنوعی</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="article-keypoint">نکته مهم:</label>
+                        <input type="text" id="article-keypoint" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="article-content">محتوا:</label>
+                        <textarea id="article-content" class="form-control" rows="10"></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">انتشار مقاله</button>
+                </form>
+            </div>
+        </section>
     </div>
 
-    <footer>
-        <div class="footer-container">
-            <p>© 2023 پنل مدیریت. تمام حقوق محفوظ است.</p>
+    <footer class="admin-footer">
+        <div class="footer-bottom">
+            <p>تمامی حقوق محفوظ است &copy; ۱۴۰۲ | طراحی شده توسط تیم شاپ دیجی دو</p>
         </div>
     </footer>
 
-    <script>
-        // Tab Switching
-        document.querySelectorAll('.tab').forEach(tab => {
-            tab.addEventListener('click', () => {
-                // Remove active class from all tabs and contents
-                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-                
-                // Add active class to clicked tab
-                tab.classList.add('active');
-                
-                // Show corresponding content
-                const tabId = tab.getAttribute('data-tab');
-                document.getElementById(tabId).classList.add('active');
-            });
-        });
-
-        // Logout Button
-        document.querySelector('.logout-btn').addEventListener('click', () => {
-            if(confirm('آیا مطمئن هستید که می‌خواهید خارج شوید؟')) {
-                // Redirect to login page or perform logout
-                alert('با موفقیت خارج شدید.');
-                // window.location.href = 'login.html';
-            }
-        });
-
-        // Delete Buttons
-        document.querySelectorAll('.btn-danger').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const itemName = this.closest('.glass-card').querySelector('.card-title')?.textContent || 
-                                this.closest('tr').querySelector('td:nth-child(2)')?.textContent;
-                
-                if(confirm(`آیا مطمئن هستید که می‌خواهید "${itemName}" را حذف کنید؟`)) {
-                    this.closest('.glass-card')?.remove() || this.closest('tr')?.remove();
-                }
-            });
-        });
-
-        // File Input Labels
-        document.querySelectorAll('.file-input').forEach(input => {
-            input.addEventListener('change', function() {
-                const label = this.nextElementSibling;
-                if(this.files.length > 0) {
-                    if(this.files.length > 1) {
-                        label.innerHTML = `<i class="fas fa-check-circle"></i> ${this.files.length} فایل انتخاب شد`;
-                    } else {
-                        label.innerHTML = `<i class="fas fa-check-circle"></i> ${this.files[0].name}`;
-                    }
-                } else {
-                    label.innerHTML = `<i class="fas fa-cloud-upload-alt"></i> انتخاب فایل`;
-                }
-            });
-        });
-
-        // Form Submissions (prevent default)
-        document.querySelectorAll('form').forEach(form => {
-            form.addEventListener('submit', e => e.preventDefault());
-        });
-
-        // Responsive Table
-        function handleResponsiveTable() {
-            if(window.innerWidth < 768) {
-                document.querySelectorAll('.messages-table').forEach(table => {
-                    if(!table.classList.contains('responsive')) {
-                        table.classList.add('responsive');
-                    }
-                });
-            } else {
-                document.querySelectorAll('.messages-table').forEach(table => {
-                    table.classList.remove('responsive');
-                });
-            }
-        }
-
-        window.addEventListener('resize', handleResponsiveTable);
-        handleResponsiveTable();
-    </script>
+    <script src="/apps/jsforadminpanelfront.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+      <script src="/apps/jsforaddpafaloxinallpage.js"></script>
 </body>
+
 </html>
