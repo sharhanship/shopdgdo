@@ -14,13 +14,13 @@
 
 /* متغیرهای CSS */
 :root {
-    --primary-color: #4f46e5; /* رنگ اصلی */
+    --primary-color: #4f0dca; /* رنگ اصلی */
     --accent-color: #ff6584; /* رنگ مکمل */
     --text-color: #ffffff; /* رنگ متن اصلی */
     --text-light: #ffffff; /* رنگ متن روشن */
     --bg-color: #ff0000; /* رنگ پس‌زمینه */
-    --bg-dark: #111827; /* رنگ پس‌زمینه تیره */
-    --gray-900: #111827; /* رنگ خاکستری تیره */
+    --bg-dark: #24065c; /* رنگ پس‌زمینه تیره */
+    --gray-900: #000000; /* رنگ خاکستری تیره */
     --transition: all 0.5s ease; /* تنظیمات انتقال */
     --blur-intensity: 12px; /* شدت بلور */
     --transition-speed: 0.3s; /* سرعت انتقال */
@@ -55,17 +55,11 @@ body {
 /* کارت با افکت شیشه‌ای */
 .glass-card {
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.805);
-    background-color: #000000c7;
-    backdrop-filter: blur(10px);
+    background-color: #05000479;
+    backdrop-filter: blur(3px);
     border: 1px solid rgb(255, 255, 255);
-    border-radius: 10px;
+    border-radius: 30px;
     transition: 0.5s;
-}
-
-/* کارت با تصویر پس‌زمینه */
-.background-glass-card {
-    background: url('/content/images/backsitewall/back3.png') no-repeat center center/cover;
-    border-radius: 10px;
 }
 
 /* استایل‌های پس‌زمینه */
@@ -118,7 +112,7 @@ body {
         animation-timing-function: ease-out;
     }
     50% {
-        transform: translateY(30px);
+        transform: translateY(5px);
         animation-timing-function: ease-in;
     }
 }
@@ -312,7 +306,7 @@ body {
 
 /* متن لوگو */
 .logo-text {
-    background: linear-gradient(45deg, #c300ff, #c300ff);
+   background-color: var(--primary-color);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -454,11 +448,11 @@ section#home {
     color: transparent;
     -webkit-text-stroke: .7px rgb(255, 255, 255);
     text-shadow:
-        0 0 5px #f700ff,
-        0 0 10px #f700ff,
-        0 0 20px #f700ff,
-        0 0 40px #f700ff,
-        0 0 80px #f700ff;
+        0 0 10px var(--primary-color),
+        0 0 10px var(--primary-color),
+        0 0 10px var(--primary-color),
+        0 0 10px var(--primary-color),
+        0 0 10px var(--primary-color);
     white-space: nowrap;
     margin-right: 5px;
     margin-bottom: 10px;
@@ -547,8 +541,8 @@ section#home {
 
 /* تصویر پروفایل */
 .image-wrapper {
-    width: 350px;
-    height: 350px;
+    width: 310px;
+    height: 310px;
     margin: 0 auto;
     position: relative;
     overflow: hidden;
@@ -579,6 +573,34 @@ section#home {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
 }
+
+  .profile-container {
+    position: relative;
+    width: 20rem;
+    height: 20rem;
+    border-radius: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: smoothBounce 2.5s infinite;
+  }
+  .profile-container::before {
+    content: '';
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    border: 0.5rem solid transparent;
+    border-top: 0.5rem solid var(--primary-color);
+    border-right: 0.5rem solid var(--primary-color);
+    animation: profileRotate 4s linear infinite;
+  }
+
+    @keyframes profileRotate {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
 
 /* تزئینات تصویر */
 .image-decoration {
@@ -694,72 +716,6 @@ section#home {
 .info-value {
     color: var(--text-light);
 }
-
-/* ---------------------------------------- */
-/* استایل‌های بخش مهارت‌ها */
-/* ---------------------------------------- */
-
-.skills-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.skills-category {
-    padding: 2rem;
-}
-
-.category-title {
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-    color: var(--primary-color);
-    position: relative;
-    padding-bottom: 0.5rem;
-}
-
-.category-title::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 50px;
-    height: 3px;
-    background: var(--primary-color);
-}
-
-.skill-item {
-    margin-bottom: 1.5rem;
-}
-
-.skill-info {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 0.5rem;
-}
-
-.skill-name {
-    font-weight: 500;
-}
-
-.skill-percent {
-    color: var(--text-light);
-}
-
-.skill-bar {
-    height: 10px;
-    background: rgba(108, 99, 255, 0.1);
-    border-radius: 5px;
-    overflow: hidden;
-}
-
-.skill-progress {
-    height: 100%;
-    background: var(--primary-color);
-    border-radius: 5px;
-    transition: width 1s ease;
-}
-
 /* ---------------------------------------- */
 /* استایل‌های بخش نمونه کارها */
 /* ---------------------------------------- */
@@ -1080,6 +1036,12 @@ section#home {
 /* ---------------------------------------- */
 
 @media (max-width: 1200px) {
+
+    .profile-container::before{
+        width: 290px;
+        height: 290px;
+    }
+
     #glass-cursor {
         display: none !important;
     }

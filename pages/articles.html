@@ -11,13 +11,13 @@
     <!-- تنظیم viewport برای نمایش مناسب در دستگاه‌های مختلف -->
     <title>shopdgdo-article</title>
     <!-- عنوان صفحه در تب مرورگر -->
-    
+
     <!-- استایل‌های اختصاصی -->
     <link rel="stylesheet" href="/design/articles.css">
     <!-- لینک به فایل CSS اختصاصی مقالات -->
     <link rel="shortcut icon" href="/content/images/logohead/shopdgdologoheadrm.png" type="image/x-icon">
     <!-- آیکون سایت در تب مرورگر -->
-    
+
     <!-- فونت‌ها -->
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css" rel="stylesheet">
     <!-- فونت وزیر برای نمایش بهتر متون فارسی -->
@@ -28,7 +28,7 @@
 <body>
     <!-- پس‌زمینه ذرات متحرک -->
     <div id="particles-js" class="particles-background"></div>
-    
+
     <!-- هدر اصلی صفحه -->
     <header class="main-header">
         <div class="header-container glassmorphism-card">
@@ -38,7 +38,7 @@
                 <h1 class="article-main-title">
                     <span class="title-gradient">آموزش جامع هوک‌های React</span>
                 </h1>
-                
+
                 <!-- متادیتای مقاله -->
                 <div class="article-meta-data">
                     <!-- اطلاعات نویسنده -->
@@ -50,7 +50,7 @@
                             <h4 class="name-author">علی شرحان</h4>
                         </div>
                     </div>
-                    
+
                     <!-- آمار مقاله -->
                     <div class="article-stats">
                         <!-- تاریخ انتشار -->
@@ -65,7 +65,7 @@
             </div>
         </div>
     </header>
-    
+
     <!-- محتوای اصلی مقاله -->
     <main class="article-container">
         <!-- نویگیشن مقاله -->
@@ -75,27 +75,19 @@
                 <i class="fas fa-arrow-right"></i>
                 <span>بازگشت به اکسپلور</span>
             </a>
-            
+
             <!-- دکمه بازگشت به صفحه اصلی -->
             <a href="/index.html" class="nav-button home-button">
                 <i class="fas fa-home"></i>
                 <span>صفحه اصلی</span>
             </a>
         </nav>
-        
+
         <!-- محتوای مقاله -->
         <article class="article-content">
             <!-- بخش مقدمه -->
             <section id="introduction" class="article-section">
-                <h2 class="section-title">
-                    <span class="title-icon">
-                        <i class="fas fa-star"></i>
-                    </span>
-                    مقدمه‌ای بر هوک‌های React
-                </h2>
                 <div class="section-content">
-                    <p>هوک‌ها در React 16.8 معرفی شدند و انقلابی در نحوه نوشتن کامپوننت‌های تابعی ایجاد کردند. با استفاده از هوک‌ها می‌توانید state و سایر ویژگی‌های React را بدون نوشتن کلاس استفاده کنید.</p>
-                    
                     <!-- باکس نکته مهم -->
                     <div class="info-box glassmorphism-card">
                         <div class="info-box-header">
@@ -103,161 +95,54 @@
                             <span>نکته مهم</span>
                         </div>
                         <div class="info-box-content">
-                            هوک‌ها backward-compatible هستند و جایگزین دانش شما از مفاهیم React نمی‌شوند. بلکه راه‌جدیدی برای استفاده از ویژگی‌های آشنا ارائه می‌دهند.
+                            هوک‌ها backward-compatible هستند و جایگزین دانش شما از مفاهیم React نمی‌شوند. بلکه راه‌جدیدی
+                            برای استفاده از ویژگی‌های آشنا ارائه می‌دهند.
                         </div>
                     </div>
-                    
-                    <p>هوک‌ها مشکلات زیر را حل می‌کنند:</p>
-                    <!-- لیست مشکلاتی که هوک‌ها حل می‌کنند -->
-                    <ul class="styled-list">
-                        <li>پیچیدگی‌های ناشی از استفاده از کلاس‌ها</li>
-                        <li>مشکل wrapper hell در استفاده از HOCها</li>
-                        <li>سردرگمی در کار با this</li>
-                        <li>جداسازی منطق مرتبط در کامپوننت‌ها</li>
-                    </ul>
                 </div>
             </section>
-            
-            <!-- بخش هوک useState -->
+
+            <!--بخش توظیحات-->
             <section id="useState-hook" class="article-section">
-                <h2 class="section-title">
-                    <span class="title-icon">
-                        <i class="fas fa-code"></i>
-                    </span>
-                    هوک useState
-                </h2>
                 <div class="section-content">
-                    <p>هوک useState به شما امکان می‌دهد state را در کامپوننت‌های تابعی اضافه کنید. این هوک یک جفت مقدار برمی‌گرداند: مقدار فعلی state و تابعی برای به‌روزرسانی آن.</p>
-                    
-                    <!-- بلوک کد مثال useState -->
-                    <div class="code-block-container glassmorphism-card">
-                        <div class="code-toolbar">
-                            <span class="language-label">JavaScript</span>
-                            <button class="copy-button">
-                                <i class="far fa-copy"></i>
-                                <span>کپی</span>
-                            </button>
+                    <p>هوک useState به شما امکان می‌دهد state را در کامپوننت‌های تابعی اضافه کنید. این هوک یک جفت مقدار
+                        برمی‌گرداند: مقدار فعلی state و تابعی برای به‌روزرسانی آن.</p>
+
+
+                    <!-- فوتر مقاله -->
+                    <footer class="article-footer">
+                        <!-- بخش امتیازدهی -->
+                        <div class="rating-section">
+                            <h4>این مقاله چقدر برای شما مفید بود؟</h4>
+                            <div class="rating-stars">
+                                <i class="far fa-star" data-rating="1"></i>
+                                <i class="far fa-star" data-rating="2"></i>
+                                <i class="far fa-star" data-rating="3"></i>
+                                <i class="far fa-star" data-rating="4"></i>
+                                <i class="far fa-star" data-rating="5"></i>
+                            </div>
                         </div>
-                        <pre class="code-block"><code class="language-javascript">import { useState } from 'react';
 
-function Counter() {
-  // مقدار اولیه 0 و تابع به‌روزرسانی
-  const [count, setCount] = useState(0);
-
-  return (
-    &lt;div&gt;
-      &lt;p&gt;شما {count} بار کلیک کرده‌اید&lt;/p&gt;
-      &lt;button onClick={() =&gt; setCount(count + 1)}&gt;
-        افزایش شمارنده
-      &lt;/button&gt;
-    &lt;/div&gt;
-  );
-}</code></pre>
-                    </div>
-                    
-                    <h3 class="subsection-title">مثال پیشرفته با useState</h3>
-                    <p>می‌توانید از useState برای مدیریت stateهای پیچیده‌تر نیز استفاده کنید:</p>
-                    
-                    <!-- بلوک کد مثال پیشرفته useState -->
-                    <div class="code-block-container glassmorphism-card">
-                        <div class="code-toolbar">
-                            <span class="language-label">JavaScript</span>
-                            <button class="copy-button">
-                                <i class="far fa-copy"></i>
-                                <span>کپی</span>
-                            </button>
+                        <!-- بخش نظرات -->
+                        <div class="comments-section">
+                            <h3 class="comments-title">
+                                <i class="far fa-comments"></i>
+                                دیدگاه‌ها
+                            </h3>
+                            <div class="comment-form glassmorphism-card">
+                                <textarea placeholder="دیدگاه خود را بنویسید..." class="comment-input"></textarea>
+                                <button class="submit-comment-button">ارسال دیدگاه</button>
+                            </div>
                         </div>
-                        <pre class="code-block"><code class="language-javascript">function Form() {
-  const [formData, setFormData] = useState({
-    username: '',
-    email: '',
-    password: ''
-  });
-
-  const handleChange = (e) =&gt; {
-    const { name, value } = e.target;
-    setFormData(prev =&gt; ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  return (
-    &lt;form&gt;
-      &lt;input
-        name="username"
-        value={formData.username}
-        onChange={handleChange}
-      /&gt;
-      {/* سایر فیلدها */}
-    &lt;/form&gt;
-  );
-}</code></pre>
-                    </div>
-                </div>
-            </section>
-            
-            <!-- سایر بخش‌های مقاله -->
-            <!-- ... -->
-            
-            <!-- بخش جمع‌بندی -->
-            <section id="conclusion" class="article-section">
-                <h2 class="section-title">
-                    <span class="title-icon">
-                        <i class="fas fa-check-circle"></i>
-                    </span>
-                    جمع‌بندی
-                </h2>
-                <div class="section-content">
-                    <p>در این مقاله به بررسی جامع هوک‌های اصلی React پرداختیم. هوک‌ها ابزارهای قدرتمندی هستند که کدنویسی با React را ساده‌تر و خوانا‌تر می‌کنند.</p>
-                    
-                    <!-- باکس نکات کلیدی -->
-                    <div class="key-points glassmorphism-card">
-                        <h4 class="key-points-title">نکات کلیدی:</h4>
-                        <ul class="key-points-list">
-                            <li>از useState برای مدیریت state استفاده کنید</li>
-                            <li>از useEffect برای اثرات جانبی استفاده کنید</li>
-                            <li>هوک‌های سفارشی برای استفاده مجدد از منطق ایجاد کنید</li>
-                            <li>قوانین هوک‌ها را رعایت کنید</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-            
-            <!-- فوتر مقاله -->
-            <footer class="article-footer">
-                <!-- بخش امتیازدهی -->
-                <div class="rating-section">
-                    <h4>این مقاله چقدر برای شما مفید بود؟</h4>
-                    <div class="rating-stars">
-                        <i class="far fa-star" data-rating="1"></i>
-                        <i class="far fa-star" data-rating="2"></i>
-                        <i class="far fa-star" data-rating="3"></i>
-                        <i class="far fa-star" data-rating="4"></i>
-                        <i class="far fa-star" data-rating="5"></i>
-                    </div>
-                </div>
-                
-                <!-- بخش نظرات -->
-                <div class="comments-section">
-                    <h3 class="comments-title">
-                        <i class="far fa-comments"></i>
-                        دیدگاه‌ها
-                    </h3>
-                    <div class="comment-form glassmorphism-card">
-                        <textarea placeholder="دیدگاه خود را بنویسید..." class="comment-input"></textarea>
-                        <button class="submit-comment-button">ارسال دیدگاه</button>
-                    </div>
-                </div>
-            </footer>
+                    </footer>
         </article>
     </main>
-    
+
     <!-- دکمه بازگشت به بالا -->
     <button id="back-to-top" class="back-to-top-button">
         <i class="fas fa-arrow-up"></i>
     </button>
-    
+
     <!-- نوتیفیکیشن -->
     <div id="notification" class="notification">
         <div class="notification-content">
@@ -265,11 +150,12 @@ function Counter() {
             <span class="notification-message">کد با موفقیت کپی شد!</span>
         </div>
     </div>
-    
+
     <!-- اسکریپت‌ها -->
     <script src="/apps/jsforarticlesfront.js"></script>
     <!-- اسکریپت اختصاصی مقالات -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <!-- کتابخانه particles.js برای ایجاد پس‌زمینه متحرک -->
 </body>
+
 </html>

@@ -199,40 +199,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // ██████████████████████████████████████████████
-    // ███████ انیمیشن مهارت‌ها ███████
-    // ██████████████████████████████████████████████
-    
-    const skillBars = document.querySelectorAll('.skill-progress');
-
-    /**
-     * فعال‌سازی انیمیشن مهارت‌ها
-     */
-    function animateSkills() {
-        skillBars.forEach((bar) => {
-            const percent = bar.style.width;
-            bar.style.width = '0'; // شروع از صفر
-
-            setTimeout(() => {
-                bar.style.width = percent; // انیمیشن به مقدار نهایی
-            }, 100); // تأخیر برای اثر آبشاری
-        });
-    }
-
-    // مشاهده بخش مهارت‌ها با IntersectionObserver
-    const skillsSection = document.querySelector('#skills');
-    const skillsObserver = new IntersectionObserver(
-        (entries) => {
-            if (entries[0].isIntersecting) {
-                animateSkills();
-                skillsObserver.unobserve(skillsSection); // توقف مشاهده پس از فعال‌سازی
-            }
-        },
-        { threshold: 0.3 }, // فعال شدن وقتی 30% بخش قابل مشاهده باشد
-    );
-
-    skillsObserver.observe(skillsSection);
-
-    // ██████████████████████████████████████████████
     // ███████ سیستم نویگیشن اسکرولی ███████
     // ██████████████████████████████████████████████
     

@@ -7,20 +7,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>shopdgdo</title>
-    
+
     <!-- لینک فایل CSS اختصاصی -->
     <link rel="stylesheet" href="/design/index.css">
-    
+
     <!-- فاوآیکون سایت -->
     <link rel="shortcut icon" href="/content/images/logohead/shopdgdologoheadrm.png" type="image/x-icon">
-    
+
     <!-- فونت وزیر برای نمایش بهتر متن فارسی -->
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css" rel="stylesheet"
         type="text/css" />
-    
+
     <!-- فونت فیرا کد برای نمایش کدها -->
     <link href="https://cdn.jsdelivr.net/npm/firacode@6.2.0/distr/fira_code.css" rel="stylesheet">
-    
+
     <!-- آیکون‌های فونت آوسام -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -28,7 +28,7 @@
 <body>
     <!-- پس زمینه ذرات متحرک -->
     <div id="particles-js" class="particles-background"></div>
-    
+
     <!-- هدر سایت -->
     <header class="header-container">
         <!-- لوگو سایت -->
@@ -37,7 +37,7 @@
             <span class="logo-text">Shopdgdo</span>
             <span class="logo-icon">}</span>
         </div>
-        
+
         <!-- دکمه منوی موبایل -->
         <div class="mobile-menu-toggle">
             <div class="toggle-line"></div>
@@ -54,10 +54,6 @@
             <div class="menu-item" data-section="about">
                 <i class="fas fa-user"></i>
                 <span class="menu-text">درباره ما</span>
-            </div>
-            <div class="menu-item" data-section="skills">
-                <i class="fas fa-cogs"></i>
-                <span class="menu-text">مهارت‌ها</span>
             </div>
             <div class="menu-item" data-section="portfolio">
                 <i class="fas fa-briefcase"></i>
@@ -88,26 +84,26 @@
                 <div class="hero glass-card">
                     <div class="hero-content">
                         <h1 class="hero-title">سلام، به تیم <span>شاپ دیجی دو</span> خوش امدید</h1>
-                        
+
                         <!-- انیمیشن تایپ متن -->
                         <div class="text-animate">
                             <h1 class="text-animateorg">ما یک :</h1>
                             <h3 id="typing-text"></h3>
                             <span class="cursor">|</span>
                         </div>
-                        
+
                         <p class="hero-description">
                             با بیش از ۵ سال تجربه در توسعه اپلیکیشن‌های وب مدرن و مقیاس‌پذیر. عاشق حل مسائل پیچیده و خلق
                             تجربیات کاربری منحصر به فرد
                             هستم.
                         </p>
-                        
+
                         <!-- دکمه‌های صفحه اصلی -->
                         <div class="hero-buttons">
                             <a href="/pages/teammembers-explore.html" class="btn btn-primary">افراد تیم</a>
                             <a href="#contact" class="btn btn-secondary">تماس با ما</a>
                         </div>
-                        
+
                         <!-- لینک‌های شبکه‌های اجتماعی -->
                         <div class="social-links">
                             <a href="#" class="social-link"><i class="fab fa-github"></i></a>
@@ -116,13 +112,15 @@
                             <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
-                    
+
                     <!-- تصویر لوگو در صفحه اصلی -->
-                    <div class="hero-image">
+                    <div class="profile-container">
+                          <div class="hero-image">
                         <div class="image-wrapper">
                             <img src="/content/images/logohead/shopdgdologoheadrm.png" alt="لوگوی تیم"
                                 class="profile-image">
                         </div>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -137,28 +135,8 @@
                         من یک توسعه‌دهنده فول استک وب با تخصص در جاوااسکریپت هستم. از سال ۱۳۹۵ به صورت حرفه‌ای در این
                         زمینه فعالیت می‌کنم و در پروژه‌های مختلفی همکاری داشته‌ام.
                     </p>
-                    
-                    <!-- اطلاعات تکمیلی درباره تیم -->
-                    <div class="about-info">
-                        <div class="info-item">
-                            <span class="info-label">نام تیم:</span>
-                            <span class="info-value">شاپ دیجی دو</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label">سابقه فعالیت:</span>
-                            <span class="info-value">5 سال</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label">شهر:</span>
-                            <span class="info-value">خوزستان . دزفول</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label">فریلنسر:</span>
-                            <span class="info-value">در دسترس</span>
-                        </div>
-                    </div>
                 </div>
-                
+
                 <!-- آمار و ارقام -->
                 <div class="about-stats">
                     <div class="stats-item glass-card">
@@ -181,58 +159,10 @@
             </div>
         </section>
 
-        <!-- بخش مهارت‌ها -->
-        <section id="skills" class="section">
-            <h2 class="section-title">مهارت‌های <span>تیم</span></h2>
-            <div class="skills-container">
-                <!-- مهارت‌های فرانت‌اند -->
-                <div class="skills-category glass-card">
-                    <h3 class="category-title">فرانت‌اند</h3>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span class="skill-name">Vue.js</span>
-                            <span class="skill-percent">۷۵٪</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 75%;"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- مهارت‌های بک‌اند -->
-                <div class="skills-category glass-card">
-                    <h3 class="category-title">بک‌اند</h3>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span class="skill-name">PHP (Laravel)</span>
-                            <span class="skill-percent">۶۵٪</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 65%;"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- مهارت‌های جانبی -->
-                <div class="skills-category glass-card">
-                    <h3 class="category-title">مهارت های جانبی</h3>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span class="skill-name">UI/UX Design</span>
-                            <span class="skill-percent">۷۰٪</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 70%;"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- بخش نمونه کارها -->
         <section id="portfolio" class="section">
             <h2 class="section-title">نمونه <span>کارها</span></h2>
-            
+
             <!-- فیلتر نمونه کارها -->
             <div class="portfolio-filter">
                 <button class="filter-btn active" data-filter="all">همه</button>
@@ -240,7 +170,7 @@
                 <button class="filter-btn" data-filter="backend">بک‌اند</button>
                 <button class="filter-btn" data-filter="fullstack">فول استک</button>
             </div>
-            
+
             <!-- گالری نمونه کارها -->
             <div class="portfolio-grid">
                 <div class="portfolio-item glass-card" data-category="fullstack">
@@ -248,8 +178,8 @@
                         <img src="" alt="پروژه ۱">
                         <div class="portfolio-overlay">
                             <h3 class="portfolio-title">سیستم مدیریت محتوا</h3>
-                            <p class="portfolio-description">یک CMS سفارشی با React و Node.js</p>
-                            <a href="/pages/examlepworkpage.html" class="portfolio-link"><i class="fas fa-external-link-alt"></i></a>
+                            <a href="/pages/examlepworkpage.html" class="portfolio-link"><i
+                                    class="fas fa-external-link-alt"></i></a>
                         </div>
                     </div>
                 </div>
@@ -258,8 +188,8 @@
                         <img src="" alt="پروژه ۲">
                         <div class="portfolio-overlay">
                             <h3 class="portfolio-title">فروشگاه اینترنتی</h3>
-                            <p class="portfolio-description">فرانت‌اند فروشگاه با React و Redux</p>
-                            <a href="/pages/examlepworkpage.html" class="portfolio-link"><i class="fas fa-external-link-alt"></i></a>
+                            <a href="/pages/examlepworkpage.html" class="portfolio-link"><i
+                                    class="fas fa-external-link-alt"></i></a>
                         </div>
                     </div>
                 </div>
@@ -268,8 +198,8 @@
                         <img src="" alt="پروژه ۳">
                         <div class="portfolio-overlay">
                             <h3 class="portfolio-title">API سرویس پرداخت</h3>
-                            <p class="portfolio-description">بک‌اند سرویس پرداخت با Node.js</p>
-                            <a href="/pages/examlepworkpage.html" class="portfolio-link"><i class="fas fa-external-link-alt"></i></a>
+                            <a href="/pages/examlepworkpage.html" class="portfolio-link"><i
+                                    class="fas fa-external-link-alt"></i></a>
                         </div>
                     </div>
                 </div>
@@ -297,7 +227,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- دکمه مشاهده همه مقالات -->
             <div class="articles-more">
                 <a href="/pages/explore-articles.html" class="btn btn-primary">مشاهده همه مقالات</a>
@@ -338,7 +268,7 @@
                             <p>۰۹۱۲۱۲۳۴۵۶۷</p>
                         </div>
                     </div>
-                    
+
                     <!-- لینک‌های شبکه‌های اجتماعی -->
                     <div class="contact-social">
                         <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
@@ -347,7 +277,7 @@
                         <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
-                
+
                 <!-- فرم تماس -->
                 <div class="contact-form glass-card">
                     <h3 class="contact-subtitle">پیام به من</h3>
@@ -377,4 +307,5 @@
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="/apps/jsforaddfooterinallpage.js"></script>
 </body>
+
 </html>

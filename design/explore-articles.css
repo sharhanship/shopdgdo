@@ -28,8 +28,8 @@
     --danger-color: #f72585;
     
     /* رنگ‌های پس‌زمینه */
-    --bg-dark: #111827;
-    --gray-900: #111827;
+    --bg-dark: #24065c; /* رنگ پس‌زمینه تیره */
+    --gray-900: #000000; /* رنگ خاکستری تیره */
     
     /* استایل‌های شیشه‌ای */
     --glass-bg: rgba(255, 255, 255, 0.15);
@@ -68,9 +68,10 @@ body {
     margin-bottom: 2.5rem;
     animation: fadeIn 0.8s ease;
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
-    background-color: #000000ad;
-    backdrop-filter: blur(10px);
-    border: 2px solid rgba(255, 255, 255, 0.3);
+ box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.805);
+    background-color: #05000479;
+    backdrop-filter: blur(3px);
+    border: 1px solid rgb(255, 255, 255);
     border-radius: 10px;
     border: none;
     outline: none;
@@ -271,8 +272,10 @@ body {
 
 /* کارت مقاله */
 .article-card {
-    background: black;
-    backdrop-filter: blur(10px);
+ box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.805);
+    background-color: #05000479;
+    backdrop-filter: blur(3px);
+    border: 1px solid rgb(255, 255, 255);
     -webkit-backdrop-filter: blur(10px);
     border-radius: 10px;
     overflow: hidden;
