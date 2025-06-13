@@ -65,6 +65,15 @@
           margin-bottom: 30px;
           border: 1px solid rgba(255, 255, 255, 0.18);
           direction: ltr;
+          border: none;
+          outline: none;
+          scroll-behavior: smooth;
+          user-select: none;
+          -webkit-tap-highlight-color: transparent;
+          -moz-tap-highlight-color: transparent;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
       }
 
       .logo {
@@ -74,12 +83,12 @@
           display: flex;
           align-items: center;
           gap: 10px;
-            text-shadow:
-      0 0 5px #6200ff,
-      0 0 10px #6200ff,
-      0 0 20px #6200ff,
-      0 0 40px #6200ff,
-      0 0 80px #6200ff;
+          text-shadow:
+              0 0 5px #6200ff,
+              0 0 10px #6200ff,
+              0 0 20px #6200ff,
+              0 0 40px #6200ff,
+              0 0 80px #6200ff;
       }
 
       nav ul {
@@ -97,8 +106,8 @@
           transition: all 0.3s ease;
       }
 
-      nav ul li a i{
-        margin-right: 10px;
+      nav ul li a i {
+          margin-right: 10px;
       }
 
       nav ul li a:hover,
@@ -164,6 +173,15 @@
           display: flex;
           align-items: center;
           gap: 10px;
+          border: none;
+          outline: none;
+          scroll-behavior: smooth;
+          user-select: none;
+          -webkit-tap-highlight-color: transparent;
+          -moz-tap-highlight-color: transparent;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
       }
 
       .section-title i {
@@ -226,9 +244,18 @@
           top: 15px;
           left: 15px;
           font-size: 24px;
-          color:rgb(255, 0, 0);
+          color: rgb(255, 0, 0);
           cursor: pointer;
           transition: all 0.3s ease;
+          border: none;
+          outline: none;
+          scroll-behavior: smooth;
+          user-select: none;
+          -webkit-tap-highlight-color: transparent;
+          -moz-tap-highlight-color: transparent;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
       }
 
       .close-modal:hover {
@@ -245,6 +272,15 @@
           font-weight: 500;
           transition: all 0.3s ease;
           margin-top: 10px;
+          border: none;
+          outline: none;
+          scroll-behavior: smooth;
+          user-select: none;
+          -webkit-tap-highlight-color: transparent;
+          -moz-tap-highlight-color: transparent;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
       }
 
       .modal-close-btn:hover {
@@ -258,10 +294,19 @@
           margin-right: 5px;
           transition: all 0.3s ease;
           text-decoration: none;
+          border: none;
+          outline: none;
+          scroll-behavior: smooth;
+          user-select: none;
+          -webkit-tap-highlight-color: transparent;
+          -moz-tap-highlight-color: transparent;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
       }
 
       .view-more:hover {
-       color: white;
+          color: white;
       }
 
       /* Responsive Modal */
@@ -299,11 +344,21 @@
           text-align: right;
           background: rgba(255, 255, 255, 0.1);
           color: white;
+
       }
 
       .messages-table th {
           background: rgba(255, 255, 255, 0.2);
           font-weight: 600;
+          border: none;
+          outline: none;
+          scroll-behavior: smooth;
+          user-select: none;
+          -webkit-tap-highlight-color: transparent;
+          -moz-tap-highlight-color: transparent;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
       }
 
       .messages-table tr:not(:last-child) td {
@@ -322,6 +377,15 @@
           border-radius: 5px;
           cursor: pointer;
           transition: all 0.3s ease;
+          border: none;
+          outline: none;
+          scroll-behavior: smooth;
+          user-select: none;
+          -webkit-tap-highlight-color: transparent;
+          -moz-tap-highlight-color: transparent;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
       }
 
       .delete-btn:hover {
@@ -603,7 +667,7 @@
           max-width: 1200px;
           margin: 0 auto;
           padding: 0 20px;
-        
+
       }
 
       .footer-bottom {
@@ -671,3 +735,10 @@
               justify-content: flex-end;
           }
       }
+
+      /* استایل‌های دسکتاپ */
+@media screen and (min-width: 1024px) {
+ .container{
+    width: 1100px;
+ }
+}
