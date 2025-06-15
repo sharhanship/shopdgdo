@@ -4,7 +4,7 @@
     // ██████████████████████████████████████████████████████████████
     
 document.addEventListener('DOMContentLoaded', function() {
-  fetch('/pages/nav-down.html')
+  fetch('./pages/nav-down.html')
     .then(response => response.text())
     .then(data => {
       document.body.insertAdjacentHTML('beforeend', data);

@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>shopdgdo-adminpanel</title>
-    <link rel="stylesheet" href="/design/adminpanel.css">
-    <link rel="shortcut icon" href="/content/images/logohead/shopdgdologoheadrm.png" type="image/x-icon">
+    <link rel="stylesheet" href="../design/adminpanel.css">
+    <link rel="shortcut icon" href="../content/images/logohead/shopdgdologoheadrm.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css" rel="stylesheet"
         type="text/css" />
@@ -86,36 +86,6 @@
                                 </td>
                                 <td><button class="delete-btn"><i class="fas fa-trash"></i> حذف</button></td>
                             </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>علی محمدی</td>
-                                <td>ali@gmail.com</td>
-                                <td>09121234567</td>
-                                <td>سوال درباره محصول</td>
-                                <td>
-                                    <span class="message-preview">سلام، می‌خواستم درباره ویژگی‌های محصول جدیدتون سوال
-                                        کنم...</span>
-                                    <span class="view-more"
-                                        data-fulltext="سلام، می‌خواستم درباره ویژگی‌های محصول جدیدتون سوال کنم. آیا این محصول قابلیت اتصال به دستگاه‌های اندروید را دارد؟ من یک گوشی سامسونگ دارم و می‌خواهم بدانم آیا با این مدل سازگار است یا نه. همچنین در مورد گارانتی محصول هم سوال داشتم. ممنون میشم راهنمایی کنید.">مشاهده
-                                        بیشتر</span>
-                                </td>
-                                <td><button class="delete-btn"><i class="fas fa-trash"></i> حذف</button></td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>علی محمدی</td>
-                                <td>ali@gmail.com</td>
-                                <td>09121234567</td>
-                                <td>سوال درباره محصول</td>
-                                <td>
-                                    <span class="message-preview">سلام، می‌خواستم درباره ویژگی‌های محصول جدیدتون سوال
-                                        کنم...</span>
-                                    <span class="view-more"
-                                        data-fulltext="سلام، می‌خواستم درباره ویژگی‌های محصول جدیدتون سوال کنم. آیا این محصول قابلیت اتصال به دستگاه‌های اندروید را دارد؟ من یک گوشی سامسونگ دارم و می‌خواهم بدانم آیا با این مدل سازگار است یا نه. همچنین در مورد گارانتی محصول هم سوال داشتم. ممنون میشم راهنمایی کنید.">مشاهده
-                                        بیشتر</span>
-                                </td>
-                                <td><button class="delete-btn"><i class="fas fa-trash"></i> حذف</button></td>
-                            </tr>
 
                         </tbody>
                     </table>
@@ -133,19 +103,19 @@
                 <form id="about-form">
                     <div class="form-group">
                         <label for="about-description">توضیحات درباره ما:</label>
-                        <textarea id="about-description" class="form-control" rows="5"></textarea>
+                        <textarea id="description" name="description" class="form-control" rows="5"></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="work-experience">سابقه کار (سال):</label>
-                        <input type="number" id="work-experience" class="form-control">
+                        <label for="work_experience">سابقه کار (سال):</label>
+                        <input type="number" id="work_experience" name="work_experience" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label for="completed-projects">پروژه‌های تکمیل شده:</label>
-                        <input type="number" id="completed-projects" class="form-control">
+                        <label for="completed_projects">پروژه‌های تکمیل شده:</label>
+                        <input type="number" id="completed_projects" name="completed_projects" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label for="happy-clients">مشتریان راضی:</label>
-                        <input type="number" id="happy-clients" class="form-control">
+                        <label for="happy_clients">مشتریان راضی:</label>
+                        <input type="number" id="happy_clients" name="happy_clients" class="form-control">
                     </div>
                     <button type="submit" class="submit-btn">ذخیره تغییرات</button>
                 </form>
@@ -436,9 +406,9 @@
         </div>
     </footer>
 
-    <script src="/apps/jsforadminpanelfront.js"></script>
+    <script src="../apps/jsforadminpanelfront.js"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="/apps/jsforaddpafaloxinallpage.js"></script>
+    <script src="../apps/jsforaddpafaloxinallpage.js"></script>
 </body>
 
 </html>
