@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // ██████████████████████████████████████████████
-    // ███████ سیستم فیلتر نمونه کارها ███████
+    // ███████ سیستم فیلتر نمونه کارها ████████████
     // ██████████████████████████████████████████████
     
     const filterBtns = document.querySelectorAll('.filter-btn');
@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // ██████████████████████████████████████████████
-    // ███████ سیستم نویگیشن اسکرولی ███████
+    // ███████ سیستم نویگیشن اسکرولی ██████████████
     // ██████████████████████████████████████████████
     
     // تنظیم ارتفاع هدر و حاشیه‌ها
@@ -195,7 +195,7 @@ document.addEventListener('DOMContentLoaded', function () {
     setupMenuItems(mobileMenuItems);
 
     // ██████████████████████████████████████████████
-    // ███████ مدیریت اسکرول و نویگیشن ███████
+    // ███████ مدیریت اسکرول و نویگیشن ████████████
     // ██████████████████████████████████████████████
     
     // تشخیص بخش فعال بر اساس اسکرول
@@ -214,6 +214,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // به‌روزرسانی آیتم منوی فعال
         if (currentSection) {
             [menuItems, mobileMenuItems].forEach(itemList => {
+                
                 itemList.forEach(item => {
                     item.classList.remove('active-item');
                     if (item.getAttribute('data-section') === currentSection) {

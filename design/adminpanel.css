@@ -408,9 +408,8 @@
           width: 100%;
           padding: 10px 15px;
           border-radius: 8px;
-          border: 1px solid rgba(255, 255, 255, 0.3);
-          background: rgba(255, 255, 255, 0.1);
-          color: white;
+          background: rgb(0, 0, 0);
+          color: rgb(255, 255, 255);
           font-size: 16px;
           transition: all 0.3s ease;
       }
@@ -418,7 +417,7 @@
       .form-control:focus {
           outline: none;
           border-color: var(--primary-color);
-          background: rgba(255, 255, 255, 0.2);
+          background: rgb(0, 0, 0);
           box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.3);
       }
 
@@ -442,7 +441,6 @@
 
       .submit-btn:hover {
           background: #5649c5;
-          transform: translateY(-2px);
       }
 
       /* Portfolio Styles */
@@ -484,6 +482,7 @@
           color: white;
           font-size: 18px;
           margin-bottom: 5px;
+          
       }
 
       .portfolio-category {
@@ -496,12 +495,12 @@
 
       .frontend {
           background: rgba(9, 132, 227, 0.2);
-          color: #0984e3;
+          color: #dfe309;
       }
 
       .backend {
           background: rgba(214, 48, 49, 0.2);
-          color: #d63031;
+          color: #3046d6;
       }
 
       .fullstack {
@@ -523,17 +522,14 @@
       }
 
       .team-card {
-          background: rgba(255, 255, 255, 0.1);
+          background: rgba(0, 0, 0, 0.1);
           border-radius: 10px;
           overflow: hidden;
           transition: all 0.3s ease;
           border: 1px solid rgba(255, 255, 255, 0.2);
           text-align: center;
           padding: 20px;
-      }
-
-      .team-card:hover {
-          transform: translateY(-5px);
+          margin-top: 20px;
       }
 
       .team-avatar {
@@ -550,6 +546,11 @@
           font-size: 30px;
       }
 
+      .team-avatar img {
+          width: 100px;
+          height: 100px;
+      }
+
       .team-name {
           color: white;
           font-size: 18px;
@@ -562,6 +563,7 @@
           border-radius: 50px;
           font-size: 12px;
           margin-bottom: 10px;
+          
       }
 
       .designer {
@@ -572,6 +574,31 @@
       .editor {
           background: rgba(225, 112, 85, 0.2);
           color: #e17055;
+      }
+
+      /* استایل لینک رزومه */
+      .resume-link {
+          display: inline-block;
+          margin: 10px 0;
+          color: #e74c3c;
+          text-decoration: none;
+      }
+
+      .resume-link:hover {
+          text-decoration: underline;
+      }
+
+      .resume-link i {
+          margin-left: 5px;
+      }
+
+      /* استایل پیشنمایش فایل انتخاب شده */
+      .file-label[for="member-resume"]::after {
+          content: attr(data-file-name);
+          display: inline-block;
+          margin-right: 10px;
+          color: #3498db;
+          font-weight: bold;
       }
 
       /* Articles */
@@ -737,8 +764,8 @@
       }
 
       /* استایل‌های دسکتاپ */
-@media screen and (min-width: 1024px) {
- .container{
-    width: 1100px;
- }
-}
+      @media screen and (min-width: 1024px) {
+          .container {
+              width: 1100px;
+          }
+      }
