@@ -4725,3 +4725,318 @@
 (
 )
 
+[26-Jun-2025 02:02:20 UTC] ========= New Request =========
+[26-Jun-2025 02:02:20 UTC] Request Method: GET
+[26-Jun-2025 02:02:20 UTC] ========= New Request =========
+[26-Jun-2025 02:02:20 UTC] POST Data: Array
+(
+)
+
+[26-Jun-2025 02:02:20 UTC] Request Method: GET
+[26-Jun-2025 02:02:20 UTC] FILES Data: Array
+(
+)
+
+[26-Jun-2025 02:02:20 UTC] POST Data: Array
+(
+)
+
+[26-Jun-2025 02:02:20 UTC] FILES Data: Array
+(
+)
+
+[26-Jun-2025 02:02:20 UTC] ========= New Request =========
+[26-Jun-2025 02:02:20 UTC] ========= New Request =========
+[26-Jun-2025 02:02:20 UTC] Request Method: GET
+[26-Jun-2025 02:02:20 UTC] Request Method: GET
+[26-Jun-2025 02:02:20 UTC] POST Data: Array
+(
+)
+
+[26-Jun-2025 02:02:20 UTC] POST Data: Array
+(
+)
+
+[26-Jun-2025 02:02:20 UTC] FILES Data: Array
+(
+)
+
+[26-Jun-2025 02:02:20 UTC] FILES Data: Array
+(
+)
+
+[26-Jun-2025 02:02:20 UTC] ========= New Request =========
+[26-Jun-2025 02:02:20 UTC] Request Method: GET
+[26-Jun-2025 02:02:20 UTC] POST Data: Array
+(
+)
+
+[26-Jun-2025 02:02:20 UTC] FILES Data: Array
+(
+)
+
+[26-Jun-2025 02:03:01 UTC] ========= New Request =========
+[26-Jun-2025 02:03:01 UTC] Request Method: POST
+[26-Jun-2025 02:03:01 UTC] POST Data: Array
+(
+    [project-name] => hyperion
+    [project-category] => backend
+    [project-tech] => شمستیاشسلینشالسینمتشالسیمشاتسیمنشتسیشسیشسیشسی
+    [project-client] => 500000000
+    [project-delivery] => ثصص4فثقلثل
+    [project-link] => https://chat.deepseek.com/a/chat/s/bda82a1e-fdc9-4c6d-b5a7-23afc0d312c8
+    [action] => add_portfolio
+)
+
+[26-Jun-2025 02:03:01 UTC] FILES Data: Array
+(
+    [project-images] => Array
+        (
+            [name] => Array
+                (
+                    [0] => 90286.jpg
+                    [1] => 90292.jpg
+                    [2] => 90345.png
+                    [3] => 2082272.jpg
+                    [4] => 3815220.jpg
+                    [5] => beautiful-mountain-lake-background-remix.jpg
+                )
+
+            [full_path] => Array
+                (
+                    [0] => 90286.jpg
+                    [1] => 90292.jpg
+                    [2] => 90345.png
+                    [3] => 2082272.jpg
+                    [4] => 3815220.jpg
+                    [5] => beautiful-mountain-lake-background-remix.jpg
+                )
+
+            [type] => Array
+                (
+                    [0] => image/jpeg
+                    [1] => image/jpeg
+                    [2] => image/png
+                    [3] => image/jpeg
+                    [4] => image/jpeg
+                    [5] => image/jpeg
+                )
+
+            [tmp_name] => Array
+                (
+                    [0] => C:\wamp64\tmp\phpED23.tmp
+                    [1] => C:\wamp64\tmp\phpED33.tmp
+                    [2] => C:\wamp64\tmp\phpED44.tmp
+                    [3] => C:\wamp64\tmp\phpED74.tmp
+                    [4] => C:\wamp64\tmp\phpEDA4.tmp
+                    [5] => C:\wamp64\tmp\phpEDD4.tmp
+                )
+
+            [error] => Array
+                (
+                    [0] => 0
+                    [1] => 0
+                    [2] => 0
+                    [3] => 0
+                    [4] => 0
+                    [5] => 0
+                )
+
+            [size] => Array
+                (
+                    [0] => 266174
+                    [1] => 104369
+                    [2] => 859613
+                    [3] => 1126714
+                    [4] => 921797
+                    [5] => 879651
+                )
+
+        )
+
+    [project-video] => Array
+        (
+            [name] => you-look-lonely-blade-runner-2049-moewalls-com.mp4
+            [full_path] => you-look-lonely-blade-runner-2049-moewalls-com.mp4
+            [type] => video/mp4
+            [tmp_name] => C:\wamp64\tmp\phpEDF4.tmp
+            [error] => 0
+            [size] => 9906798
+        )
+
+)
+
+[26-Jun-2025 02:03:01 UTC] ========= START PORTFOLIO ADD =========
+[26-Jun-2025 02:03:01 UTC] Raw POST data: 
+[26-Jun-2025 02:03:01 UTC] POST array: Array
+(
+    [project-name] => hyperion
+    [project-category] => backend
+    [project-tech] => شمستیاشسلینشالسینمتشالسیمشاتسیمنشتسیشسیشسیشسی
+    [project-client] => 500000000
+    [project-delivery] => ثصص4فثقلثل
+    [project-link] => https://chat.deepseek.com/a/chat/s/bda82a1e-fdc9-4c6d-b5a7-23afc0d312c8
+    [action] => add_portfolio
+)
+
+[26-Jun-2025 02:03:01 UTC] FILES array: Array
+(
+    [project-images] => Array
+        (
+            [name] => Array
+                (
+                    [0] => 90286.jpg
+                    [1] => 90292.jpg
+                    [2] => 90345.png
+                    [3] => 2082272.jpg
+                    [4] => 3815220.jpg
+                    [5] => beautiful-mountain-lake-background-remix.jpg
+                )
+
+            [full_path] => Array
+                (
+                    [0] => 90286.jpg
+                    [1] => 90292.jpg
+                    [2] => 90345.png
+                    [3] => 2082272.jpg
+                    [4] => 3815220.jpg
+                    [5] => beautiful-mountain-lake-background-remix.jpg
+                )
+
+            [type] => Array
+                (
+                    [0] => image/jpeg
+                    [1] => image/jpeg
+                    [2] => image/png
+                    [3] => image/jpeg
+                    [4] => image/jpeg
+                    [5] => image/jpeg
+                )
+
+            [tmp_name] => Array
+                (
+                    [0] => C:\wamp64\tmp\phpED23.tmp
+                    [1] => C:\wamp64\tmp\phpED33.tmp
+                    [2] => C:\wamp64\tmp\phpED44.tmp
+                    [3] => C:\wamp64\tmp\phpED74.tmp
+                    [4] => C:\wamp64\tmp\phpEDA4.tmp
+                    [5] => C:\wamp64\tmp\phpEDD4.tmp
+                )
+
+            [error] => Array
+                (
+                    [0] => 0
+                    [1] => 0
+                    [2] => 0
+                    [3] => 0
+                    [4] => 0
+                    [5] => 0
+                )
+
+            [size] => Array
+                (
+                    [0] => 266174
+                    [1] => 104369
+                    [2] => 859613
+                    [3] => 1126714
+                    [4] => 921797
+                    [5] => 879651
+                )
+
+        )
+
+    [project-video] => Array
+        (
+            [name] => you-look-lonely-blade-runner-2049-moewalls-com.mp4
+            [full_path] => you-look-lonely-blade-runner-2049-moewalls-com.mp4
+            [type] => video/mp4
+            [tmp_name] => C:\wamp64\tmp\phpEDF4.tmp
+            [error] => 0
+            [size] => 9906798
+        )
+
+)
+
+[26-Jun-2025 02:03:01 UTC] Moving video: C:\wamp64\tmp\phpEDF4.tmp to C:\wamp64\www\myresumesite\shopdgdo\apis/../content/videos/685caa55cdf03_you-look-lonely-blade-runner-2049-moewalls-com.mp4
+[26-Jun-2025 02:03:01 UTC] ========= New Request =========
+[26-Jun-2025 02:03:01 UTC] Request Method: GET
+[26-Jun-2025 02:03:01 UTC] POST Data: Array
+(
+)
+
+[26-Jun-2025 02:03:01 UTC] FILES Data: Array
+(
+)
+
+[26-Jun-2025 02:03:16 UTC] ========= New Request =========
+[26-Jun-2025 02:03:16 UTC] Request Method: POST
+[26-Jun-2025 02:03:16 UTC] POST Data: Array
+(
+    [action] => delete_portfolio
+    [id] => 7
+)
+
+[26-Jun-2025 02:03:16 UTC] FILES Data: Array
+(
+)
+
+[26-Jun-2025 02:03:16 UTC] ========= New Request =========
+[26-Jun-2025 02:03:16 UTC] Request Method: GET
+[26-Jun-2025 02:03:16 UTC] POST Data: Array
+(
+)
+
+[26-Jun-2025 02:03:16 UTC] FILES Data: Array
+(
+)
+
+[26-Jun-2025 02:03:18 UTC] ========= New Request =========
+[26-Jun-2025 02:03:18 UTC] ========= New Request =========
+[26-Jun-2025 02:03:18 UTC] Request Method: GET
+[26-Jun-2025 02:03:18 UTC] POST Data: Array
+(
+)
+
+[26-Jun-2025 02:03:18 UTC] Request Method: GET
+[26-Jun-2025 02:03:18 UTC] FILES Data: Array
+(
+)
+
+[26-Jun-2025 02:03:18 UTC] POST Data: Array
+(
+)
+
+[26-Jun-2025 02:03:18 UTC] ========= New Request =========
+[26-Jun-2025 02:03:18 UTC] ========= New Request =========
+[26-Jun-2025 02:03:18 UTC] ========= New Request =========
+[26-Jun-2025 02:03:18 UTC] Request Method: GET
+[26-Jun-2025 02:03:18 UTC] Request Method: GET
+[26-Jun-2025 02:03:18 UTC] Request Method: GET
+[26-Jun-2025 02:03:18 UTC] FILES Data: Array
+(
+)
+
+[26-Jun-2025 02:03:18 UTC] POST Data: Array
+(
+)
+
+[26-Jun-2025 02:03:18 UTC] POST Data: Array
+(
+)
+
+[26-Jun-2025 02:03:18 UTC] FILES Data: Array
+(
+)
+
+[26-Jun-2025 02:03:18 UTC] FILES Data: Array
+(
+)
+
+[26-Jun-2025 02:03:18 UTC] POST Data: Array
+(
+)
+
+[26-Jun-2025 02:03:18 UTC] FILES Data: Array
+(
+)
+

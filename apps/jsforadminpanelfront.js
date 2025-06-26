@@ -1,5 +1,3 @@
-
-
 // ================== بخش جدید: سیستم نمایش پیام‌های سفارشی ==================
 function addCustomMessageStyles() {
     const style = document.createElement('style');
@@ -94,7 +92,6 @@ addCustomMessageStyles();
  * @param {string} message - متن پیغام
  * @param {number} duration - مدت زمان نمایش به میلی‌ثانیه (0 برای نمایش دائمی)
  */
-
 function showCustomMessage(type, message, duration = 5000) {
     // ایجاد کانتینر پیغام‌ها اگر وجود نداشته باشد
     let container = document.querySelector('.custom-message-container');
@@ -111,20 +108,11 @@ function showCustomMessage(type, message, duration = 5000) {
     // آیکون بر اساس نوع پیغام
     let icon;
     switch (type) {
-        case 'success':
-            icon = '<i class="fas fa-check-circle"></i>';
-            break;
-        case 'error':
-            icon = '<i class="fas fa-times-circle"></i>';
-            break;
-        case 'warning':
-            icon = '<i class="fas fa-exclamation-circle"></i>';
-            break;
-        case 'info':
-            icon = '<i class="fas fa-info-circle"></i>';
-            break;
-        default:
-            icon = '';
+        case 'success': icon = '<i class="fas fa-check-circle"></i>'; break;
+        case 'error': icon = '<i class="fas fa-times-circle"></i>'; break;
+        case 'warning': icon = '<i class="fas fa-exclamation-circle"></i>'; break;
+        case 'info': icon = '<i class="fas fa-info-circle"></i>'; break;
+        default: icon = '';
     }
 
     messageElement.innerHTML = `
@@ -269,6 +257,76 @@ async function showCustomConfirm(message) {
     });
 }
 
+// ================== اعتبارسنجی فایل‌ها ==================
+function validateAvatarFile(file) {
+    const allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
+    const maxSize = 5 * 1024 * 1024; // 5MB
+    
+    if (!allowedTypes.includes(file.type)) {
+        showCustomMessage('error', 'فقط فایل‌های تصویری (JPEG, PNG, GIF) مجاز هستند');
+        return false;
+    }
+    
+    if (file.size > maxSize) {
+        showCustomMessage('error', 'حجم فایل نباید بیشتر از 5 مگابایت باشد');
+        return false;
+    }
+    
+    return true;
+}
+
+function validatePortfolioImages(files) {
+    const allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
+    const maxSize = 100 * 1024 * 1024; // 5MB
+    const maxFiles = 5;
+    
+    if (files.length > maxFiles) {
+        showCustomMessage('error', 'حداکثر 5 تصویر می‌توانید آپلود کنید');
+        return false;
+    }
+    
+    for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        
+        if (!allowedTypes.includes(file.type)) {
+            showCustomMessage('error', 'فقط فایل‌های تصویری (JPEG, PNG, GIF) مجاز هستند');
+            return false;
+        }
+        
+        if (file.size > maxSize) {
+            showCustomMessage('error', `حجم فایل ${file.name} نباید بیشتر از 5 مگابایت باشد`);
+            return false;
+        }
+    }
+    
+    return true;
+}
+
+// تابع اعتبارسنجی ویدیو را به این شکل اصلاح کنید:
+function validatePortfolioVideo(file) {
+    const allowedTypes = ['video/mp4', 'video/webm', 'video/ogg'];
+    const maxSize = 500 * 1024 * 1024; // افزایش حد مجاز به 500MB
+    
+    if (!file) return true; // ویدیو اختیاری است
+    
+    // بررسی پسوند فایل
+    const extension = file.name.split('.').pop().toLowerCase();
+    const allowedExtensions = ['mp4', 'webm', 'ogg'];
+    
+    if (!allowedExtensions.includes(extension)) {
+        showCustomMessage('error', 'فقط فایل‌های ویدیویی با پسوند MP4, WebM یا Ogg مجاز هستند');
+        return false;
+    }
+    
+    // بررسی حجم فایل
+    if (file.size > maxSize) {
+        showCustomMessage('error', 'حجم ویدیو نباید بیشتر از 500 مگابایت باشد');
+        return false;
+    }
+    
+    return true;
+}
+
 // ================== اصلاح تابع sendRequest ==================
 async function sendRequest(action, data = {}, method = 'POST', showDefaultMessage = false) {
     try {
@@ -340,23 +398,12 @@ async function loadData(section) {
         let action;
 
         switch (section) {
-            case 'messages-section':
-                action = 'get_messages';
-                break;
-            case 'about-section':
-                action = 'get_about';
-                break;
-            case 'portfolio-section':
-                action = 'get_portfolio';
-                break;
-            case 'team-section':
-                action = 'get_team';
-                break;
-            case 'articles-section':
-                action = 'get_articles';
-                break;
-            default:
-                return;
+            case 'messages-section': action = 'get_messages'; break;
+            case 'about-section': action = 'get_about'; break;
+            case 'portfolio-section': action = 'get_portfolio'; break;
+            case 'team-section': action = 'get_team'; break;
+            case 'articles-section': action = 'get_articles'; break;
+            default: return;
         }
 
         // تغییر به GET و ارسال بدون body
@@ -548,42 +595,60 @@ function setupPortfolioSection() {
         }
     }
 
-    portfolioForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
+// در تابع setupPortfolioSection، قسمت ارسال فرم را به این شکل اصلاح کنید:
+portfolioForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
 
-        try {
-            const formData = new FormData(portfolioForm);
-            formData.append('action', 'add_portfolio');
-
-            console.log('آماده‌سازی داده‌ها برای ارسال...');
-
-            const response = await fetch('../apis/adminpanelapi.php', {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            });
-
-            if (!response.ok) {
-                const errorData = await response.json().catch(() => null);
-                throw new Error(errorData?.message || `خطای سرور: ${response.status}`);
-            }
-
-            const result = await response.json();
-
-            if (!result.success) {
-                throw new Error(result.message || 'خطا در ثبت نمونه کار');
-            }
-
-            showCustomMessage('success', 'نمونه کار با موفقیت ذخیره شد');
-            portfolioForm.reset();
-            await loadPortfolio();
-        } catch (error) {
-            console.error('خطا:', error);
-            showCustomMessage('error', error.message || 'خطا در ارتباط با سرور');
+    // اعتبارسنجی تصاویر
+    const imagesInput = portfolioForm.querySelector('#project-images');
+    if (imagesInput.files.length > 0) {
+        if (!validatePortfolioImages(imagesInput.files)) {
+            return;
         }
-    });
+    }
+
+    // اعتبارسنجی ویدیو
+    const videoInput = portfolioForm.querySelector('#project-video');
+    if (videoInput.files.length > 0) {
+        if (!validatePortfolioVideo(videoInput.files[0])) {
+            return;
+        }
+    }
+
+    try {
+        const formData = new FormData(portfolioForm);
+        formData.append('action', 'add_portfolio');
+
+        // نمایش پیام در حال آپلود
+        showCustomMessage('info', 'در حال آپلود فایل‌ها، لطفاً صبر کنید...', 0);
+
+        const response = await fetch('../apis/adminpanelapi.php', {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        });
+
+        if (!response.ok) {
+            const errorData = await response.json().catch(() => null);
+            throw new Error(errorData?.message || `خطای سرور: ${response.status}`);
+        }
+
+        const result = await response.json();
+
+        if (!result.success) {
+            throw new Error(result.message || 'خطا در ثبت نمونه کار');
+        }
+
+        showCustomMessage('success', 'نمونه کار با موفقیت ذخیره شد');
+        portfolioForm.reset();
+        await loadPortfolio();
+    } catch (error) {
+        console.error('خطا:', error);
+        showCustomMessage('error', error.message || 'خطا در ارتباط با سرور');
+    }
+});
 
     // نمایش نام فایل‌های انتخاب شده
     portfolioSection.querySelectorAll('.file-input').forEach(input => {
@@ -672,7 +737,6 @@ function setupTeamSection() {
         }
     }
 
-    // در تابع setupTeamSection این کد را اضافه کنید:
     const resumeInput = teamSection.querySelector('#member-resume');
     if (resumeInput) {
         resumeInput.addEventListener('change', (e) => {
@@ -690,22 +754,22 @@ function setupTeamSection() {
     teamForm.addEventListener('submit', async (e) => {
         e.preventDefault();
 
-        const formData = new FormData(teamForm);
-
-        // اضافه کردن action به FormData
-        formData.append('action', 'add_team_member');
-
-        // دیباگ محتویات FormData
-        console.log('FormData contents:');
-        for (let [key, value] of formData.entries()) {
-            console.log(key, value instanceof File ? `${value.name} (${value.size} bytes)` : value);
+        // اعتبارسنجی فایل آواتار
+        const avatarInput = teamForm.querySelector('#member-avatar');
+        if (avatarInput.files.length > 0) {
+            const avatarFile = avatarInput.files[0];
+            if (!validateAvatarFile(avatarFile)) {
+                return;
+            }
         }
+
+        const formData = new FormData(teamForm);
+        formData.append('action', 'add_team_member');
 
         try {
             const response = await fetch('../apis/adminpanelapi.php', {
                 method: 'POST',
                 body: formData,
-                // توجه: نباید Content-Type را تنظیم کنید وقتی از FormData استفاده می‌کنید
             });
 
             if (!response.ok) {

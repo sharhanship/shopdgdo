@@ -4,16 +4,11 @@ header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type, Authorization');
 
-
 // تنظیمات خطاها
 error_reporting(E_ALL);
 ini_set('display_errors', 0);
 ini_set('log_errors', 1);
 ini_set('error_log', __DIR__ . '/admin_errors.log');
-
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
 
 // تنظیمات افزایش محدودیت‌ها
 ini_set('upload_max_filesize', '1024M');
@@ -28,7 +23,6 @@ function logError($message) {
 }
 
 // تابع برای نمایش پیغام‌های خطا به صورت JSON
-// تغییر در تابع sendResponse برای یکپارچه‌سازی بهتر با سیستم پیام‌های سفارشی
 function sendResponse($success, $message = '', $data = [], $statusCode = 200) {
     http_response_code($statusCode);
     header('Content-Type: application/json; charset=utf-8');
@@ -44,18 +38,12 @@ function sendResponse($success, $message = '', $data = [], $statusCode = 200) {
     exit;
 }
 
-// در ابتدای فایل بعد از تابع connectDB()
-error_log("========= New Request =========");
-error_log("Request Method: " . $_SERVER['REQUEST_METHOD']);
-error_log("POST Data: " . print_r($_POST, true));
-error_log("FILES Data: " . print_r($_FILES, true));
-
 // تابع برای اتصال به دیتابیس
 function connectDB() {
     $host = 'localhost';
     $dbname = 'godshop-db';
-    $username = 'root'; // تغییر دهید به نام کاربری دیتابیس
-    $password = ''; // تغییر دهید به رمز عبور دیتابیس
+    $username = 'root';
+    $password = '';
 
     try {
         $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
@@ -68,54 +56,101 @@ function connectDB() {
     } catch (PDOException $e) {
         error_log("Database connection failed: " . $e->getMessage());
         sendResponse(false, 'خطا در اتصال به پایگاه داده', [], 500);
-        
     }
 }
 
-
-// اعتبارسنجی فایل‌های آپلود شده
+// تابع بهبود یافته برای اعتبارسنجی فایل‌های آپلود شده
 function validateUploadedFile($file, $allowedTypes = ['image/jpeg', 'image/png', 'image/gif'], $maxSize = 5 * 1024 * 1024) {
-    if ($file['error'] !== UPLOAD_ERR_OK) {
-        return ['success' => false, 'message' => 'خطا در آپلود فایل'];
+    // بررسی وجود فایل
+    if (!isset($file) || $file['error'] === UPLOAD_ERR_NO_FILE) {
+        return ['success' => true, 'optional' => true];
     }
 
+    // بررسی خطاهای آپلود
+    if ($file['error'] !== UPLOAD_ERR_OK) {
+        return ['success' => false, 'message' => 'خطا در آپلود فایل. کد خطا: ' . $file['error']];
+    }
+
+    // بررسی حجم فایل
     if ($file['size'] > $maxSize) {
         return ['success' => false, 'message' => 'حجم فایل بیش از حد مجاز است'];
     }
 
+    // بررسی نوع فایل با دو روش مختلف برای امنیت بیشتر
     $finfo = finfo_open(FILEINFO_MIME_TYPE);
     $mime = finfo_file($finfo, $file['tmp_name']);
     finfo_close($finfo);
 
+    $extension = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
+    $allowedExtensions = [
+        'jpg' => 'image/jpeg',
+        'jpeg' => 'image/jpeg',
+        'png' => 'image/png',
+        'gif' => 'image/gif'
+    ];
+
+    // بررسی همزمان MIME type و extension
     if (!in_array($mime, $allowedTypes)) {
-        return ['success' => false, 'message' => 'نوع فایل مجاز نیست'];
+        return ['success' => false, 'message' => 'نوع فایل مجاز نیست (MIME)'];
+    }
+
+    if (!array_key_exists($extension, $allowedExtensions)) {
+        return ['success' => false, 'message' => 'نوع فایل مجاز نیست (Extension)'];
+    }
+
+    if ($allowedExtensions[$extension] !== $mime) {
+        return ['success' => false, 'message' => 'نوع فایل با پسوند آن مطابقت ندارد'];
+    }
+
+    // بررسی محتوای فایل تصویر
+    if (strpos($mime, 'image/') === 0) {
+        $imageInfo = getimagesize($file['tmp_name']);
+        if (!$imageInfo) {
+            return ['success' => false, 'message' => 'فایل تصویر معتبر نیست'];
+        }
     }
 
     return ['success' => true];
 }
 
-// اعتبارسنجی فایل ویدیو
-function validateVideoFile($file, $maxSize = 50 * 1024 * 1024) {
-    $allowedTypes = ['video/mp4', 'video/webm', 'video/ogg'];
-    return validateUploadedFile($file, $allowedTypes, $maxSize);
-}
-
-// ذخیره فایل آپلود شده
-function saveUploadedFile($file, $targetDir = '../content/uploads/') {
-    if (!file_exists($targetDir)) {
-        mkdir($targetDir, 0777, true);
+// تابع اعتبارسنجی ویدیو را به این شکل اصلاح کنید:
+function validateVideoFile($file, $maxSize = 500 * 1024 * 1024) {
+    $allowedExtensions = ['mp4', 'webm', 'ogg'];
+    $allowedMimeTypes = ['video/mp4', 'video/webm', 'video/ogg'];
+    
+    // بررسی وجود فایل
+    if (!isset($file) || $file['error'] === UPLOAD_ERR_NO_FILE) {
+        return ['success' => true, 'optional' => true];
     }
 
-    $extension = pathinfo($file['name'], PATHINFO_EXTENSION);
-    $filename = uniqid() . '.' . $extension;
-    $targetPath = $targetDir . $filename;
-
-    if (move_uploaded_file($file['tmp_name'], $targetPath)) {
-        return ['success' => true, 'filename' => $filename, 'path' => $targetPath];
-    } else {
-        return ['success' => false, 'message' => 'خطا در ذخیره فایل'];
+    // بررسی خطاهای آپلود
+    if ($file['error'] !== UPLOAD_ERR_OK) {
+        return ['success' => false, 'message' => 'خطا در آپلود فایل. کد خطا: ' . $file['error']];
     }
+
+    // بررسی حجم فایل
+    if ($file['size'] > $maxSize) {
+        return ['success' => false, 'message' => 'حجم فایل بیش از حد مجاز است'];
+    }
+
+    // بررسی پسوند فایل
+    $extension = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
+    if (!in_array($extension, $allowedExtensions)) {
+        return ['success' => false, 'message' => 'پسوند فایل مجاز نیست'];
+    }
+
+    // بررسی MIME type
+    $finfo = finfo_open(FILEINFO_MIME_TYPE);
+    $mime = finfo_file($finfo, $file['tmp_name']);
+    finfo_close($finfo);
+    
+    if (!in_array($mime, $allowedMimeTypes)) {
+        return ['success' => false, 'message' => 'نوع فایل ویدیویی معتبر نیست'];
+    }
+
+    return ['success' => true];
 }
+
 
 // پردازش درخواست‌های POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -126,7 +161,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         switch ($action) {
             // مدیریت پیام‌ها
             case 'delete_message':
-                $messageId = $_POST['id'] ?? 0;
+                $messageId = (int)($_POST['id'] ?? 0);
+                if ($messageId <= 0) {
+                    sendResponse(false, 'شناسه پیام نامعتبر است', [], 400);
+                }
+                
                 $stmt = $pdo->prepare("DELETE FROM messages WHERE id = ?");
                 $stmt->execute([$messageId]);
                 sendResponse(true, 'پیام با موفقیت حذف شد');
@@ -134,142 +173,109 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             // مدیریت درباره ما
             case 'save_about':
-                $description = $_POST['description'] ?? '';
-                $work_experience = $_POST['work_experience'] ?? 0;
-                $completed_projects = $_POST['completed_projects'] ?? 0;
-                $happy_clients = $_POST['happy_clients'] ?? 0;
+                $description = htmlspecialchars($_POST['description'] ?? '', ENT_QUOTES, 'UTF-8');
+                $work_experience = (int)($_POST['work_experience'] ?? 0);
+                $completed_projects = (int)($_POST['completed_projects'] ?? 0);
+                $happy_clients = (int)($_POST['happy_clients'] ?? 0);
 
                 $stmt = $pdo->prepare("UPDATE about_us SET description = ?, work_experience = ?, completed_projects = ?, happy_clients = ? WHERE id = 1");
                 $stmt->execute([$description, $work_experience, $completed_projects, $happy_clients]);
                 sendResponse(true, 'اطلاعات درباره ما با موفقیت ذخیره شد');
                 break;
 
+       // در بخش case 'add_portfolio' این تغییرات را اعمال کنید:
 case 'add_portfolio':
-    error_log("========= START PORTFOLIO ADD =========");
-    
-    // دریافت داده‌ها به صورت خام برای دیباگ
-    $postData = file_get_contents("php://input");
-    error_log("Raw POST data: " . $postData);
-    error_log("POST array: " . print_r($_POST, true));
-    error_log("FILES array: " . print_r($_FILES, true));
-
-    // بررسی وجود فایل‌ها
-    if (empty($_FILES)) {
-        error_log("No files received");
-        sendResponse(false, 'هیچ فایلی دریافت نشد', [], 400);
-    }
-
-    // بررسی وجود action
-    if (empty($_POST['action'])) {
-        error_log("No action specified");
-        sendResponse(false, 'عملیات نامعتبر: action مشخص نشده', [], 400);
-    }
-
     // اعتبارسنجی فیلدهای ضروری
     $required = ['project-name', 'project-category'];
     foreach ($required as $field) {
         if (empty($_POST[$field])) {
-            error_log("Missing required field: " . $field);
             sendResponse(false, 'فیلدهای ضروری پر نشده‌اند', [], 400);
         }
     }
 
     // پردازش تصاویر
     $images = [];
-    if (!empty($_FILES['project-images'])) {
-        $targetDir = __DIR__ . '/../content/uploads/';
-        if (!file_exists($targetDir)) {
-            mkdir($targetDir, 0777, true);
+    if (!empty($_FILES['project-images']['tmp_name'][0])) {
+        $maxImages = 5;
+        
+        // بررسی تعداد تصاویر
+        if (count($_FILES['project-images']['tmp_name']) > $maxImages) {
+            sendResponse(false, "حداکثر $maxImages تصویر می‌توانید آپلود کنید", [], 400);
         }
-
+        
         foreach ($_FILES['project-images']['tmp_name'] as $index => $tmpName) {
-            if ($_FILES['project-images']['error'][$index] !== UPLOAD_ERR_OK) {
-                error_log("Upload error for file: " . $_FILES['project-images']['name'][$index]);
-                continue;
+            $file = [
+                'name' => $_FILES['project-images']['name'][$index],
+                'type' => $_FILES['project-images']['type'][$index],
+                'tmp_name' => $tmpName,
+                'error' => $_FILES['project-images']['error'][$index],
+                'size' => $_FILES['project-images']['size'][$index]
+            ];
+            
+            $validation = validateUploadedFile($file);
+            if (!$validation['success']) {
+                sendResponse(false, "خطا در تصویر " . ($index+1) . ": " . $validation['message'], [], 400);
             }
-
-            $filename = uniqid() . '_' . basename($_FILES['project-images']['name'][$index]);
-            $targetPath = $targetDir . $filename;
-
-            if (move_uploaded_file($tmpName, $targetPath)) {
-                $images[] = $filename;
-            } else {
-                error_log("Failed to move file: " . $_FILES['project-images']['name'][$index]);
+            
+            $filename = uniqid('img_') . '_' . bin2hex(random_bytes(4)) . '.' . pathinfo($file['name'], PATHINFO_EXTENSION);
+            $targetPath = '../content/uploads/' . $filename;
+            
+            if (!move_uploaded_file($tmpName, $targetPath)) {
+                sendResponse(false, 'خطا در ذخیره تصویر', [], 500);
             }
+            
+            $images[] = $filename;
         }
     }
 
-// پردازش ویدیو
-$video = null;
-if (!empty($_FILES['project-video']['tmp_name'])) {
-    // اعتبارسنجی اولیه
-    if ($_FILES['project-video']['error'] !== UPLOAD_ERR_OK) {
-        error_log("Video upload error: " . $_FILES['project-video']['error']);
-        sendResponse(false, 'خطا در آپلود ویدیو: کد خطا ' . $_FILES['project-video']['error'], [], 400);
-    }
-
-    // بررسی حجم فایل
-    if ($_FILES['project-video']['size'] > 1024 * 1024 * 1024) { // 1GB
-        sendResponse(false, 'حجم ویدیو نباید بیشتر از 1GB باشد', [], 400);
-    }
-
-    $targetDir = __DIR__ . '/../content/videos/';
-    if (!file_exists($targetDir)) {
-        if (!mkdir($targetDir, 0777, true)) {
-            error_log("Cannot create video directory");
-            sendResponse(false, 'خطا در ایجاد پوشه ویدیوها', [], 500);
+    // پردازش ویدیو
+    $video = null;
+    if (!empty($_FILES['project-video']['tmp_name'])) {
+        $validation = validateVideoFile($_FILES['project-video']);
+        if (!$validation['success']) {
+            sendResponse(false, $validation['message'], [], 400);
         }
+        
+        $videoName = uniqid('video_') . '_' . bin2hex(random_bytes(4)) . '.' . pathinfo($_FILES['project-video']['name'], PATHINFO_EXTENSION);
+        $targetPath = '../content/videos/' . $videoName;
+        
+        if (!move_uploaded_file($_FILES['project-video']['tmp_name'], $targetPath)) {
+            sendResponse(false, 'خطا در ذخیره ویدیو', [], 500);
+        }
+        
+        $video = $videoName;
     }
-
-    // نام فایل
-    $filename = uniqid() . '_' . preg_replace('/[^a-z0-9\._-]/i', '_', $_FILES['project-video']['name']);
-    $targetPath = $targetDir . $filename;
-
-    // ذخیره موقت اطلاعات برای دیباگ
-    error_log("Moving video: " . $_FILES['project-video']['tmp_name'] . " to " . $targetPath);
-
-    if (!move_uploaded_file($_FILES['project-video']['tmp_name'], $targetPath)) {
-        error_log("Move_uploaded_file failed");
-        $lastError = error_get_last();
-        error_log("Last error: " . print_r($lastError, true));
-        sendResponse(false, 'خطا در ذخیره ویدیو: ' . ($lastError['message'] ?? 'خطای ناشناخته'), [], 500);
-    }
-
-    $video = $filename;
-}
 
     // ذخیره در دیتابیس
     try {
-        $stmt = $pdo->prepare("INSERT INTO portfolio (name, category, images, video, technologies, client, delivery_time, project_link) 
-                              VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt = $pdo->prepare("INSERT INTO portfolio 
+            (name, category, images, video, technologies, client, delivery_time, project_link) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
         
-        $result = $stmt->execute([
-            $_POST['project-name'],
+        $stmt->execute([
+            htmlspecialchars($_POST['project-name'], ENT_QUOTES, 'UTF-8'),
             $_POST['project-category'],
             !empty($images) ? json_encode($images) : null,
             $video,
-            $_POST['project-tech'] ?? null,
-            $_POST['project-client'] ?? null,
-            $_POST['project-delivery'] ?? null,
-            $_POST['project-link'] ?? null
+            htmlspecialchars($_POST['project-tech'] ?? '', ENT_QUOTES, 'UTF-8'),
+            htmlspecialchars($_POST['project-client'] ?? '', ENT_QUOTES, 'UTF-8'),
+            htmlspecialchars($_POST['project-delivery'] ?? '', ENT_QUOTES, 'UTF-8'),
+            filter_var($_POST['project-link'] ?? '', FILTER_SANITIZE_URL)
         ]);
         
-
-        if (!$result) {
-            error_log("Database error: " . print_r($stmt->errorInfo(), true));
-            sendResponse(false, 'خطا در ذخیره اطلاعات', [], 500);
-        }
-
         sendResponse(true, 'پروژه با موفقیت ذخیره شد', ['id' => $pdo->lastInsertId()]);
     } catch (PDOException $e) {
         error_log("Database exception: " . $e->getMessage());
         sendResponse(false, 'خطای پایگاه داده: ' . $e->getMessage(), [], 500);
     }
     break;
-    
 
             case 'delete_portfolio':
-                $portfolioId = $_POST['id'] ?? 0;
+                $portfolioId = (int)($_POST['id'] ?? 0);
+                if ($portfolioId <= 0) {
+                    sendResponse(false, 'شناسه پروژه نامعتبر است', [], 400);
+                }
+                
                 // ابتدا اطلاعات پروژه را دریافت می‌کنیم تا فایل‌ها را حذف کنیم
                 $stmt = $pdo->prepare("SELECT images, video FROM portfolio WHERE id = ?");
                 $stmt->execute([$portfolioId]);
@@ -277,11 +283,13 @@ if (!empty($_FILES['project-video']['tmp_name'])) {
 
                 if ($portfolio) {
                     // حذف تصاویر
-                    $images = json_decode($portfolio['images'], true);
-                    foreach ($images as $image) {
-                        $filePath = '../content/uploads/' . $image;
-                        if (file_exists($filePath)) {
-                            unlink($filePath);
+                    if ($portfolio['images']) {
+                        $images = json_decode($portfolio['images'], true);
+                        foreach ($images as $image) {
+                            $filePath = '../content/uploads/' . $image;
+                            if (file_exists($filePath)) {
+                                unlink($filePath);
+                            }
                         }
                     }
 
@@ -300,107 +308,116 @@ if (!empty($_FILES['project-video']['tmp_name'])) {
                 sendResponse(true, 'پروژه با موفقیت حذف شد');
                 break;
 
-case 'add_team_member':
-    // لاگ تمام داده‌های دریافتی
-    error_log("Received POST: " . print_r($_POST, true));
-    error_log("Received FILES: " . print_r($_FILES, true));
+            case 'add_team_member':
+                // فیلدهای ضروری
+                $required = ['member_name', 'member_lastname', 'member_phone', 'member_email', 'member_role'];
+                foreach ($required as $field) {
+                    if (empty($_POST[$field])) {
+                        sendResponse(false, "فیلد $field الزامی است", [], 400);
+                    }
+                }
 
-    // فیلدهای ضروری
-    $required = ['member_name', 'member_lastname', 'member_phone', 'member_email', 'member_role'];
-    foreach ($required as $field) {
-        if (empty($_POST[$field])) {
-            sendResponse(false, "فیلد $field الزامی است", [], 400);
-        }
-    }
+                // اعتبارسنجی ایمیل
+                if (!filter_var($_POST['member_email'], FILTER_VALIDATE_EMAIL)) {
+                    sendResponse(false, 'فرمت ایمیل نامعتبر است', [], 400);
+                }
 
-    // پردازش تصویر
-    $avatar = null;
-    if (!empty($_FILES['member_avatar']['tmp_name']) && $_FILES['member_avatar']['size'] > 0) {
-        $upload = saveUploadedFile($_FILES['member_avatar'], '../content/team/');
-        if (!$upload['success']) {
-            sendResponse(false, $upload['message'], [], 400);
-        }
-        $avatar = $upload['filename'];
-    }
+                // پردازش تصویر
+                $avatar = null;
+                if (!empty($_FILES['member_avatar']['tmp_name'])) {
+                    $validation = validateUploadedFile($_FILES['member_avatar']);
+                    if (!$validation['success']) {
+                        sendResponse(false, $validation['message'], [], 400);
+                    }
+                    
+                    // تغییر نام فایل برای امنیت بیشتر
+                    $avatarName = uniqid('avatar_') . '_' . bin2hex(random_bytes(4)) . '.' . pathinfo($_FILES['member_avatar']['name'], PATHINFO_EXTENSION);
+                    $targetPath = '../content/team/' . $avatarName;
+                    
+                    if (!move_uploaded_file($_FILES['member_avatar']['tmp_name'], $targetPath)) {
+                        sendResponse(false, 'خطا در ذخیره تصویر پروفایل', [], 500);
+                    }
+                    
+                    $avatar = $avatarName;
+                }
 
-    // پردازش رزومه (اگر وجود دارد)
-    $resume = null;
-    if (!empty($_FILES['member_resume']['tmp_name']) && $_FILES['member_resume']['size'] > 0) {
-        // اعتبارسنجی PDF
-        $finfo = new finfo(FILEINFO_MIME_TYPE);
-        $mime = $finfo->file($_FILES['member_resume']['tmp_name']);
-        if (!in_array($mime, ['application/pdf', 'application/x-pdf'])) {
-            sendResponse(false, 'فقط فایل‌های PDF مجاز هستند', [], 400);
-        }
-        
-        $filename = uniqid() . '_' . preg_replace('/[^a-z0-9\._-]/i', '_', $_FILES['member_resume']['name']);
-        $target = '../content/resumes/' . $filename;
-        
-        if (!move_uploaded_file($_FILES['member_resume']['tmp_name'], $target)) {
-            sendResponse(false, 'خطا در ذخیره رزومه', [], 500);
-        }
-        $resume = $filename;
-    }
+                // پردازش رزومه (اگر وجود دارد)
+                $resume = null;
+                if (!empty($_FILES['member_resume']['tmp_name'])) {
+                    // اعتبارسنجی PDF
+                    $finfo = new finfo(FILEINFO_MIME_TYPE);
+                    $mime = $finfo->file($_FILES['member_resume']['tmp_name']);
+                    if (!in_array($mime, ['application/pdf', 'application/x-pdf'])) {
+                        sendResponse(false, 'فقط فایل‌های PDF مجاز هستند', [], 400);
+                    }
+                    
+                    $filename = uniqid() . '_' . preg_replace('/[^a-z0-9\._-]/i', '_', $_FILES['member_resume']['name']);
+                    $target = '../content/resumes/' . $filename;
+                    
+                    if (!move_uploaded_file($_FILES['member_resume']['tmp_name'], $target)) {
+                        sendResponse(false, 'خطا در ذخیره رزومه', [], 500);
+                    }
+                    $resume = $filename;
+                }
 
-    // ذخیره در دیتابیس
-    try {
-        $stmt = $pdo->prepare("INSERT INTO team_members 
-            (first_name, last_name, avatar, resume_file, phone, email, about, projects, role) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        
-        $stmt->execute([
-            $_POST['member_name'],
-            $_POST['member_lastname'],
-            $avatar,
-            $resume,
-            $_POST['member_phone'],
-            $_POST['member_email'],
-            $_POST['member_about'] ?? '',
-            $_POST['member_projects'] ?? '',
-            $_POST['member_role']
-        ]);
-        
-        sendResponse(true, 'عضو تیم با موفقیت ذخیره شد', [
-            'id' => $pdo->lastInsertId(),
-            'avatar' => $avatar,
-            'resume' => $resume
-        ]);
-    } catch (PDOException $e) {
-        error_log("DB Error: " . $e->getMessage());
-        sendResponse(false, 'خطای پایگاه داده: ' . $e->getMessage(), [], 500);
-    }
-    break;
+                // ذخیره در دیتابیس
+                $stmt = $pdo->prepare("INSERT INTO team_members 
+                    (first_name, last_name, avatar, resume_file, phone, email, about, projects, role) 
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                
+                $stmt->execute([
+                    htmlspecialchars($_POST['member_name'], ENT_QUOTES, 'UTF-8'),
+                    htmlspecialchars($_POST['member_lastname'], ENT_QUOTES, 'UTF-8'),
+                    $avatar,
+                    $resume,
+                    htmlspecialchars($_POST['member_phone'], ENT_QUOTES, 'UTF-8'),
+                    filter_var($_POST['member_email'], FILTER_SANITIZE_EMAIL),
+                    htmlspecialchars($_POST['member_about'] ?? '', ENT_QUOTES, 'UTF-8'),
+                    htmlspecialchars($_POST['member_projects'] ?? '', ENT_QUOTES, 'UTF-8'),
+                    $_POST['member_role']
+                ]);
+                
+                sendResponse(true, 'عضو تیم با موفقیت ذخیره شد', [
+                    'id' => $pdo->lastInsertId(),
+                    'avatar' => $avatar,
+                    'resume' => $resume
+                ]);
+                break;
 
-          case 'delete_team_member':
-    $memberId = $_POST['id'] ?? 0;
-    // دریافت اطلاعات عضو
-    $stmt = $pdo->prepare("SELECT avatar, resume_file FROM team_members WHERE id = ?");
-    $stmt->execute([$memberId]);
-    $member = $stmt->fetch();
+            case 'delete_team_member':
+                $memberId = (int)($_POST['id'] ?? 0);
+                if ($memberId <= 0) {
+                    sendResponse(false, 'شناسه عضو تیم نامعتبر است', [], 400);
+                }
+                
+                // دریافت اطلاعات عضو
+                $stmt = $pdo->prepare("SELECT avatar, resume_file FROM team_members WHERE id = ?");
+                $stmt->execute([$memberId]);
+                $member = $stmt->fetch();
 
-    if ($member) {
-        // حذف تصویر پروفایل
-        if ($member['avatar']) {
-            $filePath = '../content/team/' . $member['avatar'];
-            if (file_exists($filePath)) {
-                unlink($filePath);
-            }
-        }
-        
-        // حذف فایل رزومه
-        if ($member['resume_file']) {
-            $resumePath = '../content/resumes/' . $member['resume_file'];
-            if (file_exists($resumePath)) {
-                unlink($resumePath);
-            }
-        }
-    }
+                if ($member) {
+                    // حذف تصویر پروفایل
+                    if ($member['avatar']) {
+                        $filePath = '../content/team/' . $member['avatar'];
+                        if (file_exists($filePath)) {
+                            unlink($filePath);
+                        }
+                    }
+                    
+                    // حذف فایل رزومه
+                    if ($member['resume_file']) {
+                        $resumePath = '../content/resumes/' . $member['resume_file'];
+                        if (file_exists($resumePath)) {
+                            unlink($resumePath);
+                        }
+                    }
+                }
 
-    // حذف از دیتابیس
-    $stmt = $pdo->prepare("DELETE FROM team_members WHERE id = ?");
-    $stmt->execute([$memberId]);
-    sendResponse(true, 'عضو تیم با موفقیت حذف شد');
-    break;
+                // حذف از دیتابیس
+                $stmt = $pdo->prepare("DELETE FROM team_members WHERE id = ?");
+                $stmt->execute([$memberId]);
+                sendResponse(true, 'عضو تیم با موفقیت حذف شد');
+                break;
 
             // مدیریت مقالات
             case 'add_article':
@@ -413,17 +430,21 @@ case 'add_team_member':
 
                 $stmt = $pdo->prepare("INSERT INTO articles (title, category, key_point, content) VALUES (?, ?, ?, ?)");
                 $stmt->execute([
-                    $_POST['title'],
+                    htmlspecialchars($_POST['title'], ENT_QUOTES, 'UTF-8'),
                     $_POST['category'],
-                    $_POST['key_point'],
-                    $_POST['content']
+                    htmlspecialchars($_POST['key_point'], ENT_QUOTES, 'UTF-8'),
+                    htmlspecialchars($_POST['content'], ENT_QUOTES, 'UTF-8')
                 ]);
 
                 sendResponse(true, 'مقاله با موفقیت منتشر شد', ['id' => $pdo->lastInsertId()]);
                 break;
 
             case 'delete_article':
-                $articleId = $_POST['id'] ?? 0;
+                $articleId = (int)($_POST['id'] ?? 0);
+                if ($articleId <= 0) {
+                    sendResponse(false, 'شناسه مقاله نامعتبر است', [], 400);
+                }
+                
                 $stmt = $pdo->prepare("DELETE FROM articles WHERE id = ?");
                 $stmt->execute([$articleId]);
                 sendResponse(true, 'مقاله با موفقیت حذف شد');
@@ -495,4 +516,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         sendResponse(false, 'خطای پایگاه داده', [], 500);
     }
 }
-?>
