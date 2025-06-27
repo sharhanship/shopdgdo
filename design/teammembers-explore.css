@@ -395,7 +395,7 @@ body {
 }
 
 /* دکمه دانلود رزومه */
-.dowanload-resume-button {
+.download-resume-button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -417,13 +417,40 @@ body {
     user-select: none;
 }
 
-.dowanload-resume-button i {
+.download-resume-button i {
     margin-right: 8px;
     font-size: 0.9rem;
 }
 
-.dowanload-resume-button:hover {
+.download-resume-button:hover {
     box-shadow: 0 6px 20px rgba(145, 75, 236, 0.6);
+}
+
+.error-message {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ff4444;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    z-index: 1000;
+    max-width: 80%;
+    text-align: center;
+    animation: fadeIn 0.3s;
+}
+
+.no-members {
+    text-align: center;
+    grid-column: 1 / -1;
+    padding: 20px;
+    color: #666;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; top: 0; }
+    to { opacity: 1; top: 20px; }
 }
 
 /* استایل‌های رسپانسیو برای صفحه‌نمایش بزرگ */

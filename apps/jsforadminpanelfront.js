@@ -460,28 +460,43 @@ function setupMessagesSection() {
                 });
             });
 
-            // افزودن رویداد برای مشاهده کامل پیام
-            messagesSection.querySelectorAll('.view-more').forEach(span => {
-                span.addEventListener('click', () => {
-                    const modal = document.getElementById('messageModal');
-                    const fullText = span.dataset.fulltext;
-                    document.getElementById('fullMessageText').textContent = fullText;
-                    modal.style.display = 'block';
-                });
-            });
+         messagesSection.querySelectorAll('.view-more').forEach(span => {
+    span.addEventListener('click', () => {
+        const modal = document.getElementById('messageModal');
+        const fullText = span.dataset.fulltext;
+        document.getElementById('fullMessageText').textContent = fullText;
+        
+        // اضافه کردن کلاس show برای نمایش مودال
+        modal.classList.add('show');
+        document.body.style.overflow = 'hidden'; // جلوگیری از اسکرول صفحه
+    });
+});
 
         } catch (error) {
             console.error('Error loading messages:', error);
         }
     }
-
     // بستن مودال
-    const modal = messagesSection.querySelector('.modal');
-    if (modal) {
-        modal.querySelector('.close-modal, .modal-close-btn').addEventListener('click', () => {
-            modal.style.display = 'none';
-        });
-    }
+const modal = messagesSection.querySelector('.modal');
+if (modal) {
+    modal.querySelector('.close-modal').addEventListener('click', () => {
+        modal.classList.remove('show');
+        document.body.style.overflow = 'auto';
+    });
+    
+    modal.querySelector('.modal-close-btn').addEventListener('click', () => {
+        modal.classList.remove('show');
+        document.body.style.overflow = 'auto';
+    });
+    
+    // بستن مودال با کلیک خارج از آن
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+    });
+}
 
     // بارگذاری اولیه پیام‌ها
     loadMessages();

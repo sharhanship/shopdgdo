@@ -59,10 +59,10 @@
                 <i class="fas fa-briefcase"></i>
                 <span class="menu-text">نمونه کارها</span>
             </div>
-            <div class="menu-item" data-section="articles">
+            <!-- <div class="menu-item" data-section="articles">
                 <i class="fas fa-file-alt"></i>
                 <span class="menu-text">مقالات ما</span>
-            </div>
+            </div> -->
             <div class="menu-item" data-section="contact">
                 <i class="fas fa-envelope"></i>
                 <span class="menu-text">پیام به ما</span>
@@ -115,12 +115,12 @@
 
                     <!-- تصویر لوگو در صفحه اصلی -->
                     <div class="profile-container">
-                          <div class="hero-image">
-                        <div class="image-wrapper">
-                            <img src="./content/images/logohead/shopdgdologoheadrm.png" alt="لوگوی تیم"
-                                class="profile-image">
+                        <div class="hero-image">
+                            <div class="image-wrapper">
+                                <img src="./content/images/logohead/shopdgdologoheadrm.png" alt="لوگوی تیم"
+                                    class="profile-image">
+                            </div>
                         </div>
-                    </div>
                     </div>
                 </div>
             </div>
@@ -159,58 +159,29 @@
             </div>
         </section>
 
+        <script src="./apps/jsforaboutus.js"></script>
+
         <!-- بخش نمونه کارها -->
-        <section id="portfolio" class="section">
-            <h2 class="section-title">نمونه <span>کارها</span></h2>
+     <section id="portfolio" class="section">
+    <h2 class="section-title">نمونه <span>کارها</span></h2>
 
-            <!-- فیلتر نمونه کارها -->
-            <div class="portfolio-filter">
-                <button class="filter-btn active" data-filter="all">همه</button>
-                <button class="filter-btn" data-filter="frontend">فرانت‌اند</button>
-                <button class="filter-btn" data-filter="backend">بک‌اند</button>
-                <button class="filter-btn" data-filter="fullstack">فول استک</button>
-            </div>
+    <!-- گالری نمونه کارها -->
+    <div class="portfolio-grid">
+        <!-- محتوا توسط JavaScript پر میشود -->
+    </div>
+    
+    <!-- وضعیت بارگذاری -->
+    <div id="loading-state" class="loading-state" style="display: none;"></div>
+    <div id="error-state" class="error-state" style="display: none;"></div>
+</section>
 
-            <!-- گالری نمونه کارها -->
-            <div class="portfolio-grid">
-                <div class="portfolio-item glass-card" data-category="fullstack">
-                    <div class="portfolio-image">
-                        <img src="" alt="پروژه ۱">
-                        <div class="portfolio-overlay">
-                            <h3 class="portfolio-title">سیستم مدیریت محتوا</h3>
-                            <a href="./pages/examlepworkpage.html" class="portfolio-link"><i
-                                    class="fas fa-external-link-alt"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item glass-card" data-category="frontend">
-                    <div class="portfolio-image">
-                        <img src="" alt="پروژه ۲">
-                        <div class="portfolio-overlay">
-                            <h3 class="portfolio-title">فروشگاه اینترنتی</h3>
-                            <a href="./pages/examlepworkpage.html" class="portfolio-link"><i
-                                    class="fas fa-external-link-alt"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item glass-card" data-category="backend">
-                    <div class="portfolio-image">
-                        <img src="" alt="پروژه ۳">
-                        <div class="portfolio-overlay">
-                            <h3 class="portfolio-title">API سرویس پرداخت</h3>
-                            <a href="./pages/examlepworkpage.html" class="portfolio-link"><i
-                                    class="fas fa-external-link-alt"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <script src="./apps/jsforportfolio.js"></script>
 
-        <!-- بخش مقالات -->
-        <section id="articles" class="section">
+       
+        <!-- <section id="articles" class="section">
             <h2 class="section-title">مقالات <span>تیم</span></h2>
             <div class="articles-grid">
-                <!-- کارت مقاله -->
+        
                 <div class="article-card glass-card">
                     <div class="article-image">
                         <img src="" alt="">
@@ -228,11 +199,13 @@
                 </div>
             </div>
 
-            <!-- دکمه مشاهده همه مقالات -->
+          
             <div class="articles-more">
                 <a href="/pages/explore-articles.html" class="btn btn-primary">مشاهده همه مقالات</a>
             </div>
-        </section>
+        </section> -->
+
+      
 
         <!-- بخش تماس با ما -->
         <section id="contact" class="section">
@@ -289,6 +262,9 @@
                             <input type="email" id="email" name="email" placeholder="ایمیل شما" required>
                         </div>
                         <div class="form-group">
+                            <input type="number" id="number" name="number" placeholder="شماره شما" required>
+                        </div>
+                        <div class="form-group">
                             <input type="text" id="subject" name="subject" placeholder="موضوع" required>
                         </div>
                         <div class="form-group">
@@ -300,6 +276,7 @@
                 </div>
             </div>
         </section>
+          <script src="./apps/jsforcontactus.js"></script>
     </main>
 
     <!-- اسکریپت‌های سایت -->

@@ -190,102 +190,92 @@
 
       /* Messages Table */
 
-      /* Modal Styles */
-      .modal {
-          display: none;
-          position: fixed;
-          z-index: 1000;
-          left: 0;
-          top: 0;
-          width: 100%;
-          height: 100%;
-          background-color: rgba(0, 0, 0, 0.7);
-          backdrop-filter: blur(5px);
-          -webkit-backdrop-filter: blur(5px);
-          opacity: 0;
-          transition: opacity 0.3s ease;
-      }
+/* اصلاح شده در بخش Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
 
-      .modal.show {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          opacity: 1;
-      }
+.modal.show {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+}
 
-      .modal-content {
-          background: rgba(0, 0, 0, 0.301);
-          backdrop-filter: blur(5px);
-          -webkit-backdrop-filter: blur(5px);
-          border-radius: 15px;
-          padding: 25px;
-          width: 90%;
-          max-width: 600px;
-          max-height: 80vh;
-          overflow-y: auto;
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-          transform: translateY(-20px);
-          transition: all 0.3s ease;
-          border: 1px solid rgba(255, 255, 255, 0.3);
-      }
+.modal-content {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 25px;
+    width: 90%;
+    max-width: 600px; /* حداکثر عرض ثابت */
+    max-height: 80vh;
+    overflow-y: auto;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
 
-      .modal.show .modal-content {
-          transform: translateY(0);
-      }
+.modal.show .modal-content {
+    transform: scale(1);
+}
 
-      .modal-body {
-          margin: 20px 0;
-          color: rgb(255, 255, 255);
-          line-height: 1.6;
-      }
+.modal-body {
+    margin: 20px 0;
+    color: white;
+    line-height: 1.8;
+    text-align: right;
+    word-wrap: break-word; /* شکستن کلمات طولانی */
+    overflow-wrap: break-word; /* جایگزین مدرن برای word-wrap */
+    white-space: pre-line; /* حفظ خطوط جدید و شکستن خودکار */
+}
 
-      .close-modal {
-          position: absolute;
-          top: 15px;
-          left: 15px;
-          font-size: 24px;
-          color: rgb(255, 0, 0);
-          cursor: pointer;
-          transition: all 0.3s ease;
-          border: none;
-          outline: none;
-          scroll-behavior: smooth;
-          user-select: none;
-          -webkit-tap-highlight-color: transparent;
-          -moz-tap-highlight-color: transparent;
-          -webkit-user-select: none;
-          -moz-user-select: none;
-          -ms-user-select: none;
-      }
+#fullMessageText {
+    white-space: pre-line; /* متن با خطوط جدید نمایش داده شود */
+    word-break: break-word; /* شکستن کلمات طولانی */
+}
 
-      .close-modal:hover {
-          color: var(--danger-color);
-      }
+.close-modal {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    font-size: 24px;
+    color: #ff0000;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: none;
+    border: none;
+}
 
-      .modal-close-btn {
-          background: var(--bg-dark);
-          color: white;
-          border: none;
-          padding: 8px 20px;
-          border-radius: 8px;
-          cursor: pointer;
-          font-weight: 500;
-          transition: all 0.3s ease;
-          margin-top: 10px;
-          border: none;
-          outline: none;
-          scroll-behavior: smooth;
-          user-select: none;
-          -webkit-tap-highlight-color: transparent;
-          -moz-tap-highlight-color: transparent;
-          -webkit-user-select: none;
-          -moz-user-select: none;
-          -ms-user-select: none;
-      }
+.close-modal:hover {
+    color: #ff5555;
+}
 
-      .modal-close-btn:hover {
-          background: #5649c5;
-      }
+.modal-close-btn {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.modal-close-btn:hover {
+    background: #5649c5;
+}
 
       .view-more {
           color: rgb(161, 161, 161);
