@@ -1,25 +1,49 @@
 <!DOCTYPE html>
+<!-- تعیین نوع سند به عنوان HTML5 -->
 <html lang="fa" dir="rtl">
+<!-- 
+  زبان صفحه فارسی (fa) و جهت متن از راست به چپ (rtl) 
+  این تنظیمات برای صفحات فارسی ضروری است
+-->
 
 <head>
+    <!-- بخش هد سند که شامل متا اطلاعات، عنوان صفحه و لینک به فایل‌های خارجی است -->
     <meta charset="UTF-8">
+    <!-- تعیین کدینگ کاراکترها به UTF-8 برای پشتیبانی از کاراکترهای فارسی -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- تنظیم viewport برای نمایش صحیح در دستگاه‌های مختلف -->
     <title>shopdgdo-adminpanel</title>
+    <!-- عنوان صفحه که در تب مرورگر نمایش داده می‌شود -->
+    
+    <!-- لینک به فایل CSS اختصاصی پنل ادمین -->
     <link rel="stylesheet" href="../design/adminpanel.css">
+    
+    <!-- آیکون صفحه (favicon) -->
     <link rel="shortcut icon" href="../content/images/logohead/shopdgdologoheadrm.png" type="image/x-icon">
+    
+    <!-- لینک به فونت آیکون‌های Font Awesome از CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- لینک به فونت وزیر برای نمایش بهتر متن‌های فارسی -->
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css" rel="stylesheet"
         type="text/css" />
 </head>
 
 <body>
+    <!-- زمینه ذره‌بینی برای جلوه بصری -->
     <div id="particles-js" class="particles-background"></div>
+    
+    <!-- بخش هدر صفحه -->
     <header>
+        <!-- لوگو و عنوان پنل ادمین -->
         <div class="logo">
             <span>Shopdgdo Admin Panel</span>
         </div>
+        
+        <!-- نوار ناوبری اصلی -->
         <nav>
             <ul>
+                <!-- آیتم‌های منوی ناوبری با آیکون‌های مربوطه -->
                 <li><a href="#" class="nav-link" data-section="team-section"><i class="fas fa-users"></i> تیم</a></li>
                 <li><a href="#" class="nav-link" data-section="articles-section"><i
                             class="fas fa-newspaper"></i>مقالات</a></li>
@@ -29,37 +53,46 @@
                         کارها</a></li>
                 <li><a href="#" class="nav-link active" data-section="messages-section"><i
                             class="fas fa-envelope"></i>پیام‌ها</a></li>
-
             </ul>
         </nav>
+        
+        <!-- دکمه خروج از پنل ادمین -->
         <button class="logout-btn" id="logout-btn">
             <i class="fas fa-sign-out-alt"></i>
             خروج
         </button>
     </header>
 
+    <!-- بخش اصلی محتوای پنل ادمین -->
     <div class="container">
-        <!-- Messages Section -->
+        <!-- بخش مدیریت پیام‌ها -->
         <section id="messages-section" class="content-section active">
-            <!-- Modal برای نمایش متن کامل پیام -->
+            <!-- مودال برای نمایش متن کامل پیام -->
             <div id="messageModal" class="modal">
                 <div class="modal-content">
+                    <!-- دکمه بستن مودال -->
                     <span class="close-modal">&times;</span>
                     <h3>متن کامل پیام</h3>
                     <div class="modal-body">
+                        <!-- محتوای متن کامل پیام در اینجا نمایش داده می‌شود -->
                         <p id="fullMessageText"></p>
                     </div>
                     <button class="modal-close-btn">بستن</button>
                 </div>
             </div>
+            
+            <!-- کارت بخش پیام‌ها -->
             <div class="card">
                 <h2 class="section-title">
                     <i class="fas fa-envelope"></i>
                     مدیریت پیام‌ها
                 </h2>
+                
+                <!-- جدول نمایش پیام‌ها -->
                 <div class="table-responsive">
                     <table class="messages-table">
                         <thead>
+                            <!-- سرستون‌های جدول -->
                             <tr>
                                 <th>ردیف</th>
                                 <th>نام</th>
@@ -71,6 +104,7 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <!-- ردیف نمونه پیام -->
                             <tr>
                                 <td>1</td>
                                 <td>علی محمدی</td>
@@ -78,28 +112,32 @@
                                 <td>09121234567</td>
                                 <td>سوال درباره محصول</td>
                                 <td>
+                                    <!-- پیش‌نمایش کوتاه از متن پیام -->
                                     <span class="message-preview">سلام، می‌خواستم درباره ویژگی‌های محصول جدیدتون سوال
                                         کنم...</span>
+                                    <!-- لینک مشاهده متن کامل پیام -->
                                     <span class="view-more"
                                         data-fulltext="سلام، می‌خواستم درباره ویژگی‌های محصول جدیدتون سوال کنم. آیا این محصول قابلیت اتصال به دستگاه‌های اندروید را دارد؟ من یک گوشی سامسونگ دارم و می‌خواهم بدانم آیا با این مدل سازگار است یا نه. همچنین در مورد گارانتی محصول هم سوال داشتم. ممنون میشم راهنمایی کنید.">مشاهده
                                         بیشتر</span>
                                 </td>
+                                <!-- دکمه حذف پیام -->
                                 <td><button class="delete-btn"><i class="fas fa-trash"></i> حذف</button></td>
                             </tr>
-
                         </tbody>
                     </table>
                 </div>
             </div>
         </section>
 
-        <!-- About Us Section -->
+        <!-- بخش مدیریت درباره ما -->
         <section id="about-section" class="content-section">
             <div class="card">
                 <h2 class="section-title">
                     <i class="fas fa-info-circle"></i>
                     مدیریت درباره ما
                 </h2>
+                
+                <!-- فرم ویرایش اطلاعات درباره ما -->
                 <form id="about-form" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="about-description">توضیحات درباره ما:</label>
@@ -123,7 +161,7 @@
             </div>
         </section>
 
-        <!-- Portfolio Section -->
+        <!-- بخش مدیریت نمونه کارها -->
         <section id="portfolio-section" class="content-section">
             <div class="card">
                 <h2 class="section-title">
@@ -131,8 +169,10 @@
                     مدیریت نمونه کارها
                 </h2>
 
+                <!-- لیست نمونه کارهای موجود -->
                 <h3>نمونه کارهای موجود</h3>
                 <div class="portfolio-grid">
+                    <!-- کارت نمونه کار 1 -->
                     <div class="portfolio-card">
                         <div class="portfolio-img">
                             <i class="fas fa-image"></i>
@@ -145,6 +185,8 @@
                             </div>
                         </div>
                     </div>
+                    
+                    <!-- کارت نمونه کار 2 -->
                     <div class="portfolio-card">
                         <div class="portfolio-img">
                             <i class="fas fa-image"></i>
@@ -157,6 +199,8 @@
                             </div>
                         </div>
                     </div>
+                    
+                    <!-- کارت نمونه کار 3 -->
                     <div class="portfolio-card">
                         <div class="portfolio-img">
                             <i class="fas fa-image"></i>
@@ -171,6 +215,7 @@
                     </div>
                 </div>
 
+                <!-- فرم افزودن نمونه کار جدید -->
                 <h3>افزودن نمونه کار جدید</h3>
                 <form id="portfolio-form" enctype="multipart/form-data" method="post">
                     <div class="form-group">
@@ -223,7 +268,7 @@
             </div>
         </section>
 
-        <!-- Team Section -->
+        <!-- بخش مدیریت تیم -->
         <section id="team-section" class="content-section">
             <div class="card">
                 <h2 class="section-title">
@@ -231,8 +276,10 @@
                     مدیریت تیم
                 </h2>
 
+                <!-- لیست اعضای تیم -->
                 <h3>اعضای تیم</h3>
                 <div class="team-grid">
+                    <!-- کارت عضو تیم 1 -->
                     <div class="team-card">
                         <div class="team-avatar">
                             <i class="fas fa-user"></i>
@@ -243,6 +290,8 @@
                             <button class="delete-btn"><i class="fas fa-trash"></i> حذف</button>
                         </div>
                     </div>
+                    
+                    <!-- کارت عضو تیم 2 -->
                     <div class="team-card">
                         <div class="team-avatar">
                             <i class="fas fa-user"></i>
@@ -253,6 +302,8 @@
                             <button class="delete-btn"><i class="fas fa-trash"></i> حذف عضو</button>
                         </div>
                     </div>
+                    
+                    <!-- کارت عضو تیم 3 -->
                     <div class="team-card">
                         <div class="team-avatar">
                             <i class="fas fa-user"></i>
@@ -265,6 +316,7 @@
                     </div>
                 </div>
 
+                <!-- فرم افزودن عضو جدید به تیم -->
                 <h3>افزودن عضو جدید</h3>
                 <form id="team-form" enctype="multipart/form-data">
                     <div class="form-group">
@@ -323,7 +375,7 @@
             </div>
         </section>
 
-        <!-- Articles Section -->
+        <!-- بخش مدیریت مقالات -->
         <section id="articles-section" class="content-section">
             <div class="card">
                 <h2 class="section-title">
@@ -331,12 +383,15 @@
                     مدیریت مقالات
                 </h2>
 
+                <!-- لیست مقالات موجود -->
                 <h3>مقالات منتشر شده</h3>
                 <div class="articles-list">
+                    <!-- مقاله 1 -->
                     <div class="article-item">
                         <div class="article-info">
                             <h3>آموزش ری‌اکت در 30 روز</h3>
                             <div class="article-rating">
+                                <!-- نمایش رتبه مقاله با ستاره -->
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
@@ -348,6 +403,8 @@
                             <button class="delete-btn"><i class="fas fa-trash"></i> حذف</button>
                         </div>
                     </div>
+                    
+                    <!-- مقاله 2 -->
                     <div class="article-item">
                         <div class="article-info">
                             <h3>بهترین روش‌های طراحی UI/UX</h3>
@@ -364,6 +421,8 @@
                             <button class="delete-btn"><i class="fas fa-trash"></i> حذف</button>
                         </div>
                     </div>
+                    
+                    <!-- مقاله 3 -->
                     <div class="article-item">
                         <div class="article-info">
                             <h3>آینده هوش مصنوعی در توسعه وب</h3>
@@ -382,6 +441,7 @@
                     </div>
                 </div>
 
+                <!-- فرم افزودن مقاله جدید -->
                 <h3>افزودن مقاله جدید</h3>
                 <form id="article-form" enctype="multipart/form-data">
                     <div class="form-group">
@@ -413,14 +473,18 @@
         </section>
     </div>
 
+    <!-- فوتر صفحه -->
     <footer class="admin-footer">
         <div class="footer-bottom">
             <p>تمامی حقوق محفوظ است &copy; 1404 | طراحی شده توسط تیم شاپ دیجی دو</p>
         </div>
     </footer>
 
+    <!-- اسکریپت‌های جاوااسکریپت -->
     <script src="../apps/jsforadminpanelfront.js"></script>
+    <!-- کتابخانه particles.js برای ایجاد اثر ذره‌بینی -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <!-- اسکریپت اختصاصی برای پیکربندی effects ذره‌بینی -->
     <script src="../apps/jsforaddpafaloxinallpage.js"></script>
 
 </body>
