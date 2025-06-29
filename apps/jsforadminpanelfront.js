@@ -959,6 +959,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+
 // مقداردهی اولیه زمانی که DOM کاملاً بارگذاری شد
 document.addEventListener('DOMContentLoaded', () => {
     setupMessagesSection();
