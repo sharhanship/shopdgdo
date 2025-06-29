@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jun 27, 2025 at 08:53 AM
+-- Generation Time: Jun 29, 2025 at 01:06 AM
 -- Server version: 9.1.0
 -- PHP Version: 8.3.14
 
@@ -103,14 +103,7 @@ CREATE TABLE IF NOT EXISTS `messages` (
   `message` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `messages`
---
-
-INSERT INTO `messages` (`id`, `name`, `email`, `phone`, `subject`, `message`, `created_at`) VALUES
-(9, 'علی شرحان', 'abmtim1@gmail.com', '09920352936', '/skdjhflosg;oushd;ofouhsdl', 'asdasdwer345354', '2025-06-27 07:42:32');
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -131,14 +124,14 @@ CREATE TABLE IF NOT EXISTS `portfolio` (
   `project_link` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `portfolio`
 --
 
 INSERT INTO `portfolio` (`id`, `name`, `category`, `images`, `video`, `technologies`, `client`, `delivery_time`, `project_link`, `created_at`) VALUES
-(20, 'hyperion', 'frontend', '[\"img_685e4bc4549bf_30eb17f8.gif\",\"img_685e4bc4556db_8bc73f0e.gif\",\"img_685e4bc455e3a_0f96f22c.gif\",\"img_685e4bc4563ed_d76a38be.gif\",\"img_685e4bc456ab3_c354faf7.gif\"]', 'video_685e4bc457528_06661ce2.mp4', 'asdlijho;qhwoque982y3972g3u423423wqer', 'شسیشسی', 'ثصص4فثقلثل', 'https://chat.deepseek.com/a/chat/s/bda82a1e-fdc9-4c6d-b5a7-23afc0d312c8', '2025-06-27 07:44:04');
+(22, 'hyperion', 'frontend', '[\"img_68609088ac4b9_b827d464.jpg\",\"img_68609088acba7_15e7306b.jpg\",\"img_68609088ad16c_2a0fbb2f.png\",\"img_68609088ada3b_701e7f94.jpg\",\"img_68609088ae458_97668f70.jpg\"]', 'video_68609088b5c60_b2007d09.mp4', 'idon noasdasdqwghdqlkwhgdlkqhwdqwqwdqwd', 'ممدی', 'سال 20000', 'https://chat.deepseek.com/a/chat/s/bda82a1e-fdc9-4c6d-b5a7-23afc0d312c8', '2025-06-29 01:02:00');
 
 -- --------------------------------------------------------
 
@@ -162,7 +155,14 @@ CREATE TABLE IF NOT EXISTS `team_members` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `team_members`
+--
+
+INSERT INTO `team_members` (`id`, `first_name`, `last_name`, `avatar`, `resume_file`, `phone`, `email`, `about`, `projects`, `role`, `social_links`, `created_at`) VALUES
+(21, 'علی', 'شرحان', 'avatar_686090c35294a_4f9b13fe.jpg', '686090c352f1c_AlisharhanResume.pdf', '09920352936', 'abmtime1@gmail.com', 'من یک خدا هستم برادران', '30پروژه 30 شارپ با بهترین کیفیت', 'backend', NULL, '2025-06-29 01:02:59');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
