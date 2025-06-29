@@ -91,7 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($response['errors'])) {
         try {
             // اتصال به پایگاه داده
-            $pdo = new PDO('mysql:host=localhost;dbname=godshop-db', 'root', '');
+            $pdo = new PDO('mysql:host=localhost;dbname=shopdg_godshop-db', 'root', '');
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
             /**

@@ -13,7 +13,7 @@ header('Access-Control-Allow-Origin: *'); // اجازه دسترسی از همه
 
 // اطلاعات اتصال به پایگاه داده
 $host = 'localhost'; // آدرس سرور دیتابیس
-$dbname = 'godshop-db'; // نام دیتابیس
+$dbname = 'shopdg_godshop-db'; // نام دیتابیس
 $username = 'root'; // نام کاربری دیتابیس
 $password = ''; // رمز عبور دیتابیس
 

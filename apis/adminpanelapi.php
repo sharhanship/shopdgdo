@@ -69,7 +69,7 @@ function sendResponse($success, $message = '', $data = [], $statusCode = 200) {
  */
 function connectDB() {
     $host = 'localhost';
-    $dbname = 'godshop-db';
+    $dbname = 'shopdg_godshop-db';
     $username = 'root';
     $password = '';
 

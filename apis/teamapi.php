@@ -19,7 +19,7 @@ file_put_contents('teamapi.log', date('Y-m-d H:i:s') . " - Request started\n", F
 
 // اطلاعات اتصال به پایگاه داده
 $host = 'localhost'; // آدرس سرور دیتابیس
-$dbname = 'godshop-db'; // نام دیتابیس
+$dbname = 'shopdg_godshop-db'; // نام دیتابیس
 $username = 'root'; // نام کاربری دیتابیس
 $password = ''; // رمز عبور دیتابیس
 

@@ -668,6 +668,7 @@ section#home {
 .about-text p {
     margin-bottom: 1.5rem;
     color: var(--text-light);
+    white-space: pre-line;
 }
 
 /* آمار و ارقام */

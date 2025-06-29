@@ -14,7 +14,7 @@ header('Content-Type: application/json');
 
 // تنظیمات اتصال به پایگاه داده
 $db_host = 'localhost'; // آدرس سرور دیتابیس
-$db_name = 'godshop-db'; // نام دیتابیس
+$db_name = 'shopdg_godshop-db'; // نام دیتابیس
 $db_user = 'root'; // نام کاربری دیتابیس
 $db_pass = ''; // رمز عبور دیتابیس
 
