@@ -5040,3 +5040,7 @@
 (
 )
 
+[01-Jul-2025 06:01:43 UTC] PHP Deprecated:  json_decode(): Passing null to parameter #1 ($json) of type string is deprecated in C:\wamp64\www\myresumesite\shopdgdo\apis\adminpanelapi.php on line 543
+[01-Jul-2025 06:01:43 UTC] PHP Stack trace:
+[01-Jul-2025 06:01:43 UTC] PHP   1. {main}() C:\wamp64\www\myresumesite\shopdgdo\apis\adminpanelapi.php:0
+[01-Jul-2025 06:01:43 UTC] PHP   2. json_decode($json = NULL, $associative = TRUE) C:\wamp64\www\myresumesite\shopdgdo\apis\adminpanelapi.php:543
