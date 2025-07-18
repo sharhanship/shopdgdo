@@ -1,12 +1,16 @@
 /* رست پایه و تعریف فونت‌ها */
-@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;200;300;400;500;600;700;800;900&display=swap');
-
+/* @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;200;300;400;500;600;700;800;900&display=swap'); */
+@font-face {
+    font-family: 'Vazir';
+    src: url('../content/font/Vazir-Black.woff2');
+    font-display: swap;
+  }
 /* رست استایل‌های پیش‌فرض مرورگر */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Vazirmatn', sans-serif;
+    font-family: 'Vazir', sans-serif;
 }
 
 /* تعریف متغیرهای رنگ و سایر تنظیمات */

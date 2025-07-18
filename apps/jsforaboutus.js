@@ -44,11 +44,11 @@ document.addEventListener('DOMContentLoaded', function() {
             // به‌روزرسانی سال سابقه کار
             statsItems[0].querySelector('.stats-number').textContent = `${data.work_experience}+`;
             // به‌روزرسانی تعداد پروژه‌های تکمیل شده
-            statsItems[1].querySelector('.stats-number').textContent = data.completed_projects;
+            statsItems[1].querySelector('.stats-number').textContent =  `${data.completed_projects}+`;
             // به‌روزرسانی تعداد مشتریان راضی
-            statsItems[2].querySelector('.stats-number').textContent = data.happy_clients;
+            statsItems[2].querySelector('.stats-number').textContent =  `${data.happy_clients}+`;
             // به‌روزرسانی تعداد مقالات منتشر شده
-            statsItems[3].querySelector('.stats-number').textContent = data.published_articles;
+            statsItems[3].querySelector('.stats-number').textContent = '10';
         }
     }
 

@@ -23,8 +23,8 @@ async function loadMemberDetails() {
         document.querySelector('.header-info h1').textContent = `${member.first_name} ${member.last_name}`;
         document.querySelector('.header-info h2').textContent = member.role;
         document.querySelector('.contact-info').innerHTML = `
-            <span><i class="fas fa-envelope"></i> ${member.email || '---'}</span>
-            <span><i class="fas fa-phone"></i> ${member.phone || '---'}</span>
+            <span><i class="fas fa-envelope"></i> mohammad.setayeshi@gmail.com</span>
+            <span><i class="fas fa-phone"></i>09909340570</span>
         `;
         
         // بخش درباره من

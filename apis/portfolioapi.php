@@ -19,7 +19,7 @@ $password = ''; // رمز عبور دیتابیس
 
 try {
     // ایجاد اتصال به پایگاه داده با PDO
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
+    $pdo = new PDO('mysql:host=localhost;dbname=shopdg_godshop-db', 'shopdg_setiz', 'sLNEpSqQq6b@RGzfuc');
     // تنظیم حالت خطا به حالت استثنا
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 

@@ -1,5 +1,10 @@
 /* ایمپورت فونت وزیر از CDN */
-@import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css');
+/* @import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css'); */
+@font-face {
+    font-family: 'Vazir';
+    src: url('../content/font/Vazir-Black.woff2');
+    font-display: swap;
+  }
 
 /* تعریف متغیرهای رنگ */
 :root {
@@ -93,7 +98,7 @@ body {
 .video-container {
     position: relative; /* موقعیت نسبی برای المان‌های فرزند */
     padding-bottom: 56.25%; /* نسبت ابعاد 16:9 */
-    height: 0;
+    height: 100%;
     overflow: hidden; /* مخفی کردن محتوای خارج از محدوده */
 }
 
@@ -226,6 +231,9 @@ body {
     margin-bottom: 10px; /* فاصله از المان پایینی */
     position: relative; /* موقعیت نسبی برای المان فرزند */
     padding-right: 20px; /* فاصله داخلی برای جایگاه نشانگر */
+    white-space: pre-wrap; /* حفظ شکستن خطوط و فضاهای سفید */
+    word-wrap: break-word; /* شکستن کلمات طولانی */
+    overflow-wrap: break-word; /* نام جدید برای word-wrap */
 }
 
 /* استایل نشانگرهای سفارشی لیست */

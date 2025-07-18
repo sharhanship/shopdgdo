@@ -259,7 +259,7 @@ async function showCustomConfirm(message) {
 
 // ================== اعتبارسنجی فایل‌ها ==================
 function validateAvatarFile(file) {
-    const allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
+    const allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
     const maxSize = 5 * 1024 * 1024; // 5MB
     
     if (!allowedTypes.includes(file.type)) {
@@ -276,7 +276,7 @@ function validateAvatarFile(file) {
 }
 
 function validatePortfolioImages(files) {
-    const allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
+    const allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
     const maxSize = 100 * 1024 * 1024; // 5MB
     const maxFiles = 5;
     
@@ -331,6 +331,8 @@ function validatePortfolioVideo(file) {
 async function sendRequest(action, data = {}, method = 'POST', showDefaultMessage = false) {
     try {
         let url = '../apis/adminpanelapi.php';
+                // دریافت نسخه کش از سرور
+        const cacheVersion = await fetch('../cache_version.txt').then(res => res.text()).catch(() => Date.now());
         let options = {
             method: method,
             headers: {
@@ -341,6 +343,7 @@ async function sendRequest(action, data = {}, method = 'POST', showDefaultMessag
         if (method === 'GET') {
             const params = new URLSearchParams();
             params.append('action', action);
+              params.append('_cache', cacheVersion); // اضافه کردن پارامتر کش
             for (const key in data) {
                 params.append(key, data[key]);
             }
@@ -556,7 +559,7 @@ function setupPortfolioSection() {
     const portfolioForm = portfolioSection.querySelector('#portfolio-form');
     const portfolioGrid = portfolioSection.querySelector('.portfolio-grid');
 
-    // بارگذاری نمونه کارها
+      // بارگذاری نمونه کارها
     async function loadPortfolio() {
         try {
             const portfolioItems = await loadData('portfolio-section');
@@ -566,8 +569,8 @@ function setupPortfolioSection() {
                 const card = document.createElement('div');
                 card.className = 'portfolio-card';
 
-                const categoryClass = item.category === 'frontend' ? 'frontend' :
-                    item.category === 'backend' ? 'backend' : 'fullstack';
+                const categoryClass = item.category === 'website' ? 'website' :
+                    item.category === 'website' ? 'editevideo' : 'graphicdesign';
 
                 card.innerHTML = `
                     <div class="portfolio-img">
@@ -578,8 +581,8 @@ function setupPortfolioSection() {
                     <div class="portfolio-info">
                         <h3 class="portfolio-title">${item.name}</h3>
                         <span class="portfolio-category ${categoryClass}">
-                            ${item.category === 'frontend' ? 'فرانت‌اند' :
-                        item.category === 'backend' ? 'بک‌اند' : 'فول استک'}
+                            ${item.category === 'website' ? 'وب سایت' :
+                        item.category === 'editevideo' ? 'تدوین ویدیو' : 'طراحی و دیزاین'}
                         </span>
                         <div class="portfolio-actions">
                             <button class="delete-btn" data-id="${item.id}"><i class="fas fa-trash"></i> حذف</button>

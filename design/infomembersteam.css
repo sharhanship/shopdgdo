@@ -1,5 +1,10 @@
 /* فونت وزیرمتن از گوگل فونت */
-@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;200;300;400;500;600;700;800;900&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;200;300;400;500;600;700;800;900&display=swap'); */
+@font-face {
+    font-family: 'Vazir';
+    src: url('../content/font/Vazir-Black.woff2');
+    font-display: swap;
+  }
 
 /* تعریف متغیرهای رنگ */
 :root {
@@ -20,7 +25,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Vazirmatn', sans-serif;
+    font-family: 'Vazir', sans-serif;
 }
 
 /* استایل بدنه اصلی صفحه */
@@ -30,8 +35,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 50px;
-    line-height: 1.6;
+    padding: 50px 4vw;
+        line-height: 1.6;
     background: linear-gradient(135deg, var(--bg-dark), var(--gray-900));
 }
 
@@ -235,16 +240,17 @@ body {
 .left-column,
 .right-column {
     flex: 1;
-    min-width: 300px;
+    /* min-width: 300px; */
 }
 
 section {
+    width: 100%;
     margin-bottom: 30px;
     background: rgba(30, 39, 46, 0.5);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     border-radius: 15px;
-    padding: 20px;
+    padding: 3vw;
     border: 1px solid var(--glass-border);
     box-shadow: 0 5px 15px var(--shadow-color);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -417,6 +423,10 @@ h3 i {
 .project-item p {
     font-size: 0.9rem;
     color: rgba(255, 255, 255, 0.7);
+}
+
+p{
+    white-space: pre-line;
 }
 
 /* --------------------------------------------------- */

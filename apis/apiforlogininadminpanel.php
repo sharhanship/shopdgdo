@@ -15,8 +15,8 @@ header('Content-Type: application/json');
 // تنظیمات اتصال به پایگاه داده
 $db_host = 'localhost'; // آدرس سرور دیتابیس
 $db_name = 'shopdg_godshop-db'; // نام دیتابیس
-$db_user = 'root'; // نام کاربری دیتابیس
-$db_pass = ''; // رمز عبور دیتابیس
+$db_user = 'setiz'; // نام کاربری دیتابیس
+$db_pass = 'sLNEpSqQq6b@RGzfuc'; // رمز عبور دیتابیس
 
 // ساختار پیش‌فرض پاسخ
 $response = [
@@ -26,7 +26,8 @@ $response = [
 
 try {
     // ایجاد اتصال به پایگاه داده با PDO
-    $pdo = new PDO("mysql:host=$db_host;dbname=$db_name;charset=utf8mb4", $db_user, $db_pass);
+    // $pdo = new PDO("mysql:host=$db_host;dbname=$db_name;charset=utf8mb4", $db_user, $db_pass);
+        $pdo = new PDO('mysql:host=localhost;dbname=shopdg_godshop-db', 'shopdg_setiz', 'sLNEpSqQq6b@RGzfuc');
     // تنظیم حالت خطا به حالت استثنا
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     // غیرفعال کردن شبیه‌سازی prepare برای امنیت بیشتر

@@ -13,7 +13,7 @@ $response = [
 
 try {
     // اتصال به پایگاه داده MySQL با استفاده از PDO
-    $pdo = new PDO('mysql:host=localhost;dbname=shopdg_godshop-db', 'root', '');
+    $pdo = new PDO('mysql:host=localhost;dbname=shopdg_godshop-db', 'shopdg_setiz', 'sLNEpSqQq6b@RGzfuc');
     // تنظیم حالت خطا برای PDO به حالت استثنا
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 

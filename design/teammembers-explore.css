@@ -216,6 +216,11 @@ body {
     border: none;
     outline: none;
     user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    -moz-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 
 .filter-btn:hover {

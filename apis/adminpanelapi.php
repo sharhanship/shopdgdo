@@ -30,6 +30,9 @@ ini_set('max_execution_time', 300); // زمان اجرای ماکسیمم (ثا�
 ini_set('max_input_time', 300); // زمان پردازش ورودی ماکسیمم
 ini_set('memory_limit', '2048M'); // محدودیت حافظه
 
+// در ابتدای فایل، بعد از بخش تنظیمات، این متغیر را اضافه کنید:
+$CACHE_VERSION = file_exists('../cache_version.txt') ? file_get_contents('../cache_version.txt') : '1';
+
 /**
  * تابع برای لاگ دقیق خطاها
  * 
@@ -70,8 +73,8 @@ function sendResponse($success, $message = '', $data = [], $statusCode = 200) {
 function connectDB() {
     $host = 'localhost';
     $dbname = 'shopdg_godshop-db';
-    $username = 'root';
-    $password = '';
+    $username = 'shopdg_setiz';
+    $password = 'sLNEpSqQq6b@RGzfuc';
 
     try {
         // ایجاد اتصال به دیتابیس با PDO
@@ -99,7 +102,7 @@ function connectDB() {
  * @param int $maxSize حداکثر حجم مجاز (بایت)
  * @return array نتیجه اعتبارسنجی
  */
-function validateUploadedFile($file, $allowedTypes = ['image/jpeg', 'image/png', 'image/gif'], $maxSize = 5 * 1024 * 1024) {
+function validateUploadedFile($file, $allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'], $maxSize = 5 * 1024 * 1024) {
     // بررسی وجود فایل
     if (!isset($file) || $file['error'] === UPLOAD_ERR_NO_FILE) {
         return ['success' => true, 'optional' => true];
@@ -125,7 +128,8 @@ function validateUploadedFile($file, $allowedTypes = ['image/jpeg', 'image/png',
         'jpg' => 'image/jpeg',
         'jpeg' => 'image/jpeg',
         'png' => 'image/png',
-        'gif' => 'image/gif'
+        'gif' => 'image/gif',
+        'webp' => 'image/webp' // اضافه کردن WebP
     ];
 
     // بررسی همزمان MIME type و extension
@@ -212,6 +216,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 
                 $stmt = $pdo->prepare("DELETE FROM messages WHERE id = ?");
                 $stmt->execute([$messageId]);
+                
+                  //تنظیم مجدد کش
+                  file_put_contents('../cache_version.txt', time());
+                
                 sendResponse(true, 'پیام با موفقیت حذف شد');
                 break;
 
@@ -224,6 +232,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 $stmt = $pdo->prepare("UPDATE about_us SET description = ?, work_experience = ?, completed_projects = ?, happy_clients = ? WHERE id = 1");
                 $stmt->execute([$description, $work_experience, $completed_projects, $happy_clients]);
+                    
+                    //تنظیم مجدد کش
+                  file_put_contents('../cache_version.txt', time());
+                
                 sendResponse(true, 'اطلاعات درباره ما با موفقیت ذخیره شد');
                 break;
 
@@ -309,6 +321,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         filter_var($_POST['project-link'] ?? '', FILTER_SANITIZE_URL)
                     ]);
                     
+                      //تنظیم مجدد کش
+                  file_put_contents('../cache_version.txt', time());
+                    
                     sendResponse(true, 'پروژه با موفقیت ذخیره شد', ['id' => $pdo->lastInsertId()]);
                 } catch (PDOException $e) {
                     error_log("Database exception: " . $e->getMessage());
@@ -352,6 +367,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 // حذف از دیتابیس
                 $stmt = $pdo->prepare("DELETE FROM portfolio WHERE id = ?");
                 $stmt->execute([$portfolioId]);
+                
+                  //تنظیم مجدد کش
+                  file_put_contents('../cache_version.txt', time());
+                
                 sendResponse(true, 'پروژه با موفقیت حذف شد');
                 break;
 
@@ -426,6 +445,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $_POST['member_role']
                 ]);
                 
+                  //تنظیم مجدد کش
+                  file_put_contents('../cache_version.txt', time());
+                
                 sendResponse(true, 'عضو تیم با موفقیت ذخیره شد', [
                     'id' => $pdo->lastInsertId(),
                     'avatar' => $avatar,
@@ -466,6 +488,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 // حذف از دیتابیس
                 $stmt = $pdo->prepare("DELETE FROM team_members WHERE id = ?");
                 $stmt->execute([$memberId]);
+                
+                  //تنظیم مجدد کش
+                  file_put_contents('../cache_version.txt', time());
+                
                 sendResponse(true, 'عضو تیم با موفقیت حذف شد');
                 break;
 
@@ -485,6 +511,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     htmlspecialchars($_POST['key_point'], ENT_QUOTES, 'UTF-8'),
                     htmlspecialchars($_POST['content'], ENT_QUOTES, 'UTF-8')
                 ]);
+                
+                  //تنظیم مجدد کش
+                  file_put_contents('../cache_version.txt', time());
 
                 sendResponse(true, 'مقاله با موفقیت منتشر شد', ['id' => $pdo->lastInsertId()]);
                 break;
@@ -498,6 +527,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 
                 $stmt = $pdo->prepare("DELETE FROM articles WHERE id = ?");
                 $stmt->execute([$articleId]);
+                
+                  //تنظیم مجدد کش
+                  file_put_contents('../cache_version.txt', time());
+                
                 sendResponse(true, 'مقاله با موفقیت حذف شد');
                 break;
 
