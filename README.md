@@ -1,6 +1,6 @@
 # 🚀 ShopDGDO Dev Team Website
 
-![logo](https://github.com/sharhanship/shopdgdo/blob/main/introshopdgdo.gif)
+![logo](https://github.com/sharhanship/shopdgdo/blob/main/introshopdgdo.mp4)
 
 **A high-performance agency website** showcasing your professional web development/IT services team with advanced admin control and SEO optimization.
 
