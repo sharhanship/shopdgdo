@@ -2,7 +2,6 @@
 
 **A high-performance agency website** showcasing your professional web development/IT services team with advanced admin control and SEO optimization.
 
-![ShopDGDO Screenshot](path/to/screenshot.png)
 
 ## 🌟 Key Features
 - **⚡ Lightning Fast** (95+ Lighthouse Score)
@@ -13,6 +12,12 @@
   - Monitor SEO performance
 - **📱 Fully Responsive** (Mobile-first design)
 - **🔒 Security** (PHP prepared statements, CSRF protection)
+
+🚀 Installation
+git clone https://github.com/sharhanship/shopdgdo.git
+cd shopdgdo
+# Import database.sql to phpMyAdmin
+# Configure includes/config.php
 
 ## 🛠️ Tech Stack
 ```mermaid
