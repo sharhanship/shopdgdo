@@ -17,6 +17,23 @@
 git clone https://github.com/sharhanship/shopdgdo.git
 cd shopdgdo
 
+🔧 Admin Access
+Access: /admin
+
+Default credentials:
+
+text
+Usename: sharhanship
+Password: 2049
+📊 SEO Features
+Automatic sitemap generation
+
+Schema.org markup
+
+OG tags for social sharing
+
+Canonical URL support
+
 ## 🛠️ Tech Stack
 ```mermaid
 graph LR
