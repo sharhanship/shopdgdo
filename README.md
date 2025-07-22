@@ -16,8 +16,6 @@
 🚀 Installation
 git clone https://github.com/sharhanship/shopdgdo.git
 cd shopdgdo
-# Import database.sql to phpMyAdmin
-# Configure includes/config.php
 
 ## 🛠️ Tech Stack
 ```mermaid
