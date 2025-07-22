@@ -13,16 +13,7 @@
 - **🔒 Security** (PHP prepared statements, CSRF protection)
 
 ## 🛠️ Tech Stack
-```mermaid
-graph LR
-  F[Frontend] --> H[HTML5]
-  F --> C[CSS3]
-  F --> J[JavaScript]
-  B[Backend] --> P[PHP]
-  B --> S[MySQL]
-  T[Tools] --> G[Git]
-  T --> V[VS Code]
-  T --> X[XAMPP]
+
 🚀 Installation
 bash
 git clone https://github.com/yourusername/shopdgdo.git
