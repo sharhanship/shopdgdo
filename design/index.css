@@ -197,8 +197,6 @@
 
     .menu-item:hover {
         background-color: var(--primary-color);
-        i{
-        }
     }
 
     .menu-item i {
