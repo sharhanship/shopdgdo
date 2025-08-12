@@ -73,8 +73,8 @@ function sendResponse($success, $message = '', $data = [], $statusCode = 200) {
 function connectDB() {
     $host = 'localhost';
     $dbname = 'shopdg_godshop-db';
-    $username = 'shopdg_setiz';
-    $password = 'sLNEpSqQq6b@RGzfuc';
+    $username = 'root';
+    $password = '';
 
     try {
         // ایجاد اتصال به دیتابیس با PDO
