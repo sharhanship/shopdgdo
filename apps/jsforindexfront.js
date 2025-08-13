@@ -19,9 +19,9 @@ document.addEventListener('DOMContentLoaded', function () {
   const textElement = document.getElementById("typing-text");
   const cursor = document.querySelector(".cursor");
   const professions = [
-    "تیم توسعه دهنده سایت",
-    "تیم طراحی و تدوین",
-    "تیم خدمات اینترنتی",
+    "موسسه توسعه دهنده سایت",
+    "موسسه طراحی و تدوین",
+    "موسسه خدمات اینترنتی",
   ];
   let professionIndex = 0;
   let charIndex = 0;
