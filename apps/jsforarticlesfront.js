@@ -10,29 +10,6 @@
  * @created 2023-05-15
  */
 
-// منتظر می‌مانیم تا DOM کاملاً بارگذاری شود
-document.addEventListener('DOMContentLoaded', function() {
-  // ██████████████████████████████████████████████
-  // ███ سیستم کپی کردن کدها (Copy to Clipboard) ███
-  // ██████████████████████████████████████████████
-  document.querySelectorAll('.copy-button').forEach(button => {
-    button.addEventListener('click', function() {
-      // یافتن عنصر کد مربوطه در نزدیکترین والد با کلاس code-block-container
-      const codeBlock = this.closest('.code-block-container').querySelector('code');
-      
-      // استخراج متن خالص از بلوک کد (بدون تگ‌های HTML)
-      const textToCopy = codeBlock.textContent;
-      
-      // استفاده از Clipboard API برای کپی کردن متن
-      navigator.clipboard.writeText(textToCopy).then(() => {
-        // نمایش پیام موفقیت در صورت کپی موفق
-        showNotification('کد با موفقیت کپی شد!');
-      }).catch(err => {
-        // نمایش خطا در کنسول در صورت مشکل
-        console.error('خطا در کپی کردن: ', err);
-      });
-    });
-  });
 
   // ██████████████████████████████████████████████
   // ███ سیستم امتیازدهی (Star Rating System) ███
@@ -86,7 +63,6 @@ document.addEventListener('DOMContentLoaded', function() {
       }, 3000);
     }
   }
-});
 
 /**
  * =============================================

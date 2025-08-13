@@ -29,6 +29,12 @@
     <!-- پس‌زمینه ذرات متحرک -->
     <div id="particles-js" class="particles-background"></div>
 
+    <!-- اشکال دکوراتیو در پس زمینه -->
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
     <!-- هدر اصلی صفحه -->
     <header class="main-header">
         <div class="header-container glassmorphism-card">
@@ -55,7 +61,23 @@
                     <div class="article-stats">
                         <!-- تاریخ انتشار -->
                         <div class="stat-item">
-                            <i class="far fa-calendar-alt"></i>
+                            <svg class="calendar-icon" width="40" height="40" viewBox="0 0 200 200" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <!-- بدنه اصلی -->
+                                <rect x="40" y="60" width="120" height="120" rx="5" stroke="currentColor"
+                                    stroke-width="8" fill="none" />
+
+                                <!-- سربرگ -->
+                                <rect x="40" y="50" width="120" height="20" fill="currentColor" />
+
+                                <!-- خطوط افقی -->
+                                <line x1="40" y1="90" x2="160" y2="90" stroke="currentColor" stroke-width="4" />
+                                <line x1="40" y1="120" x2="160" y2="120" stroke="currentColor" stroke-width="4" />
+
+                                <!-- خطوط عمودی -->
+                                <line x1="80" y1="90" x2="80" y2="180" stroke="currentColor" stroke-width="4" />
+                                <line x1="120" y1="90" x2="120" y2="180" stroke="currentColor" stroke-width="4" />
+                            </svg>
                             <span class="meta-label">تاریخ انتشار:</span>
                             <time datetime="2023-06-22">۲۲ تیر ۱۴۰۲</time>
                         </div>
@@ -72,13 +94,28 @@
         <nav class="article-navigation">
             <!-- دکمه بازگشت به صفحه اکسپلور -->
             <a href="../pages/explore-articles.html" class="nav-button back-button">
-                <i class="fas fa-arrow-right"></i>
+                <svg class="arrow-right-icon" width="40" height="40" viewBox="0 0 200 200" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path d="M70 50L130 100L70 150L70 50Z" fill="currentColor" />
+                </svg>
                 <span>بازگشت به اکسپلور</span>
             </a>
 
             <!-- دکمه بازگشت به صفحه اصلی -->
             <a href="../index.html" class="nav-button home-button">
-                <i class="fas fa-home"></i>
+                <svg class="home-icon" width="40" height="40" viewBox="0 0 200 200" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <!-- سقف -->
+                    <path d="M100 40L40 100H160L100 40Z" stroke="currentColor" stroke-width="8" fill="none" />
+
+                    <!-- بدنه -->
+                    <rect x="50" y="100" width="100" height="80" rx="10" stroke="currentColor" stroke-width="8"
+                        fill="none" />
+
+                    <!-- درب -->
+                    <rect x="80" y="140" width="40" height="40" rx="5" stroke="currentColor" stroke-width="6"
+                        fill="none" />
+                </svg>
                 <span>صفحه اصلی</span>
             </a>
         </nav>
@@ -91,7 +128,18 @@
                     <!-- باکس نکته مهم -->
                     <div class="info-box glassmorphism-card">
                         <div class="info-box-header">
-                            <i class="fas fa-info-circle"></i>
+                            <svg class="exclamation-icon" width="40" height="40" viewBox="0 0 200 200" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <!-- دایره پایه -->
+                                <circle cx="100" cy="100" r="80" stroke="currentColor" stroke-width="10" fill="none" />
+
+                                <!-- خط عمودی علامت تعجب -->
+                                <line x1="100" y1="40" x2="100" y2="120" stroke="currentColor" stroke-width="12"
+                                    stroke-linecap="round" />
+
+                                <!-- نقطه پایین -->
+                                <circle cx="100" cy="150" r="12" fill="currentColor" />
+                            </svg>
                             <span>نکته مهم</span>
                         </div>
                         <div class="info-box-content">
@@ -120,18 +168,6 @@
                                 <i class="far fa-star" data-rating="3"></i>
                                 <i class="far fa-star" data-rating="4"></i>
                                 <i class="far fa-star" data-rating="5"></i>
-                            </div>
-                        </div>
-
-                        <!-- بخش نظرات -->
-                        <div class="comments-section">
-                            <h3 class="comments-title">
-                                <i class="far fa-comments"></i>
-                                دیدگاه‌ها
-                            </h3>
-                            <div class="comment-form glassmorphism-card">
-                                <textarea placeholder="دیدگاه خود را بنویسید..." class="comment-input"></textarea>
-                                <button class="submit-comment-button">ارسال دیدگاه</button>
                             </div>
                         </div>
                     </footer>
