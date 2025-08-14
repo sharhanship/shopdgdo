@@ -432,6 +432,12 @@ body {
     color: white;
     margin-bottom: 1.5rem;
     flex-grow: 1;
+    word-wrap: break-word;
+    /* شکستن کلمات طولانی */
+    overflow-wrap: break-word;
+    /* استاندارد جدیدتر برای شکستن کلمات */
+    white-space: normal;
+    /* پیش‌فرض - متن در صورت نیاز خط را می‌شکند */
 }
 
 /* لینک مقاله */

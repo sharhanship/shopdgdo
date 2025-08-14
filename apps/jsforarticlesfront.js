@@ -101,3 +101,65 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 });
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    // دریافت ID مقاله از URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const articleId = urlParams.get('id');
+    
+    if (!articleId) {
+        showError('شناسه مقاله مشخص نشده است');
+        return;
+    }
+
+    // دریافت اطلاعات مقاله از سرور
+    fetch(`../apis/get_article_details.php?id=${articleId}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('خطا در دریافت داده‌ها');
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.success) {
+                // نمایش اطلاعات مقاله در صفحه
+                displayArticle(data.article);
+            } else {
+                showError(data.message || 'مقاله مورد نظر یافت نشد');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            showError('خطا در ارتباط با سرور');
+        });
+
+    // تابع برای نمایش اطلاعات مقاله
+    function displayArticle(article) {
+        // نمایش عنوان مقاله
+        const titleElement = document.querySelector('.article-main-title .title-gradient');
+        if (titleElement && article.title) {
+            titleElement.textContent = article.title;
+        }
+
+        // نمایش نکته مهم
+        const keyPointElement = document.querySelector('.info-box-content');
+        if (keyPointElement && article.key_point) {
+            keyPointElement.textContent = article.key_point;
+        }
+
+        // نمایش محتوای مقاله
+        const contentElement = document.querySelector('#useState-hook .section-content p');
+        if (contentElement && article.content) {
+            contentElement.textContent = article.content;
+        }
+    }
+
+    // تابع برای نمایش خطا
+    function showError(message) {
+        alert(message);
+        // یا می‌توانید یک عنصر خطا در صفحه ایجاد کنید
+        // window.location.href = '../pages/explore-articles.html'; // بازگشت به صفحه مقالات
+    }
+});

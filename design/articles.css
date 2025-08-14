@@ -332,45 +332,6 @@ a:hover {
   margin-left: 0.3rem;
 }
 
-/* آمار مقاله */
-.article-stats {
-  display: flex;
-  gap: 1.5rem;
-}
-
-/* آیتم آمار */
-.stat-item {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: var(--text-light);
-}
-
-/* تگ‌های مقاله */
-.article-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  justify-content: center;
-}
-
-/* استایل تگ */
-.tag-badge {
-  background: rgba(255, 255, 255, 0.1);
-  color: var(--text-light);
-  padding: 0.5rem 1rem;
-  border-radius: var(--border-radius-full);
-  font-size: 0.85rem;
-  transition: var(--transition-base);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-/* هاور تگ */
-.tag-badge:hover {
-  background: rgba(255, 255, 255, 0.2);
-  transform: translateY(-2px);
-  text-decoration: none;
-}
 
 /* 
   ============================================
@@ -387,6 +348,7 @@ a:hover {
   display: grid;
   grid-template-columns: 1fr 300px;
   gap: 2rem;
+  
 }
 
 /* محتوای مقاله */
@@ -401,6 +363,12 @@ a:hover {
   backdrop-filter: blur(10px);
   border: 2px solid rgba(255, 255, 255, 0.3);
   color: white;
+      word-wrap: break-word;
+    /* شکستن کلمات طولانی */
+    overflow-wrap: break-word;
+    /* استاندارد جدیدتر برای شکستن کلمات */
+    white-space: normal;
+    /* پیش‌فرض - متن در صورت نیاز خط را می‌شکند */
 }
 
 /* خط بالای محتوا */
