@@ -9,10 +9,10 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // پالت رنگ‌های شیک برای عناوین مقالات
     const titleColors = [
-        '#4e54c8', '#6a3093', '#a044ff', '#d45252',
-        '#f27121', '#2b5876', '#4b79cf', '#e44d26',
-        '#3a7bd5', '#00d2ff', '#a8ff78', '#78ffd6',
-        '#f857a6', '#ff5858', '#614385', '#4776e6'
+        '#2f39f5ff', '#9316ecff', '#8a22f1ff', '#ee1919ff',
+        '#f36812ff', '#0b8ee6ff', '#bef00bff', '#ee3a0dff',
+        '#0a64e2ff', '#00d2ff', '#5af804ff', '#03f0a9ff',
+        '#eb0a77ff', '#f31212ff', '#6b06e7ff', '#0047eeff'
     ];
 
     // ██████████████████████████████████████████████
