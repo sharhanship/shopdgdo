@@ -1730,3 +1730,25 @@ main {
         grid-template-columns: 1fr;
     }
 }
+
+/* استایل برای لینک‌های منو */
+.menu-link {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    width: 100%;
+    height: 100%;
+    color: inherit;
+    text-decoration: none;
+}
+
+/* در نسخه موبایل */
+@media (max-width: 768px) {
+    .mobile-menu .menu-item {
+        padding: 1.5rem 2rem;
+    }
+    
+    .mobile-menu .menu-link {
+        padding: 0;
+    }
+}

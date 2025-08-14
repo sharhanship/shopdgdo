@@ -145,18 +145,31 @@ document.addEventListener('DOMContentLoaded', function () {
    * تنظیم رویدادهای کلیک برای آیتم‌های منو
    * @param {NodeList} items - لیست آیتم‌های منو
    */
-  function setupMenuItems(items) {
+// در بخش setupMenuItems، شرطی برای آیتم‌هایی که لینک مستقیم دارند اضافه کنید
+function setupMenuItems(items) {
     items.forEach((item) => {
-      item.addEventListener("click", function () {
-        const section = this.getAttribute("data-section");
-        changeSection(section);
-
-        // به‌روزرسانی وضعیت فعال آیتم‌ها
-        items.forEach((i) => i.classList.remove("active-item"));
-        this.classList.add("active-item");
-      });
+        const link = item.querySelector('.menu-link');
+        if (link && link.hasAttribute('href')) {
+            // برای لینک‌های مستقیم (مانند مقالات)
+            link.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768) {
+                    menuToggle.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        } else {
+            // برای آیتم‌های معمولی منو
+            item.addEventListener('click', function() {
+                const section = this.getAttribute('data-section');
+                changeSection(section);
+                
+                items.forEach(i => i.classList.remove('active-item'));
+                this.classList.add('active-item');
+            });
+        }
     });
-  }
+}
 
   // راه‌اندازی منوهای دسکتاپ و موبایل
   setupMenuItems(menuItems);
