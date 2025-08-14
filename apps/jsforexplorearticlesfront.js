@@ -19,8 +19,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 return response.json();
             })
             .then(data => {
-                if (data.success && data.articles.length > 0) {
-                    renderArticles(data.articles);
+                if (data.success) {
+                    // معکوس کردن ترتیب مقالات قبل از نمایش
+                    const reversedArticles = data.articles.reverse();
+                    renderArticles(reversedArticles);
                     setupEventListeners();
                 } else {
                     noResults.style.display = 'block';
