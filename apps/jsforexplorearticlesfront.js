@@ -7,6 +7,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const articlesContainer = document.querySelector('.articles-container');
     const noResults = document.querySelector('.no-results');
     
+    // پالت رنگ‌های شیک برای عناوین مقالات
+    const titleColors = [
+        '#4e54c8', '#6a3093', '#a044ff', '#d45252',
+        '#f27121', '#2b5876', '#4b79cf', '#e44d26',
+        '#3a7bd5', '#00d2ff', '#a8ff78', '#78ffd6',
+        '#f857a6', '#ff5858', '#614385', '#4776e6'
+    ];
+
     // ██████████████████████████████████████████████
     // █████████████ دریافت مقالات از سرور █████████████
     // ██████████████████████████████████████████████
@@ -47,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         noResults.style.display = 'none';
         
-        articles.forEach(article => {
+        articles.forEach((article, index) => {
             const card = document.createElement('div');
             card.className = 'article-card glass-card';
             card.setAttribute('data-category', article.category.toLowerCase());
@@ -56,9 +64,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 card.setAttribute('data-tags', article.tags);
             }
             
+            // انتخاب رنگ از پالت بر اساس index مقاله
+            const colorIndex = index % titleColors.length;
+            const titleColor = titleColors[colorIndex];
+            
             card.innerHTML = `
                 <div class="article-content">
-                    <h3 class="article-title">${article.title}</h3>
+                    <h3 class="article-title" style="color: ${titleColor}">${article.title}</h3>
                     <p class="article-excerpt">${article.excerpt || article.key_point || ''}</p>
                     <a href="../pages/articles.html?id=${article.id}" class="article-link">ادامه مطلب <i class="fas fa-arrow-left"></i></a>
                 </div>

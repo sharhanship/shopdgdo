@@ -575,6 +575,13 @@ body {
 
     .article-title {
         font-size: 1.2rem;
+        font-weight: 600;
+        display: inline-block;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 10px;
+        transition: all 0.3s ease;
     }
 
     .article-excerpt {
