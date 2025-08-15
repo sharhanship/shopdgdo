@@ -983,6 +983,10 @@ main {
     background-color: #000000;
 }
 
+.profile-container-header .image-wrapper-header img:hover{
+         animation: rotate 3s ease-in-out infinite;
+}
+
 /* تصویر پروفایل */
 .profile-container {
     flex: 1;

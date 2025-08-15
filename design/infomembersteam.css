@@ -4,20 +4,28 @@
     font-family: 'Vazir';
     src: url('../content/font/Vazir-Black.woff2');
     font-display: swap;
-  }
+}
 
 /* تعریف متغیرهای رنگ */
 :root {
-    --primary-color: #4f46e5; /* رنگ اصلی */
-    --secondary-color: #a29bfe; /* رنگ دوم */
-    --dark-color: #1e272e; /* رنگ تیره */
-    --darker-color: #0f1519; /* رنگ تاریک‌تر */
-    --light-color: #f5f6fa; /* رنگ روشن */
-    --glass-color: rgba(0, 0, 0, 0.7); /* رنگ شیشه‌ای */
-    --glass-border: rgba(255, 255, 255, 0.1); /* حاشیه شیشه‌ای */
-    --shadow-color: rgba(0, 0, 0, 0.3); /* رنگ سایه */
-     --bg-dark: #24065c; /* رنگ پس‌زمینه تیره */
-    --gray-900: #000000; /* رنگ خاکستری تیره */
+    --primary-color: #4f0dca;
+    --secondary-color: #a29bfe;
+    /* رنگ دوم */
+    --dark-color: #1e272e;
+    /* رنگ تیره */
+    --darker-color: #0f1519;
+    /* رنگ تاریک‌تر */
+    --light-color: #f5f6fa;
+    /* رنگ روشن */
+    --glass-color: rgba(0, 0, 0, 0.7);
+    /* رنگ شیشه‌ای */
+    --glass-border: rgba(255, 255, 255, 0.1);
+    /* حاشیه شیشه‌ای */
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    /* رنگ سایه */
+    --bg-color: #0f0f1a;
+    --gray-900: #000000;
+    /* رنگ خاکستری تیره */
 }
 
 /* تنظیمات پایه برای تمام عناصر */
@@ -26,6 +34,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Vazir', sans-serif;
+    font-weight: 100;
 }
 
 /* استایل بدنه اصلی صفحه */
@@ -36,8 +45,12 @@ body {
     justify-content: center;
     align-items: center;
     padding: 50px 4vw;
-        line-height: 1.6;
-    background: linear-gradient(135deg, var(--bg-dark), var(--gray-900));
+    line-height: 1.6;
+    background-color: var(--bg-color);
+    overflow-x: hidden;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /* --------------------------------------------------- */
@@ -60,6 +73,24 @@ body {
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
+}
+
+/* اسکرول بار */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgb(0, 0, 0);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #3a0a9a;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary-color);
 }
 
 /* --------------------------------------------------- */
@@ -194,7 +225,7 @@ body {
     font-size: 2rem;
     margin-bottom: 5px;
     color: var(--light-color);
-    font-weight: 700;
+    font-weight: 100;
     border: none;
     outline: none;
     scroll-behavior: smooth;
@@ -425,7 +456,7 @@ h3 i {
     color: rgba(255, 255, 255, 0.7);
 }
 
-p{
+p {
     white-space: pre-line;
 }
 

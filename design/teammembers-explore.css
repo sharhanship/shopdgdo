@@ -67,6 +67,24 @@ body {
     opacity: 0.95;
 }
 
+/* اسکرول بار */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgb(0, 0, 0);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #3a0a9a;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-color);
+}
+
 /* استایل دکمه بازگشت به خانه */
 .back-to-home {
     position: fixed;
