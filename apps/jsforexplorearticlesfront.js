@@ -8,12 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const noResults = document.querySelector('.no-results');
     
     // پالت رنگ‌های شیک برای عناوین مقالات
-    const titleColors = [
-        '#2f39f5ff', '#9316ecff', '#8a22f1ff', '#ee1919ff',
-        '#f36812ff', '#0b8ee6ff', '#bef00bff', '#ee3a0dff',
-        '#0a64e2ff', '#00d2ff', '#5af804ff', '#03f0a9ff',
-        '#eb0a77ff', '#f31212ff', '#6b06e7ff', '#0047eeff'
-    ];
+    const titleColors = ['#8b5affff'];
 
     // ██████████████████████████████████████████████
     // █████████████ دریافت مقالات از سرور █████████████

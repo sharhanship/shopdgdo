@@ -348,7 +348,6 @@ body {
 
 /* افکت هاور روی کارت */
 .article-card:hover {
-    transform: translateY(-5px);
     box-shadow: 0 15px 30px rgba(31, 38, 135, 0.2);
 }
 
@@ -421,9 +420,8 @@ body {
 /* عنوان مقاله */
 .article-title {
     font-size: 1.3rem;
-    font-weight: 700;
+    font-weight: 100;
     margin-bottom: 0.8rem;
-    color: #00a0fc;
     line-height: 1.4;
 }
 
@@ -444,7 +442,7 @@ body {
 .article-link {
     display: inline-flex;
     align-items: center;
-    color: var(--primary-color);
+    color: rgb(172, 81, 242);
     text-decoration: none;
     font-weight: 600;
     transition: var(--transition);
@@ -575,7 +573,7 @@ body {
 
     .article-title {
         font-size: 1.2rem;
-        font-weight: 600;
+        font-weight: 100;
     }
 
     .article-excerpt {
