@@ -1,11 +1,10 @@
 /* تعریف متغیرهای رنگ و سایر تنظیمات پایه */
 :root {
-    /* رنگ اصلی با شفافیت */
-    --primary-color: rgba(16, 18, 27, 0.8);
-    /* رنگ ثانویه با شفافیت */
-    --secondary-color: rgba(23, 25, 35, 0.7);
-    /* رنگ overlay با شفافیت */
-    --overlay-color: rgba(36, 39, 59, 0.6);
+    --primary-color: #4f0dca;
+    --primary-light: #7a3aff;
+    --primary-dark: #3a0a9a;
+    --accent-color: #b565ff;
+    --bg-color: #0f0f1a;
     /* رنگ متن اصلی */
     --text-color: #e0e0e0;
     /* رنگ هایلایت */
@@ -16,16 +15,23 @@
     --shadow-color: rgba(0, 0, 0, 0.3);
     /* سرعت انیمیشن‌ها */
     --transition-speed: 0.3s;
-    
+
     /* رنگ‌های تخصص‌های مختلف */
-    --frontend-color: #4ecdc4; /* توسعه دهنده فرانت‌اند */
-    --backend-color: #45aaf2; /* توسعه دهنده بک‌اند */
-    --designer-color: #a55eea; /* طراح */
-    --editor-color: #fd9644; /* ادیتور */
-    
-    /* رنگ‌های پس‌زمینه */
-     --bg-dark: #24065c; /* رنگ پس‌زمینه تیره */
-    --gray-900: #000000; /* رنگ خاکستری تیره */
+    --frontend-color: #4ecdc4;
+    /* توسعه دهنده فرانت‌اند */
+    --backend-color: #45aaf2;
+    /* توسعه دهنده بک‌اند */
+    --designer-color: #a55eea;
+    /* طراح */
+    --editor-color: #fd9644;
+    /* ادیتور */
+
+}
+
+@font-face {
+    font-family: 'Vazir';
+    src: url('../content/font/Vazir-Black.woff2');
+    font-display: swap;
 }
 
 /* ریست استایل‌های پیش‌فرض مرورگر */
@@ -33,16 +39,20 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Vazir', sans-serif; /* فونت فارسی وزیر */
+    font-family: 'Vazir', sans-serif;
+    font-weight: 100;
 }
 
 /* استایل اصلی بدنه صفحه */
 body {
-    background: linear-gradient(135deg, var(--bg-dark), var(--gray-900));
+    background-color: var(--bg-color);
+    overflow-x: hidden;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     color: var(--text-color);
     min-height: 100vh;
     padding: 40px 20px;
-    overflow-x: hidden;
 }
 
 /* لایه پس‌زمینه ذرات - برای افکت‌های بصری */
@@ -117,9 +127,11 @@ body {
     0% {
         transform: translateY(0);
     }
+
     50% {
         transform: translateY(-10px);
     }
+
     100% {
         transform: translateY(0);
     }
@@ -156,10 +168,13 @@ body {
 
 /* انیمیشن پالس برای افکت نور */
 @keyframes pulse {
-    0%, 100% {
+
+    0%,
+    100% {
         opacity: 0.3;
         transform: scale(0.95);
     }
+
     50% {
         opacity: 0.6;
         transform: scale(1.05);
@@ -206,8 +221,6 @@ body {
 /* استایل دکمه فیلتر */
 .filter-btn {
     padding: 8px 16px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid var(--border-color);
     color: var(--text-color);
     border-radius: 10px;
     cursor: pointer;
@@ -221,6 +234,9 @@ body {
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
+        backdrop-filter: blur(5px);
+    background: rgba(0, 0, 0, 0.384);
+    border: 2px solid rgba(255, 255, 255, 0.15);
 }
 
 .filter-btn:hover {
@@ -236,7 +252,7 @@ body {
 /* استایل کارت شیشه‌ای با افکت بلور */
 .glass-card {
     backdrop-filter: blur(5px);
-    background: rgba(0, 0, 0, 0.315);
+    background: rgba(0, 0, 0, 0.384);
     border: 2px solid rgba(255, 255, 255, 0.15);
     border-radius: 15px;
     overflow: hidden;
@@ -317,6 +333,7 @@ body {
     0% {
         transform: rotate(0deg);
     }
+
     100% {
         transform: rotate(360deg);
     }
@@ -454,8 +471,15 @@ body {
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; top: 0; }
-    to { opacity: 1; top: 20px; }
+    from {
+        opacity: 0;
+        top: 0;
+    }
+
+    to {
+        opacity: 1;
+        top: 20px;
+    }
 }
 
 /* استایل‌های رسپانسیو برای صفحه‌نمایش بزرگ */
@@ -514,7 +538,7 @@ body {
         padding: 8px 15px;
         font-size: 0.8rem;
     }
-    
+
     /* تنظیمات دکمه بازگشت و متن انیمیشن */
     .back-to-home {
         top: 15px;
@@ -561,7 +585,7 @@ body {
         background: rgba(255, 255, 255, 0.2);
         border-radius: 2px;
     }
-    
+
     /* تنظیمات دکمه بازگشت و متن انیمیشن */
     .animated-text {
         font-size: 1.2rem;
