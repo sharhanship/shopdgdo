@@ -3,11 +3,11 @@
       /* @import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css'); */
       /* @import url('https://cdn.jsdelivr.net/npm/firacode@6.2.0/distr/fira_code.css'); */
       @font-face {
-        font-family: 'Vazir';
-        src: url('../content/font/Vazir-Black.woff2');
-        font-display: swap;
+          font-family: 'Vazir';
+          src: url('../content/font/Vazir-Black.woff2');
+          font-display: swap;
       }
-      
+
       :root {
           --primary-color: #4f0dca;
           --secondary-color: #a29bfe;
@@ -17,10 +17,7 @@
           --danger-color: #d63031;
           --warning-color: #fdcb6e;
           --info-color: #0984e3;
-          --bg-dark: #24065c;
-          /* رنگ پس‌زمینه تیره */
-          --gray-900: #000000;
-          /* رنگ خاکستری تیره */
+          --bgr-color: #0f0f1a;
       }
 
       * {
@@ -28,14 +25,16 @@
           padding: 0;
           box-sizing: border-box;
           font-family: 'Vazir', sans-serif;
-          /* فونت پیش‌فرض فارسی */
+          font-weight: 100;
       }
 
       body {
-          background: linear-gradient(135deg, var(--bg-dark), var(--gray-900));
-          color: var(--dark-color);
-          min-height: 100vh;
+          background-color: var(--bgr-color);
           overflow-x: hidden;
+          text-rendering: optimizeLegibility;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+          min-height: 100vh;
       }
 
       .particles-background {
@@ -195,92 +194,99 @@
 
       /* Messages Table */
 
-/* اصلاح شده در بخش Modal Styles */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
+      /* اصلاح شده در بخش Modal Styles */
+      .modal {
+          display: none;
+          position: fixed;
+          z-index: 1000;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.7);
+          backdrop-filter: blur(5px);
+          -webkit-backdrop-filter: blur(5px);
+          opacity: 0;
+          transition: opacity 0.3s ease;
+      }
 
-.modal.show {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 1;
-}
+      .modal.show {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          opacity: 1;
+      }
 
-.modal-content {
-    background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-radius: 15px;
-    padding: 25px;
-    width: 90%;
-    max-width: 600px; /* حداکثر عرض ثابت */
-    max-height: 80vh;
-    overflow-y: auto;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-}
+      .modal-content {
+          background: rgba(0, 0, 0, 0.8);
+          backdrop-filter: blur(10px);
+          -webkit-backdrop-filter: blur(10px);
+          border-radius: 15px;
+          padding: 25px;
+          width: 90%;
+          max-width: 600px;
+          /* حداکثر عرض ثابت */
+          max-height: 80vh;
+          overflow-y: auto;
+          border: 1px solid rgba(255, 255, 255, 0.3);
+      }
 
-.modal.show .modal-content {
-    transform: scale(1);
-}
+      .modal.show .modal-content {
+          transform: scale(1);
+      }
 
-.modal-body {
-    margin: 20px 0;
-    color: white;
-    line-height: 1.8;
-    text-align: right;
-    word-wrap: break-word; /* شکستن کلمات طولانی */
-    overflow-wrap: break-word; /* جایگزین مدرن برای word-wrap */
-    white-space: pre-line; /* حفظ خطوط جدید و شکستن خودکار */
-}
+      .modal-body {
+          margin: 20px 0;
+          color: white;
+          line-height: 1.8;
+          text-align: right;
+          word-wrap: break-word;
+          /* شکستن کلمات طولانی */
+          overflow-wrap: break-word;
+          /* جایگزین مدرن برای word-wrap */
+          white-space: pre-line;
+          /* حفظ خطوط جدید و شکستن خودکار */
+      }
 
-#fullMessageText {
-    white-space: pre-line; /* متن با خطوط جدید نمایش داده شود */
-    word-break: break-word; /* شکستن کلمات طولانی */
-}
+      #fullMessageText {
+          white-space: pre-line;
+          /* متن با خطوط جدید نمایش داده شود */
+          word-break: break-word;
+          /* شکستن کلمات طولانی */
+          color: white;
+      }
 
-.close-modal {
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    font-size: 24px;
-    color: #ff0000;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    background: none;
-    border: none;
-}
+      .close-modal {
+          position: absolute;
+          top: 15px;
+          left: 15px;
+          font-size: 24px;
+          color: #ff0000;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          background: none;
+          border: none;
+      }
 
-.close-modal:hover {
-    color: #ff5555;
-}
+      .close-modal:hover {
+          color: #ff5555;
+      }
 
-.modal-close-btn {
-    background: var(--primary-color);
-    color: white;
-    border: none;
-    padding: 8px 20px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    margin-top: 10px;
-}
+      .modal-close-btn {
+          background: var(--primary-color);
+          color: white;
+          border: none;
+          padding: 8px 20px;
+          border-radius: 8px;
+          cursor: pointer;
+          font-weight: 500;
+          transition: all 0.3s ease;
+          margin-top: 10px;
+      }
 
-.modal-close-btn:hover {
-    background: #5649c5;
-}
+      .modal-close-btn:hover {
+          background: #5649c5;
+      }
 
       .view-more {
           color: rgb(161, 161, 161);
@@ -440,14 +446,14 @@
 
       /* Portfolio Styles */
       .portfolio-grid {
-            display: grid;
+          display: grid;
           grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
           gap: 20px;
           margin-bottom: 50px;
       }
 
       .portfolio-card {
-            background: rgba(255, 255, 255, 0.1);
+          background: rgba(255, 255, 255, 0.1);
           border-radius: 10px;
           overflow: hidden;
           transition: all 0.3s ease;
@@ -458,14 +464,14 @@
 
 
       .portfolio-img {
-       background: rgba(255, 255, 255, 0.2);
+          background: rgba(255, 255, 255, 0.2);
           display: flex;
           color: white;
           font-size: 40px;
           z-index: -1000;
       }
-      
-           .portfolio-img img {
+
+      .portfolio-img img {
           width: 100%;
           height: 100%;
           object-fit: cover;
@@ -482,13 +488,13 @@
           color: white;
           font-size: 18px;
           margin-bottom: 5px;
-                      text-shadow:
-      0 0 5px #8c00ff,
-      0 0 10px #8c00ff,
-      0 0 20px #8c00ff,
-      0 0 40px #8c00ff,
-      0 0 80px #8c00ff;
-          
+          text-shadow:
+              0 0 5px #8c00ff,
+              0 0 10px #8c00ff,
+              0 0 20px #8c00ff,
+              0 0 40px #8c00ff,
+              0 0 80px #8c00ff;
+
       }
 
       .portfolio-category {
@@ -569,7 +575,6 @@
           border-radius: 50px;
           font-size: 12px;
           margin-bottom: 10px;
-          
       }
 
       .designer {
@@ -580,6 +585,16 @@
       .editor {
           background: rgba(225, 112, 85, 0.2);
           color: #e17055;
+      }
+
+      .frontend {
+          background: rgba(225, 112, 85, 0.2);
+          color: #f7de00;
+      }
+
+      .backend {
+          background: rgba(0, 0, 0, 0.2);
+          color: #0088f7;
       }
 
       /* استایل لینک رزومه */
@@ -623,6 +638,7 @@
           justify-content: space-between;
           align-items: center;
           border: 1px solid rgba(255, 255, 255, 0.2);
+          color: white;
       }
 
       .article-info {
@@ -691,6 +707,14 @@
           padding: 30px 0 0;
           margin-top: 40px;
           border-radius: 30px;
+          outline: none;
+          scroll-behavior: smooth;
+          user-select: none;
+          -webkit-tap-highlight-color: transparent;
+          -moz-tap-highlight-color: transparent;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
       }
 
       .footer-content {
@@ -774,4 +798,8 @@
           .container {
               width: 1100px;
           }
+      }
+
+      h3 {
+          color: white;
       }

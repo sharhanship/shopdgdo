@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // به‌روزرسانی تعداد مشتریان راضی
             statsItems[2].querySelector('.stats-number').textContent =  `${data.happy_clients}+`;
             // به‌روزرسانی تعداد مقالات منتشر شده
-            statsItems[3].querySelector('.stats-number').textContent = '10';
+            statsItems[3].querySelector('.stats-number').textContent = '5';
         }
     }
 
