@@ -226,15 +226,16 @@ async function loadProjectDetails() {
             `;
         });
 
-        // 3. ویدیو
-        const videoContainer = document.querySelector('.video-container');
+        // 3. کنترل بخش ویدیو
+        const videoSection = document.getElementById('video-section');
         if (project.video_url) {
+            const videoContainer = document.querySelector('.video-container');
             videoContainer.innerHTML = `
                 <iframe src="${project.video_url}" frameborder="0" allowfullscreen></iframe>
             `;
-            videoContainer.style.display = 'block';
+            videoSection.style.display = 'block'; // نمایش بخش ویدیو
         } else {
-            videoContainer.style.display = 'none';
+            videoSection.style.display = 'none'; // مخفی کردن کل بخش ویدیو
         }
 
         // 4. جزئیات پروژه
