@@ -5044,3 +5044,7 @@
 [01-Jul-2025 06:01:43 UTC] PHP Stack trace:
 [01-Jul-2025 06:01:43 UTC] PHP   1. {main}() C:\wamp64\www\myresumesite\shopdgdo\apis\adminpanelapi.php:0
 [01-Jul-2025 06:01:43 UTC] PHP   2. json_decode($json = NULL, $associative = TRUE) C:\wamp64\www\myresumesite\shopdgdo\apis\adminpanelapi.php:543
+[03-Oct-2025 03:07:19 UTC] Database error: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'abmtime1@gmail.com' for key 'team_members.email'
+[03-Oct-2025 03:07:35 UTC] Database error: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'abmtime1@gmail.com' for key 'team_members.email'
+[03-Oct-2025 03:07:45 UTC] Database error: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'abmtime1@gmail.com' for key 'team_members.email'
+[03-Oct-2025 03:08:11 UTC] Database error: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'abmtime1@gmail.com' for key 'team_members.email'
