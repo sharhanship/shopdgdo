@@ -52,7 +52,8 @@ body {
     width: 40px;
     height: 40px;
     background: rgb(0, 0, 0);
-    border-radius: 50%;
+    border-radius: 80px;
+    corner-shape: squircle;
     animation: bubble 15s linear infinite;
 }
 
@@ -64,7 +65,8 @@ body {
     width: 60px;
     height: 60px;
     background: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
+    border-radius: 80px;
+    corner-shape: squircle;
     animation: bubble 20s linear infinite;
 }
 
@@ -87,7 +89,8 @@ body {
     background: rgba(0, 0, 0, 0.15);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    border-radius: 20px;
+    border-radius: 80px;
+    corner-shape: squircle;
     padding: 40px 30px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.18);
@@ -139,7 +142,8 @@ form {
     display: flex;
     align-items: center;
     background: rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
+    border-radius: 80px;
+    corner-shape: squircle;
     padding: 0 15px;
     transition: all 0.3s ease;
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -178,7 +182,8 @@ form {
 .login-btn {
     padding: 15px;
     border: none;
-    border-radius: 12px;
+    border-radius: 80px;
+    corner-shape: squircle;
     background: rgba(255, 255, 255, 0.2);
     color: #fff;
     font-size: 16px;

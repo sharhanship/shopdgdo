@@ -62,7 +62,8 @@ body {
     border: 1px solid rgb(255, 255, 255);
     -webkit-backdrop-filter: blur(10px);
     /* نسخه پشتیبان برای مرورگرهای وبکیت */
-    border-radius: 10px;
+    border-radius: 80px;
+    corner-shape: squircle;
     /* گوشه‌های گرد */
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
     /* سایه */
@@ -72,7 +73,7 @@ body {
     /* فاصله از المان پایینی */
     transition: all 0.3s ease;
     /* انیمیشن انتقال */
-      outline: none;
+    outline: none;
     scroll-behavior: smooth;
     user-select: none;
     -webkit-tap-highlight-color: transparent;
@@ -133,7 +134,8 @@ body {
 .media-container {
     width: 100%;
     /* عرض کامل */
-    border-radius: 10px;
+    border-radius: 80px;
+    corner-shape: squircle;
     /* گوشه‌های گرد */
     overflow: hidden;
     /* مخفی کردن محتوای خارج از محدوده */
@@ -161,7 +163,8 @@ body {
     /* ارتفاع کامل */
     border: none;
     /* حذف حاشیه */
-    border-radius: 10px;
+    border-radius: 80px;
+    corner-shape: squircle;
     /* گوشه‌های گرد */
 }
 
@@ -173,7 +176,8 @@ body {
     /* عرض کامل */
     overflow: hidden;
     /* مخفی کردن محتوای خارج از محدوده */
-    border-radius: 10px;
+    border-radius: 80px;
+    corner-shape: squircle;
     /* گوشه‌های گرد */
     padding: 10px;
     /* فاصله داخلی */
@@ -209,7 +213,8 @@ body {
     /* ارتفاع خودکار برای حفظ نسبت */
     display: block;
     /* نمایش به صورت بلوکی */
-    border-radius: 8px;
+    border-radius: 80px;
+    corner-shape: squircle;
     /* گوشه‌های گرد */
 }
 
@@ -227,7 +232,8 @@ body {
     /* رنگ متن سفید */
     border: none;
     /* حذف حاشیه */
-    border-radius: 10%;
+    border-radius: 80px;
+    corner-shape: squircle;
     /* گوشه‌های کمی گرد */
     width: 40px;
     /* عرض ثابت */
@@ -300,7 +306,8 @@ body {
     /* عرض ثابت */
     height: 10px;
     /* ارتفاع ثابت */
-    border-radius: 50%;
+    border-radius: 80px;
+    corner-shape: squircle;
     /* شکل دایره */
     background: rgba(255, 255, 255, 0.5);
     /* رنگ نیمه شفاف */
@@ -381,7 +388,8 @@ body {
     /* رنگ متن سفید */
     text-decoration: none;
     /* حذف زیرخط */
-    border-radius: 10px;
+    border-radius: 80px;
+    corner-shape: squircle;
     /* متن پررنگ */
     text-align: center;
     /* تراز وسط */
@@ -431,7 +439,8 @@ body {
     background: rgba(0, 0, 0, 0.7);
     color: white;
     padding: 20px;
-    border-radius: 5px;
+    border-radius: 80px;
+    corner-shape: squircle;
     z-index: 1000;
 }
 
@@ -443,7 +452,8 @@ body {
     background: #ff4444;
     color: white;
     padding: 15px;
-    border-radius: 5px;
+    border-radius: 80px;
+    corner-shape: squircle;
     z-index: 1000;
     max-width: 80%;
     text-align: center;
